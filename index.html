@@ -5,5 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>감정구슬</title>
   </head>
-  <body></body>
+  <body>
+    <!-- 헤더 : 홈, 최신순, 인기순 등 페이지 이동할 수 있는 버튼들과 검색 버튼, 북마크 버튼 배치 -->
+    <header>
+      <a href="home"><img src="" alt="" /></a>
+      <a href="latest">최신순</a>
+      <a href="top-rate">인기순</a>
+      <div class="search-function">
+        <input type="search" />
+        <button class="search-button"><img src="image/searchbutton.png" alt="검색 버튼" /></button>
+      </div>
+      <button class="bookmark-button"><img src="bookmark" alt="북마크 버튼" /></button>
+    </header>
+    <!-- 메인 페이지 : 접속했을 때 가장 먼저 보이는 페이지, 홈-->
+    <section class="main">
+      <h3>어떤 <b>감정</b>을 느끼나요?</h3>
+      <!-- 감정 이모티콘 클릭하면 해당 section으로 스크롤 이동하게 -->
+      <div class="emotions">
+        <button class="happy"><img src="image/happy.png" alt="행복" /></button>
+        <button class="sad"><img src="image/sad.png" alt="슬픔" /></button>
+        <button class="angry"><img src="image/angry.png" alt="화남" /></button>
+        <button class="anxiety"><img src="image/anxiety.png" alt="불안" /></button>
+        <button class="cold"><img src="image/cold.png" alt="까칠" /></button>
+      </div>
+    </section>
+    <!-- 감정에 따른 장르별 영화 목록 -->
+    <section class="movielist-section-happy">
+      <div class="category">
+        <button class="happy-button">행복해요</button>
+        <button class="sad-button">슬퍼요</button>
+        <button class="angry-button">화나요</button>
+        <button class="anxiety-button">불안해요</button>
+        <button class="cold-button">까칠해요</button>
+      </div>
+      <div class="movielist"></div>
+    </section>
+
+    <section class="movielist-section-sad">
+      <div class="category">
+        <button class="happy-button">행복해요</button>
+        <button class="sad-button">슬퍼요</button>
+        <button class="angry-button">화나요</button>
+        <button class="anxiety-button">불안해요</button>
+        <button class="cold-button">까칠해요</button>
+      </div>
+      <div class="movielist"></div>
+    </section>
+    <section class="movielist-section-angry">
+      <div class="category">
+        <button class="happy-button">행복해요</button>
+        <button class="sad-button">슬퍼요</button>
+        <button class="angry-button">화나요</button>
+        <button class="anxiety-button">불안해요</button>
+        <button class="cold-button">까칠해요</button>
+      </div>
+      <div class="movielist"></div>
+    </section>
+    <section class="movielist-section-anxiety">
+      <div class="category">
+        <button class="happy-button">행복해요</button>
+        <button class="sad-button">슬퍼요</button>
+        <button class="angry-button">화나요</button>
+        <button class="anxiety-button">불안해요</button>
+        <button class="cold-button">까칠해요</button>
+      </div>
+      <div class="movielist"></div>
+    </section>
+    <section class="movielist-section-cold">
+      <div class="category">
+        <button class="happy-button">행복해요</button>
+        <button class="sad-button">슬퍼요</button>
+        <button class="angry-button">화나요</button>
+        <button class="anxiety-button">불안해요</button>
+        <button class="cold-button">까칠해요</button>
+      </div>
+      <div class="movielist"></div>
+    </section>
+  </body>
 </html>
