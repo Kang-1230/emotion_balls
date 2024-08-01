@@ -1,13 +1,10 @@
-* {
-    text-align: center;
-    /* background-color: black;
-    color: white; */
+#movie-container {
+    margin: 0 auto;
 }
 
 #movie-detail {
     display: flex;
     flex-direction: row;
-    justify-content: center;
 }
 
 #main-text {
@@ -35,7 +32,7 @@
 
 #sub-btn button:active {
     background-color: gray;
-    box-shadow: inset -.3rem -.1rem 1.4rem #FBFBFB, inset .3rem .4rem .8rem #BEC5D0;
+    box-shadow: inset -0.3rem -0.1rem 1.4rem #fbfbfb, inset 0.3rem 0.4rem 0.8rem #bec5d0;
 }
 
 #sub-btn img {
