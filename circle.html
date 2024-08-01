@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>캔버스: 원 그리기</title>
+</head>
+<body>
+    <body>
+        <span>Total Click: 0</span>
+        <button id = "btn">버튼</button>
+    </body>
+    <script>
+        let cnt = 0;
+        const button = document.getElementById("btn");
+        const span = document.querySelector("span");
+        function clickCounter(){
+            cnt+=1;
+            span.innerText = `Total Click: ${cnt}`;
+            console.log(cnt);
+        }
+        button.addEventListener("click",  clickCounter);
+    </script>
+    <canvas id="myCanvas"
+></canvas>
+    <script>
+        // Canvas 요소 가져오기
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // 원 그리기 함수
+        function drawCircle(x, y, radius) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.stroke(); // 원 그리기
+            //ctx.fill();   // 원 채우기
+        }
+
+        // 원의 중심 좌표와 반지름 설정
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height / 2;
+        var radius = 50;
+
+
+        // 원 그리기와 채우기
+        drawCircle(centerX, centerY, radius);
+    </script>
+</body>
+</html>
