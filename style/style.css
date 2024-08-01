@@ -65,3 +65,28 @@ input[type="search"] {
 .main-ment b {
     font-size: 7.5vh;
 }
+
+.happy {
+    background-color: transparent;
+    border: none;
+}
+
+.sad {
+    background-color: transparent;
+    border: none;
+}
+
+.angry {
+    background-color: transparent;
+    border: none;
+}
+
+.anxiety {
+    background-color: transparent;
+    border: none;
+}
+
+.cold {
+    background-color: transparent;
+    border: none;
+}
