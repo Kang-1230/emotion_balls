@@ -1,26 +1,24 @@
-*{
+* {
     text-align: center;
     background-color: black;
     color: white;
 }
 
-#movie-container{
-margin: 0 auto;
+#movie-container {
+    margin: 0 auto;
 }
 
-#movie-detail{
+#movie-detail {
     display: flex;
     flex-direction: row;
-
-
 }
 
-#main-text{
+#main-text {
     display: flex;
     flex-direction: column;
 }
 
-#genre{
+#genre {
     display: flex;
     flex-direction: row;
 }

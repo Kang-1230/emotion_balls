@@ -1,79 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="content-language" content="ko" />
-    <meta
-      name="viewport"
-      content="initial-scale=1.0,user-scalable=yes,maximum-scale=3,width=device-width"
-    />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="content-language" content="ko" />
+        <meta name="viewport" content="initial-scale=1.0,user-scalable=yes,maximum-scale=3,width=device-width" />
 
-    <title>감정구슬</title>
-    <meta name="title" content="감정구슬" />
-    <meta name="subject" content="감정구슬" />
-    <meta name="author" content="감정구슬" />
-    <meta name="copyright" content="감정구슬" />
-    <meta name="description" content="감정에 따라 영화를 추천합니다." />
-    <meta name="keywords" content="감정구슬" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="감정구슬" />
-    <meta property="og:description" content="감정에 따라 영화를 추천합니다." />
-    <meta property="og:image" content="./image/og.jpg" />
+        <title>감정구슬</title>
+        <meta name="title" content="감정구슬" />
+        <meta name="subject" content="감정구슬" />
+        <meta name="author" content="감정구슬" />
+        <meta name="copyright" content="감정구슬" />
+        <meta name="description" content="감정에 따라 영화를 추천합니다." />
+        <meta name="keywords" content="감정구슬" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="감정구슬" />
+        <meta property="og:description" content="감정에 따라 영화를 추천합니다." />
+        <meta property="og:image" content="/image/og.jpg" />
 
-    <!-- favicon -->
-    <link rel="shortcut icon" href="./image/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./image/favicon/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="./image/favicon/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./image/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="./image/favicon/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./image/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="./image/favicon/manifest.json" />
-    <meta
-      name="msapplication-TileImage"
-      content="./image/favicon/ms-icon-144x144.png"
-    />
-    <meta name="msapplication-TileColor" content="#0D0D0D" />
-    <meta name="theme-color" content="#0D0D0D" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/image/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/image/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/image/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/image/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="/image/favicon/manifest.json" />
+        <meta name="msapplication-TileImage" content="/image/favicon/ms-icon-144x144.png" />
+        <meta name="msapplication-TileColor" content="#0D0D0D" />
+        <meta name="theme-color" content="#0D0D0D" />
 
-    <!-- style -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link href="./style/reset.css" rel="stylesheet" />
-    <link href="./style/fonts.css" rel="stylesheet" />
-    <link href="./style/style.css" rel="stylesheet" />
+        <!-- style -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="/style/reset.css" rel="stylesheet" />
+        <link href="/style/fonts.css" rel="stylesheet" />
+        <link href="/style/style.css" rel="stylesheet" />
+        <link href="/style/review.css" rel="stylesheet" />
 
-    <!-- script -->
-    <script type="module" src="./js/main.js"></script>
-  </head>
-  <body></body>
+        <!-- script -->
+        <script type="module" src="/js/main.js"></script>
+    </head>
+    <body style="padding: 120px 0">
+        <div class="container">
+            <div class="review-area">
+                <form class="review-write">
+                    <div class="review-input-wrap">
+                        <input type="text" id="review-input-name" class="review-input" placeholder="이름" />
+                        <input type="password" id="review-input-password" class="review-input" placeholder="비밀번호" />
+                    </div>
+                    <div class="review-textarea-wrap">
+                        <textarea name="review-textarea" id="review-textarea" placeholder="리뷰 내용을 입력해주세요"></textarea>
+                        <button class="review-submit">등록</button>
+                    </div>
+                </form>
+                <ul class="review-items">
+                    <li class="review-item">
+                        <dsiv class="review-top">
+                            <div class="review-info">
+                                <div class="review-writer">작성자</div>
+                                <div class="review-date">2024-08-01</div>
+                            </div>
+                            <div class="review-btns">
+                                <button id="review-edit"><span class="material-symbols-rounded"> edit </span></button>
+                                <button id="review-del"><span class="material-symbols-rounded"> delete </span></button>
+                            </div>
+                        </dsiv>
+                        <div class="review-txt">댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
 </html>
