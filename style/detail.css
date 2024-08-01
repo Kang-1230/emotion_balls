@@ -1,0 +1,26 @@
+*{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+#movie-container{
+margin: 0 auto;
+}
+
+#movie-detail{
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+#main-text{
+    display: flex;
+    flex-direction: column;
+}
+
+#genre{
+    display: flex;
+    flex-direction: row;
+}
