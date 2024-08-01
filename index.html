@@ -1,161 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="content-language" content="ko" />
-    <meta
-      name="viewport"
-      content="initial-scale=1.0,user-scalable=yes,maximum-scale=3,width=device-width"
-    />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="content-language" content="ko" />
+        <meta name="viewport" content="initial-scale=1.0,user-scalable=yes,maximum-scale=3,width=device-width" />
 
-    <title>감정구슬</title>
-    <meta name="title" content="감정구슬" />
-    <meta name="subject" content="감정구슬" />
-    <meta name="author" content="감정구슬" />
-    <meta name="copyright" content="감정구슬" />
-    <meta name="description" content="감정에 따라 영화를 추천합니다." />
-    <meta name="keywords" content="감정구슬" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="감정구슬" />
-    <meta property="og:description" content="감정에 따라 영화를 추천합니다." />
-    <meta property="og:image" content="./image/og.jpg" />
+        <title>감정구슬</title>
+        <meta name="title" content="감정구슬" />
+        <meta name="subject" content="감정구슬" />
+        <meta name="author" content="감정구슬" />
+        <meta name="copyright" content="감정구슬" />
+        <meta name="description" content="감정에 따라 영화를 추천합니다." />
+        <meta name="keywords" content="감정구슬" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="감정구슬" />
+        <meta property="og:description" content="감정에 따라 영화를 추천합니다." />
+        <meta property="og:image" content="./image/og.jpg" />
 
-    <!-- favicon -->
-    <link rel="shortcut icon" href="./image/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./image/favicon/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="./image/favicon/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./image/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="./image/favicon/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./image/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="./image/favicon/manifest.json" />
-    <meta
-      name="msapplication-TileImage"
-      content="./image/favicon/ms-icon-144x144.png"
-    />
-    <meta name="msapplication-TileColor" content="#0D0D0D" />
-    <meta name="theme-color" content="#0D0D0D" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="./image/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./image/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="./image/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./image/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="./image/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./image/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./image/favicon/manifest.json" />
+        <meta name="msapplication-TileImage" content="./image/favicon/ms-icon-144x144.png" />
+        <meta name="msapplication-TileColor" content="#0D0D0D" />
+        <meta name="theme-color" content="#0D0D0D" />
 
-    <!-- style -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link href="./style/reset.css" rel="stylesheet" />
-    <link href="./style/fonts.css" rel="stylesheet" />
-    <link href="./style/style.css" rel="stylesheet" />
+        <!-- style -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="./style/reset.css" rel="stylesheet" />
+        <link href="./style/fonts.css" rel="stylesheet" />
+        <link href="./style/style.css" rel="stylesheet" />
 
-    <!-- script -->
-    <script type="module" src="./js/main.js"></script>
-  </head>
-  <body>
-    <!-- 헤더 : 홈, 최신순, 인기순 등 페이지 이동할 수 있는 버튼들과 검색 버튼, 북마크 버튼 배치 -->
-    <header>
-      <a href="home"><img src="" alt="" /></a>
-      <a href="latest">최신순</a>
-      <a href="top-rate">인기순</a>
-      <div class="search-function">
-        <input type="search" />
-        <button class="search-button">
-          <img src="image/searchbutton.png" alt="검색 버튼" />
-        </button>
-      </div>
-      <button class="bookmark-button">
-        <img src="bookmark" alt="북마크 버튼" />
-      </button>
-    </header>
-    <!-- 메인 페이지 : 접속했을 때 가장 먼저 보이는 페이지, 홈-->
-    <section class="main">
-      <h3>어떤 <b>감정</b>을 느끼나요?</h3>
-      <!-- 감정 이모티콘 클릭하면 해당 section으로 스크롤 이동하게 -->
-      <div class="emotions">
-        <button class="happy"><img src="image/happy.png" alt="행복" /></button>
-        <button class="sad"><img src="image/sad.png" alt="슬픔" /></button>
-        <button class="angry"><img src="image/angry.png" alt="화남" /></button>
-        <button class="anxiety">
-          <img src="image/anxiety.png" alt="불안" />
-        </button>
-        <button class="cold"><img src="image/cold.png" alt="까칠" /></button>
-      </div>
-    </section>
-    <!-- 감정에 따른 장르별 영화 목록 -->
-    <section class="movielist-section-happy">
-      <div class="category">
-        <button class="happy-button">행복해요</button>
-        <button class="sad-button">슬퍼요</button>
-        <button class="angry-button">화나요</button>
-        <button class="anxiety-button">불안해요</button>
-        <button class="cold-button">까칠해요</button>
-      </div>
-      <div class="movielist"></div>
-    </section>
+        <!-- script -->
+        <script type="module" src="./js/main.js"></script>
+    </head>
+    <body>
+        <!-- 헤더 : 홈, 최신순, 인기순 등 페이지 이동할 수 있는 버튼들과 검색 버튼, 북마크 버튼 배치 -->
+        <header>
+            <a href="home"><img src="" alt="" /></a>
+            <a href="latest">최신순</a>
+            <a href="top-rate">인기순</a>
+            <div class="search-function">
+                <input type="search" />
+                <button class="search-button">
+                    <img src="image/searchbutton.png" alt="검색 버튼" />
+                </button>
+            </div>
+            <button class="bookmark-button">
+                <img src="bookmark" alt="북마크 버튼" />
+            </button>
+        </header>
+        <!-- 메인 페이지 : 접속했을 때 가장 먼저 보이는 페이지, 홈-->
+        <section class="main">
+            <h3>어떤 <b>감정</b>을 느끼나요?</h3>
+            <!-- 감정 이모티콘 클릭하면 해당 section으로 스크롤 이동하게 -->
+            <div class="emotions">
+                <button class="happy"><img src="image/happy.png" alt="행복" /></button>
+                <button class="sad"><img src="image/sad.png" alt="슬픔" /></button>
+                <button class="angry"><img src="image/angry.png" alt="화남" /></button>
+                <button class="anxiety">
+                    <img src="image/anxiety.png" alt="불안" />
+                </button>
+                <button class="cold"><img src="image/cold.png" alt="까칠" /></button>
+            </div>
+        </section>
+        <!-- 감정에 따른 장르별 영화 목록 -->
+        <section class="movielist-section-happy">
+            <div class="category">
+                <button class="happy-button">행복해요</button>
+                <button class="sad-button">슬퍼요</button>
+                <button class="angry-button">화나요</button>
+                <button class="anxiety-button">불안해요</button>
+                <button class="cold-button">까칠해요</button>
+            </div>
+            <div class="movielist"></div>
+        </section>
 
-    <section class="movielist-section-sad">
-      <div class="category">
-        <button class="happy-button">행복해요</button>
-        <button class="sad-button">슬퍼요</button>
-        <button class="angry-button">화나요</button>
-        <button class="anxiety-button">불안해요</button>
-        <button class="cold-button">까칠해요</button>
-      </div>
-      <div class="movielist"></div>
-    </section>
-    <section class="movielist-section-angry">
-      <div class="category">
-        <button class="happy-button">행복해요</button>
-        <button class="sad-button">슬퍼요</button>
-        <button class="angry-button">화나요</button>
-        <button class="anxiety-button">불안해요</button>
-        <button class="cold-button">까칠해요</button>
-      </div>
-      <div class="movielist"></div>
-    </section>
-    <section class="movielist-section-anxiety">
-      <div class="category">
-        <button class="happy-button">행복해요</button>
-        <button class="sad-button">슬퍼요</button>
-        <button class="angry-button">화나요</button>
-        <button class="anxiety-button">불안해요</button>
-        <button class="cold-button">까칠해요</button>
-      </div>
-      <div class="movielist"></div>
-    </section>
-    <section class="movielist-section-cold">
-      <div class="category">
-        <button class="happy-button">행복해요</button>
-        <button class="sad-button">슬퍼요</button>
-        <button class="angry-button">화나요</button>
-        <button class="anxiety-button">불안해요</button>
-        <button class="cold-button">까칠해요</button>
-      </div>
-      <div class="movielist"></div>
-    </section>
-  </body>
+        <section class="movielist-section-sad">
+            <div class="category">
+                <button class="happy-button">행복해요</button>
+                <button class="sad-button">슬퍼요</button>
+                <button class="angry-button">화나요</button>
+                <button class="anxiety-button">불안해요</button>
+                <button class="cold-button">까칠해요</button>
+            </div>
+            <div class="movielist"></div>
+        </section>
+        <section class="movielist-section-angry">
+            <div class="category">
+                <button class="happy-button">행복해요</button>
+                <button class="sad-button">슬퍼요</button>
+                <button class="angry-button">화나요</button>
+                <button class="anxiety-button">불안해요</button>
+                <button class="cold-button">까칠해요</button>
+            </div>
+            <div class="movielist"></div>
+        </section>
+        <section class="movielist-section-anxiety">
+            <div class="category">
+                <button class="happy-button">행복해요</button>
+                <button class="sad-button">슬퍼요</button>
+                <button class="angry-button">화나요</button>
+                <button class="anxiety-button">불안해요</button>
+                <button class="cold-button">까칠해요</button>
+            </div>
+            <div class="movielist"></div>
+        </section>
+        <section class="movielist-section-cold">
+            <div class="category">
+                <button class="happy-button">행복해요</button>
+                <button class="sad-button">슬퍼요</button>
+                <button class="angry-button">화나요</button>
+                <button class="anxiety-button">불안해요</button>
+                <button class="cold-button">까칠해요</button>
+            </div>
+            <div class="movielist"></div>
+        </section>
+    </body>
 </html>
