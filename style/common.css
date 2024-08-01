@@ -76,6 +76,7 @@ button {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    max-width: 100%;
 }
 .container {
     width: 100%;
@@ -219,6 +220,7 @@ button {
 
 /* contents */
 #contents {
+    position: relative;
     flex: 1 0 auto;
     max-width: 100%;
     padding: 120px 0;
