@@ -5,14 +5,13 @@
 }
 
 #movie-container{
-margin: 0 auto;
+margin:0 1fr;
 }
 
 #movie-detail{
     display: flex;
     flex-direction: row;
-
-
+    justify-content: center;
 }
 
 #main-text{
