@@ -1,6 +1,6 @@
 {
-  "tabWidth": 4,
-  "printWidth": 5000,
-  "proseWrap": "never",
-  "bracketSameLine": true
+    "tabWidth": 4,
+    "printWidth": 5000,
+    "proseWrap": "never",
+    "bracketSameLine": true
 }

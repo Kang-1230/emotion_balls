@@ -39,6 +39,21 @@
 
         <!-- script -->
         <script type="module" src="/js/main.js"></script>
+
+        <style>
+            .circle {
+                position: absolute;
+                border-radius: 100%;
+                opacity: 0.2;
+            }
+            .circle1 {
+                bottom: 10vh;
+                left: 10vw;
+                width: 200px;
+                height: 200px;
+                background-color: var(--sky-color);
+            }
+        </style>
     </head>
     <body>
         <div id="wrap">
@@ -72,37 +87,19 @@
             <!-- // 헤더 -->
             <!-- 컨텐츠 -->
             <main id="contents">
-                <section class="section-review">
+                <section>
                     <div class="container">
-                        <div class="review-area">
-                            <form class="review-write">
-                                <div class="review-input-wrap">
-                                    <input type="text" id="review-input-name" class="review-input" placeholder="이름" />
-                                    <input type="password" id="review-input-password" class="review-input" placeholder="비밀번호" />
-                                </div>
-                                <div class="review-textarea-wrap">
-                                    <textarea name="review-textarea" id="review-textarea" placeholder="리뷰 내용을 입력해주세요"></textarea>
-                                    <button class="review-submit">등록</button>
-                                </div>
-                            </form>
-                            <ul class="review-items">
-                                <li class="review-item">
-                                    <dsiv class="review-top">
-                                        <div class="review-info">
-                                            <div class="review-writer">작성자</div>
-                                            <div class="review-date">2024-08-01</div>
-                                        </div>
-                                        <div class="review-btns">
-                                            <button id="review-edit"><span class="material-symbols-rounded"> edit </span></button>
-                                            <button id="review-del"><span class="material-symbols-rounded"> delete </span></button>
-                                        </div>
-                                    </dsiv>
-                                    <div class="review-txt">댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다. 댓글내용이 들어갑니다.</div>
-                                </li>
-                            </ul>
-                        </div>
+                        <span>Total Click: 0</span>
+                        <button id="btn">버튼</button>
                     </div>
                 </section>
+
+                <canvas id="myCanvas"></canvas>
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+                <div class="circle circle4"></div>
+                <div class="circle circle5"></div>
             </main>
             <!-- // 컨텐츠 -->
             <!-- 푸터 -->
@@ -113,5 +110,38 @@
             </footer>
             <!-- // 푸터 -->
         </div>
+
+        <script>
+            let cnt = 0;
+            const button = document.getElementById("btn");
+            const span = document.querySelector("span");
+            function clickCounter() {
+                cnt += 1;
+                span.innerText = `Total Click: ${cnt}`;
+                console.log(cnt);
+            }
+            button.addEventListener("click", clickCounter);
+        </script>
+        <script>
+            // Canvas 요소 가져오기
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            // 원 그리기 함수
+            function drawCircle(x, y, radius) {
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.stroke(); // 원 그리기
+                //ctx.fill();   // 원 채우기
+            }
+
+            // 원의 중심 좌표와 반지름 설정
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+            var radius = 50;
+
+            // 원 그리기와 채우기
+            drawCircle(centerX, centerY, radius);
+        </script>
     </body>
 </html>
