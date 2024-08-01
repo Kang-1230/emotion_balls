@@ -6,10 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style/reset.css">
     <link rel="stylesheet" href="../style/detail.css">
+    <script type="module" src="./../js/detail.js"></script>
 </head>
 <body>
+    <!-- 해더자리입니다 -->
     <header></header>
-    <div id="movie-container">
+    <!-- 본문입니다 -->
     <div id="movie-detail">
         <img src="">이미지</img>
         <span id="main-text">
@@ -19,11 +21,31 @@
                 <span>개봉일자</span>
             </span>
             <span id = "summary">내용</span>
-            <span>이모티콘, 북마크 버튼</span>
+            <span id="sub-btn">
+                <span id="emo-btn">
+                <button type="button">
+                    <img src="./../image/happy.png" alt="">
+                </button>
+                <button type="button">
+                    <img src="./../image/sad.png" alt="">
+                </button>
+                <button type="button">
+                    <img src="./../image/angry.png" alt="">
+                </button>
+                <button type="button">
+                    <img src="./../image/anxiety.png" alt="">
+                </button>
+                <button type="button">
+                    <img src="./../image/cold.png" alt="">
+                </button>
+                </span>
+                <button type="button">
+                <img src="./../image/bookmarkbtn.png" alt="bookmark-button">
+                </button>
+            </span>
         </span>
     </div>
-    </div>
-<!-- 리뷰 -->
+<!-- 리뷰자리입니다-->
     <footer></footer>
 </body>
 </html>
