@@ -1,9 +1,3 @@
-* {
-    text-align: center;
-    background-color: black;
-    color: white;
-}
-
 #movie-container {
     margin: 0 auto;
 }
@@ -21,4 +15,27 @@
 #genre {
     display: flex;
     flex-direction: row;
+}
+
+#sub-btn {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+#sub-btn button {
+    border: none;
+    background-color: transparent;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+#sub-btn button:active {
+    background-color: gray;
+    box-shadow: inset -0.3rem -0.1rem 1.4rem #fbfbfb, inset 0.3rem 0.4rem 0.8rem #bec5d0;
+}
+
+#sub-btn img {
+    width: 30px;
+    height: 30px;
 }

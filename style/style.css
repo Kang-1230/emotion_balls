@@ -1,0 +1,45 @@
+/* 메인 */
+.wrap-main #contents {
+    padding: 0;
+}
+.main {
+    background-image: url("../image/background.png");
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-ment {
+    font-size: 7vh;
+}
+
+.main-ment b {
+    font-size: 7.5vh;
+}
+
+.happy {
+    background-color: transparent;
+    border: none;
+}
+
+.sad {
+    background-color: transparent;
+    border: none;
+}
+
+.angry {
+    background-color: transparent;
+    border: none;
+}
+
+.anxiety {
+    background-color: transparent;
+    border: none;
+}
+
+.cold {
+    background-color: transparent;
+    border: none;
+}
