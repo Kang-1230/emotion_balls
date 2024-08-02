@@ -43,3 +43,100 @@
     background-color: transparent;
     border: none;
 }
+
+.movie-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.happy-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.happy-button:hover {
+    background-color: var(--yellow-hover-color);
+}
+
+.sad-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.sad-button:hover {
+    background-color: var(--sky-hover-color);
+}
+
+.angry-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.angry-button:hover {
+    background-color: var(--red-hover-color);
+}
+
+.anxiety-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.anxiety-button:hover {
+    background-color: var(--purple-hover-color);
+}
+
+.cold-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.cold-button:hover {
+    background-color: var(--light-green-hover-color);
+}
+
+.category {
+    width: 80%;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.movielist-section-happy {
+    width: 60%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px;
+}
+
+.movie-card-happy {
+    width: 250px;
+    height: 350px;
+    background-color: aqua;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.movie-card-happy img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
