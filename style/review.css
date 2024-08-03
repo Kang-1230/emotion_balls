@@ -14,24 +14,48 @@
 .review-textarea-wrap {
     margin-top: var(--spacing-sm);
 }
-#review-textarea {
+.review-textarea {
+    width: 100%;
+    min-height: 6.5em;
+}
+#review-textarea-write {
     width: calc(100% - var(--spacing-sm) - 80px);
 }
-.review-submit {
+.review-edit-btns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 80px;
+}
+.review-cancel,
+.review-submit,
+.review-edit-submit {
     width: 80px;
     font-size: 16px;
+    flex: 1 0 auto;
+}
+.review-cancel {
+    color: var(--dark-gray-color);
+    background-color: var(--light-gray-color);
+}
+.review-submit,
+.review-edit-submit {
     color: #fff;
     background-color: var(--sky-color);
 }
+.review-submit:hover,
+.review-edit-submit:hover {
+    background-color: var(--sky-hover-color);
+}
 
 /* 리뷰 리스트 */
-.review-items {
-    margin-top: 60px;
-    border-top: 2px solid var(--light-gray2-color);
-}
 .review-item {
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing) var(--spacing-sm);
     border-bottom: 1px solid var(--dark-gray-color);
+}
+.review-item:first-child {
+    border-top: 2px solid var(--light-gray2-color);
+    margin-top: 50px;
 }
 .review-top {
     display: flex;
@@ -45,14 +69,15 @@
     align-items: center;
 }
 .review-info {
-    gap: var(--spacing);
+    gap: var(--spacing-sm);
 }
 .review-writer {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
+    color: var(--purple-color);
 }
 .review-date {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--light-gray2-color);
 }
 .review-btns {
@@ -61,8 +86,8 @@
 .review-btns .material-symbols-rounded {
     font-size: 14px;
 }
-#review-edit,
-#review-del {
+.review-edit,
+.review-del {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,11 +96,17 @@
     color: #fff;
     border-radius: 50%;
 }
-#review-edit {
+.review-edit {
     background-color: var(--light-green-color);
 }
-#review-del {
+.review-edit:hover {
+    background-color: var(--light-green-hover-color);
+}
+.review-del {
     background-color: var(--red-color);
+}
+.review-del:hover {
+    background-color: var(--red-hover-color);
 }
 .review-txt {
     font-size: 16px;

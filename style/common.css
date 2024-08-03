@@ -81,7 +81,7 @@ button {
 .container {
     width: 100%;
     max-width: calc(1200px + var(--spacing) * 2);
-    padding: 0 12px;
+    padding: 0 var(--spacing);
     margin: 0 auto;
 }
 .sr-only {
