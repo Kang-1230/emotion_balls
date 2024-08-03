@@ -35,13 +35,13 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="/style/reset-fonts.css" rel="stylesheet" />
-    <link href="/style/common.css" rel="stylesheet" />
-    <link href="/style/style.css" rel="stylesheet" />
-    <link href="/style/detail.css" rel="stylesheet" />
+    <link href="./../style/reset-fonts.css" rel="stylesheet" />
+    <link href="./../style/common.css" rel="stylesheet" />
+    <link href="./../style/detail.css" rel="stylesheet" />
 
     <!-- script -->
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="./../js/detail.js"></script>
+    <script type="module" src="./../js/bookmark.js"></script>
 </head>
 
 <body>
@@ -78,39 +78,34 @@
         <!-- 컨텐츠 -->
         <main id="contents">
             <!-- 본문입니다 -->
-            <div id="movie-detail">
-                <img src="" />
-                <span id="main-text">
-                    <span id="movieName">영화제목</span>
-                    <span id="genre">
-                        <span>영화장르</span>
-                        <span>개봉일자</span>
-                    </span>
-                    <span id="summary">내용</span>
-                    <span id="sub-btn">
-                        <span id="emo-btn">
-                            <button type="button" id="buttonHappy">
-                                <img src="./../image/happy.png" alt="" />
-                            </button>
-                            <button type="button" id="buttonSad">
-                                <img src="./../image/sad.png" alt="" />
-                            </button>
-                            <button type="button" id="buttonAngry">
-                                <img src="./../image/angry.png" alt="" />
-                            </button>
-                            <button type="button" id="buttonAnxiety">
-                                <img src="./../image/anxiety.png" alt="" />
-                            </button>
-                            <button type="button" id="buttonClod">
-                                <img src="./../image/cold.png" alt="" />
-                            </button>
-                        </span>
-                        <button type="button">
-                            <img src="./../image/bookmarkbtn.png" alt="bookmark-button" />
-                        </button>
-                    </span>
-                </span>
+            <div id="detail-container">
             </div>
+            <span id="sub-btn">
+                <span id="emo-btn">
+                    <button type="button" id="buttonHappy">
+                        <img src="./../image/happy.png" alt="" />
+                    </button>
+                    <button type="button" id="buttonSad">
+                        <img src="./../image/sad.png" alt="" />
+                    </button>
+                    <button type="button" id="buttonAngry">
+                        <img src="./../image/angry.png" alt="" />
+                    </button>
+                    <button type="button" id="buttonAnxiety">
+                        <img src="./../image/anxiety.png" alt="" />
+                    </button>
+                    <button type="button" id="buttonClod">
+                        <img src="./../image/cold.png" alt="" />
+                    </button>
+                </span>
+                <button type="button" class="bmkBtn">
+                    <span id="bmk-off" class="material-symbols-rounded">
+                        bookmark
+                    </span>
+                </button>
+            </span>
+            </span>
+
         </main>
         <!-- // 컨텐츠 -->
         <!-- 푸터 -->
