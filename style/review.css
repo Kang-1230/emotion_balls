@@ -2,24 +2,23 @@
 /* 리뷰 작성 */
 .review-input-wrap,
 .review-textarea-wrap {
-    display: flex;
     gap: var(--spacing-sm);
 }
 .review-input-wrap {
-    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 .review-input {
     width: 100%;
 }
 .review-textarea-wrap {
+    display: flex;
+    flex-wrap: wrap;
     margin-top: var(--spacing-sm);
 }
 .review-textarea {
-    width: 100%;
-    min-height: 6.5em;
-}
-#review-textarea-write {
     width: calc(100% - var(--spacing-sm) - 80px);
+    min-height: 6.5em;
 }
 .review-edit-btns {
     display: flex;
@@ -47,6 +46,17 @@
 .review-edit-submit:hover {
     background-color: var(--sky-hover-color);
 }
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .review-input-wrap {
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+}
 
 /* 리뷰 리스트 */
 .review-item {
@@ -61,6 +71,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
 }
 .review-info,
@@ -69,9 +80,11 @@
     align-items: center;
 }
 .review-info {
+    width: 100%;
     gap: var(--spacing-sm);
 }
 .review-writer {
+    max-width: calc(100% - 78px);
     font-size: 16px;
     font-weight: 700;
     color: var(--purple-color);
@@ -111,4 +124,12 @@
 .review-txt {
     font-size: 16px;
     line-height: 1.5;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
 }

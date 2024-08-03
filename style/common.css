@@ -45,7 +45,7 @@ body {
     border: 5px solid transparent;
 }
 ::-webkit-scrollbar-track {
-    background: var(--dark-gray2-color); /*스크롤바 뒷 배경 색상*/
+    background: transparent; /*스크롤바 뒷 배경 색상*/
 }
 a {
     color: #fff;
@@ -103,11 +103,11 @@ button {
     left: 0;
     z-index: 9999;
     width: 100%;
-    height: 100px;
+    height: 60px;
     display: flex;
     align-items: center;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000;
     backdrop-filter: blur(8px);
     transition: all ease-in-out 0.4s;
 }
@@ -118,24 +118,60 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
 }
 .header-left {
     display: flex;
     align-items: center;
 }
 .header-right {
+    position: fixed;
+    top: 60px;
+    right: -100%;
     display: flex;
-    flex: 1 0 auto;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--spacing-lg);
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding: var(--spacing-lg) var(--spacing);
+    background-color: var(--dark-gray2-color);
+    transition: right ease 0.4s;
+}
+.menu-on .header-right {
+    right: 0;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .header {
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .header-right {
+        position: relative;
+        top: unset;
+        right: unset;
+        display: flex;
+        flex-direction: row;
+        flex: 1 0 auto;
+        align-items: center;
+        justify-content: flex-end;
+        width: auto;
+        height: 100%;
+        gap: var(--spacing-lg);
+        padding: 0;
+        background-color: transparent;
+    }
+}
+@media (min-width: 1200px) {
 }
 
 /* 로고 */
 .logo-wrap {
     display: inline-flex;
     align-items: center;
-    height: 50px;
+    height: 30px;
     aspect-ratio: 418 / 170;
 }
 .logo {
@@ -147,11 +183,24 @@ button {
     background-size: contain;
     background-repeat: no-repeat;
 }
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .logo-wrap {
+        height: 50px;
+    }
+}
+@media (min-width: 1200px) {
+}
 
 /* gnb */
 .gnb {
     display: flex;
-    height: 100px;
+    flex-direction: column;
+    order: 2;
+    margin: var(--spacing-lg) 0;
 }
 .gnb > li > a {
     display: flex;
@@ -161,11 +210,31 @@ button {
     font-size: 18px;
     font-weight: 600;
     color: var(--light-gray2-color);
-    padding: var(--spacing-lg);
+    padding: var(--spacing);
     transition: all ease 0.4s;
 }
 .gnb > li > a:hover {
     color: #fff;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .gnb {
+        order: 1;
+        height: 100px;
+        flex-direction: row;
+        margin: 0;
+    }
+    .gnb > li > a {
+        height: 100%;
+        font-size: 18px;
+        font-weight: 600;
+        padding: var(--spacing-lg);
+    }
+}
+@media (min-width: 1200px) {
 }
 
 /* 북마크 */
@@ -177,9 +246,22 @@ button {
     height: 50px;
     background-color: var(--sky-color);
     border-radius: 100%;
+    order: 3;
+    margin-left: auto;
 }
 .bookmark-btn:hover {
     background-color: var(--sky-hover-color);
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .bookmark-btn {
+        margin-left: 0;
+    }
+}
+@media (min-width: 1200px) {
 }
 
 /* 검색 */
@@ -187,8 +269,8 @@ button {
     display: flex;
     gap: var(--spacing-sm);
     align-content: center;
-    max-width: 400px;
     width: 100%;
+    order: 1;
 }
 .search-input {
     width: calc(100% - 50px - var(--spacing-sm));
@@ -208,6 +290,85 @@ button {
 .search-btn .material-symbols-rounded {
     font-size: 28px;
 }
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .search {
+        order: 2;
+        max-width: 400px;
+    }
+}
+@media (min-width: 1200px) {
+}
+
+/* 모바일 메뉴 */
+.hamburger-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.hamburger-btn span,
+.hamburger-btn span::before,
+.hamburger-btn span::after {
+    display: block;
+    height: 2px;
+    width: 24px;
+    background-color: #fff;
+}
+.hamburger-btn span::before,
+.hamburger-btn span::after {
+    position: absolute;
+    content: "";
+    transition-property: margin, transform;
+    transition-duration: 0.2s;
+}
+.hamburger-btn span {
+    position: relative;
+    margin: auto;
+}
+.hamburger-btn span::before {
+    margin-top: -8px;
+}
+.hamburger-btn span::after {
+    left: auto;
+    right: 0;
+    margin-top: 8px;
+}
+.menu-on .hamburger-btn span {
+    background-color: rgba(0, 0, 0, 0);
+    transition-delay: 0.2s;
+}
+.menu-on .hamburger-btn span::before,
+.menu-on .hamburger-btn span::after {
+    left: auto;
+    right: auto;
+    margin-top: 0;
+    transition-delay: 0s, 0.2s;
+}
+.menu-on .hamburger-btn span::before {
+    transform: rotate(45deg);
+}
+.menu-on .hamburger-btn span::after {
+    transform: rotate(-45deg);
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .hamburger-btn {
+        display: none;
+    }
+}
+@media (min-width: 1200px) {
+}
 
 /* footer */
 .footer {
@@ -223,5 +384,19 @@ button {
     position: relative;
     flex: 1 0 auto;
     max-width: 100%;
-    padding: 120px 0;
+    padding: 40px 0;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    #contents {
+        padding: 60px 0;
+    }
+}
+@media (min-width: 1200px) {
+    #contents {
+        padding: 120px 0;
+    }
 }
