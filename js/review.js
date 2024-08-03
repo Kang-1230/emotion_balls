@@ -111,12 +111,13 @@ export const createReview = async () => {
 
             let reviewEdit = item.querySelector(".review-edit");
             let reviewDel = item.querySelector(".review-del");
+            let clickIdIndex = reviews.findIndex((i) => i.reviewId === review.reviewId);
 
             // 리뷰 수정
             reviewEdit.addEventListener("click", () => {
                 let itemTextareaWrap = document.createElement("div");
                 let itemReviewTxt = item.querySelector(".review-txt");
-                let itemReviewTxtValue = itemReviewTxt.innerText;
+                let itemReviewTxtValue = itemReviewTxt.innerHTML;
 
                 itemTextareaWrap.className = "review-textarea-wrap";
                 itemTextareaWrap.innerHTML = `
@@ -127,52 +128,55 @@ export const createReview = async () => {
                     </div>
                 `;
 
-                if (itemReviewTxt.getAttribute("style") !== "display: none;") {
-                    item.appendChild(itemTextareaWrap);
-                    itemReviewTxt.style.display = "none";
+                const passwordTry = prompt("비밀번호를 입력해주세요.");
+                if (passwordTry === review.password) {
+                    if (itemReviewTxt.getAttribute("style") !== "display: none;") {
+                        item.appendChild(itemTextareaWrap);
+                        itemReviewTxt.style.display = "none";
 
-                    let reviewCancel = item.querySelector(".review-cancel");
-                    let reviewEditSubmit = item.querySelector(".review-edit-submit");
-                    let itemTextarea = item.querySelector(".review-textarea");
+                        let reviewEditSubmit = item.querySelector(".review-edit-submit");
+                        let reviewCancel = item.querySelector(".review-cancel");
 
-                    // 리뷰 수정 확인
-                    reviewEditSubmit.addEventListener("click", () => {
-                        let itemReviewTxt = item.querySelector(".review-txt");
+                        // 리뷰 수정 확인
+                        reviewEditSubmit.addEventListener("click", () => {
+                            let itemTextarea = item.querySelector(".review-textarea");
+                            let itemTextareaValue = itemTextarea.value;
 
-                        if (itemReviewTxt.getAttribute("style") !== "display: block;") {
-                            itemReviewTxt.style.display = "block";
-                            itemReviewTxt.innerText = itemTextarea.value;
-                            itemTextareaWrap.remove();
-                        }
-                        localStorage.setItem("reviews", JSON.stringify(reviews));
-                    });
+                            if (itemReviewTxt.getAttribute("style") !== "display: block;") {
+                                itemReviewTxt.style.display = "block";
+                                itemReviewTxt.innerHTML = itemTextareaValue;
+                                itemTextareaWrap.remove();
+                            }
+                            if (clickIdIndex >= 0) {
+                                reviews[clickIdIndex].text = itemTextareaValue;
+                            }
+                            localStorage.setItem("reviews", JSON.stringify(reviews));
+                        });
 
-                    // 리뷰 수정 취소
-                    reviewCancel.addEventListener("click", () => {
-                        let itemReviewTxt = item.querySelector(".review-txt");
-
-                        if (itemReviewTxt.getAttribute("style") !== "display: block;") {
-                            itemReviewTxt.style.display = "block";
-                            itemTextareaWrap.remove();
-                        }
-                    });
+                        // 리뷰 수정 취소
+                        reviewCancel.addEventListener("click", () => {
+                            if (itemReviewTxt.getAttribute("style") !== "display: block;") {
+                                itemReviewTxt.style.display = "block";
+                                itemTextareaWrap.remove();
+                            }
+                        });
+                    }
+                } else {
+                    alert("비밀번호가 틀렸습니다.");
                 }
             });
 
             // 리뷰 삭제
             reviewDel.addEventListener("click", () => {
-                let removeIndex = reviews.findIndex((i) => i.reviewId === review.reviewId);
-                if (removeIndex >= 0) {
-                    if (confirm("정말 삭제하시겠습니까?") == true) {
-                        //확인
-                        reviews.splice(removeIndex, 1);
+                if (clickIdIndex >= 0) {
+                    if (confirm("정말 삭제하시겠습니까?") === true) {
+                        reviews.splice(clickIdIndex, 1);
+                        localStorage.setItem("reviews", JSON.stringify(reviews));
+                        item.remove();
                     } else {
-                        //취소
                         return false;
                     }
                 }
-                localStorage.setItem("reviews", JSON.stringify(reviews));
-                item.remove();
             });
         });
     }
