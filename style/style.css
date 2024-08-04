@@ -2,6 +2,7 @@
 .wrap-main #contents {
     padding: 0;
 }
+
 .main {
     background-image: url("../image/background.png");
     height: 94vh;
@@ -123,15 +124,12 @@
 }
 
 .movie-card-happy {
-    width: 250px;
-    height: 350px;
     background-color: aqua;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -139,4 +137,47 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+.movie-card {
+    list-style-type: none;
+    position: relative;
+}
+
+.movielist-section-happy {
+    width: 70%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.movie-card img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: rgb(83, 83, 83);
+    aspect-ratio: 2/3;
+    background-color: var(--quaternary-color);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.movie-card .movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    transition: bottom ease-in-out 0.4s;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    height: 100%;
+}
+
+.movie-card:hover .movie-info {
+    bottom: 0;
 }

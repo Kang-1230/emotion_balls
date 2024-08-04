@@ -9,20 +9,19 @@ fetch(URL)
     .then((data) => {
         console.log(data);
         const movies = data.results;
-        //forEach로 배열을 돌면서 title 찍어내기
+        //for문으로 배열 다섯개 생성
+        const movieContainer = document.getElementById("movie-container");
+
+        //forEach로 배열을 돌면서 cardImg list 생성, 이미지 집어넣기
         movies.forEach((movie) => {
-            const innerCard = document.getElementById("movie-card-happy");
-            const cardImg = document.createElement("img");
-            cardImg.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+            const innerCard = document.querySelector(".movielist-section-happy");
+            const cardImg = document.createElement("li");
+            cardImg.className = "movie-card";
+            cardImg.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"><div class = movie-info>
             <h3>${movie.title}</h3>
-            <p>${movie.overview}</p>
-            <span>Rating: ${movie.vote_average}</span>
-            `;
+            ${movie.vote_average}<br></br>${movie.overview}</div>`;
+
             innerCard.appendChild(cardImg);
         });
-        //movie-card-happy id를 지정하는 함수 생성
-        //innerCard에 이미지 생성하기
-        //이미지 url을 넣기
-        //cardImg를 innerCard의 자식 요소로 넣기
     })
     .catch((error) => console.error("Error:", error));
