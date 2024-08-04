@@ -9,12 +9,10 @@ fetch(URL)
     .then((data) => {
         console.log(data);
         const movies = data.results;
-        //for문으로 배열 다섯개 생성
-        const movieContainer = document.getElementById("movie-container");
 
         //forEach로 배열을 돌면서 cardImg list 생성, 이미지 집어넣기
         movies.forEach((movie) => {
-            const innerCard = document.querySelector(".movielist-section-happy");
+            const innerCard = document.querySelectorAll(".movielist-section-happy, .movielist-section-sad, .movielist-section-angry, .movielist-section-anxiety, .movielist-section-cold");
             const cardImg = document.createElement("li");
             cardImg.className = "movie-card";
             cardImg.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"><div class = movie-info>
