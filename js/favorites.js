@@ -5,16 +5,15 @@ const movieList = document.querySelector("#container")
 
 window.onload = () => {
     if (bmkList === null) {
-        const empty = createElement("div");
-        empty.innerText = "<h2>북마크한 영화가 없습니다</h2>";
-        movieList.appendChild(empty);
+        const empty = document.querySelector('#contents');
+        empty.innerHTML = "<h1>북마크한 영화가 없습니다</h1>";
     } else {
         try {
             bmkList.forEach((data) => {
                 // const movie = createElement("div").innerText = `
-                const movie = createElement("span");
+                const movie = createElement("li");
                 //카드가져오기
-                movie.innerText = `
+                movie.innerHTML = `
         ${data.image}
         ${data.title}
         ${data.genre}

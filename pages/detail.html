@@ -40,8 +40,8 @@
     <link href="./../style/detail.css" rel="stylesheet" />
 
     <!-- script -->
-    <script type="module" src="./../js/detail.js"></script>
     <script type="module" src="./../js/bookmark.js"></script>
+    <script type="module" src="./../js/detail.js"></script>
 </head>
 
 <body>
@@ -76,36 +76,39 @@
         </header>
         <!-- // 헤더 -->
         <!-- 컨텐츠 -->
-        <main id="contents">
-            <!-- 본문입니다 -->
-            <div id="detail-container">
-            </div>
-            <span id="sub-btn">
-                <span id="emo-btn">
-                    <button type="button" id="buttonHappy">
-                        <img src="./../image/happy.png" alt="" />
-                    </button>
-                    <button type="button" id="buttonSad">
-                        <img src="./../image/sad.png" alt="" />
-                    </button>
-                    <button type="button" id="buttonAngry">
-                        <img src="./../image/angry.png" alt="" />
-                    </button>
-                    <button type="button" id="buttonAnxiety">
-                        <img src="./../image/anxiety.png" alt="" />
-                    </button>
-                    <button type="button" id="buttonClod">
-                        <img src="./../image/cold.png" alt="" />
-                    </button>
-                </span>
-                <button type="button" class="bmkBtn">
-                    <span id="bmk-off" class="material-symbols-rounded">
-                        bookmark
+        <main id="contents-container">
+            <div id="contents">
+                <img id="movie-img" />
+                <span id="detail">
+                    <span id="main-text">
+                 
                     </span>
-                </button>
-            </span>
-            </span>
-
+                    <span id="sub-btn">
+                        <span id="emo-btn">
+                            <button type="button" id="buttonHappy">
+                                <img src="./../image/happy.png" alt="" />
+                            </button>
+                            <button type="button" id="buttonSad">
+                                <img src="./../image/sad.png" alt="" />
+                            </button>
+                            <button type="button" id="buttonAngry">
+                                <img src="./../image/angry.png" alt="" />
+                            </button>
+                            <button type="button" id="buttonAnxiety">
+                                <img src="./../image/anxiety.png" alt="" />
+                            </button>
+                            <button type="button" id="buttonClod">
+                                <img src="./../image/cold.png" alt="" />
+                            </button>
+                        </span>
+                        <button type="button" class="bmkBtn">
+                            <span id="bmk-off" class="material-symbols-rounded">
+                                bookmark
+                            </span>
+                        </button>
+                    </span>
+                </span>
+            </div>
         </main>
         <!-- // 컨텐츠 -->
         <!-- 푸터 -->
