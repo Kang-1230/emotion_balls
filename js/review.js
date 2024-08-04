@@ -15,9 +15,9 @@ let month = ("0" + (today.getMonth() + 1)).slice(-2);
 let day = ("0" + today.getDate()).slice(-2);
 let date = year + "-" + month + "-" + day;
 
-export const createReview = async () => {
+const createReview = async () => {
     // 기존 리뷰 가져오기
-    await loadReviews();
+    loadReviews();
 
     // 리뷰 등록 submit
     reviewForm.addEventListener("submit", (event) => {
@@ -55,6 +55,7 @@ export const createReview = async () => {
         reviewForm.reset();
     });
 };
+createReview();
 
 // 임의의 문자열
 function genRandomString(length) {
@@ -180,7 +181,6 @@ function editReviewItem(reviews, review, item) {
         } else if (passwordTry !== null) {
             alert("비밀번호가 틀렸습니다.");
         }
-        console.log(passwordTry);
     }
 }
 
