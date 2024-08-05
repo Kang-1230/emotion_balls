@@ -14,7 +14,6 @@ export const createSearchResults = async () => {
     });
     function createSearchResultsItem(movie) {
         let item = document.createElement("li");
-
         item.className = "search-results-item";
         item.innerHTML = `
             <div>${movie.title}</div>
@@ -22,6 +21,18 @@ export const createSearchResults = async () => {
         `;
 
         return item;
+    }
+
+    // 검색결과 없을시
+    if (movies.length <= 0) {
+        noResults();
+    }
+    function noResults() {
+        let noItem = document.createElement("div");
+        noItem.className = "no-results";
+        noItem.textContent = "검색 결과가 없습니다.";
+
+        searchResultsItems.before(noItem);
     }
 
     // input 포커스
@@ -33,11 +44,7 @@ createSearchResults();
 function getSearchWord() {
     let searchWord = localStorage.getItem("searchWord");
 
-    if (searchWord) {
-        return JSON.parse(searchWord);
-    } else {
-        return "";
-    }
+    return searchWord ? JSON.parse(searchWord) : "";
 }
 
 // TMDB API

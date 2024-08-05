@@ -73,11 +73,7 @@ function genRandomString(length) {
 function getReviews() {
     let reviews = localStorage.getItem("reviews");
 
-    if (reviews) {
-        return JSON.parse(reviews);
-    } else {
-        return [];
-    }
+    return reviews ? JSON.parse(reviews) : [];
 }
 
 // 리뷰 목록 불러오기
@@ -190,15 +186,13 @@ function delReviewItem(reviews, review, item) {
 
     // 비밀번호 확인
     let passwordTry = prompt("비밀번호를 입력해주세요.");
-    if (passwordTry === review.password) {
-        if (clickReviewIdIndex >= 0) {
-            if (confirm("정말 삭제하시겠습니까?") === true) {
-                reviews.splice(clickReviewIdIndex, 1);
-                localStorage.setItem("reviews", JSON.stringify(reviews));
-                item.remove();
-            } else {
-                return false;
-            }
+    if (passwordTry === review.password && clickReviewIdIndex >= 0) {
+        if (confirm("정말 삭제하시겠습니까?") === true) {
+            reviews.splice(clickReviewIdIndex, 1);
+            localStorage.setItem("reviews", JSON.stringify(reviews));
+            item.remove();
+        } else {
+            return false;
         }
     } else if (passwordTry !== null) {
         alert("비밀번호가 틀렸습니다.");

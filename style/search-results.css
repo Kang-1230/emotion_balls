@@ -9,3 +9,9 @@
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-lg);
 }
+.no-results {
+    font-size: 20px;
+    text-align: center;
+    color: var(--light-gray2-color);
+    padding: 40px 0;
+}

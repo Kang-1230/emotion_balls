@@ -30,6 +30,7 @@ body {
     min-height: 100vh;
     font-size: 16px;
     line-height: 1.5;
+    overflow-x: hidden;
 }
 ::placeholder {
     color: rgba(255, 255, 255, 0.6);
@@ -98,7 +99,7 @@ button {
 
 /* header */
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -384,7 +385,7 @@ button {
     position: relative;
     flex: 1 0 auto;
     max-width: 100%;
-    padding: 40px 0;
+    padding: 100px 0 40px;
 }
 @media (min-width: 576px) {
 }
@@ -392,11 +393,11 @@ button {
 }
 @media (min-width: 992px) {
     #contents {
-        padding: 60px 0;
+        padding: 160px 0 60px;
     }
 }
 @media (min-width: 1200px) {
     #contents {
-        padding: 120px 0;
+        padding: 220px 0 120px;
     }
 }
