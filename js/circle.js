@@ -102,7 +102,7 @@ async function angryClickCounter() {
     }
 }
 
-buttonAngry.addEventListener("click", AngryClickCounter);
+buttonAngry.addEventListener("click", angryClickCounter);
 
 document.addEventListener("DOMContentLoaded", async (event) => {
     const docSnap = await getDoc(washingtonRef);
@@ -132,7 +132,7 @@ async function anxietyClickCounter() {
     }
 }
 
-buttonAnxiety.addEventListener("click", AnxietyClickCounter);
+buttonAnxiety.addEventListener("click", anxietyClickCounter);
 
 document.addEventListener("DOMContentLoaded", async (event) => {
     const docSnap = await getDoc(washingtonRef);
@@ -142,8 +142,34 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     }
 });
 
-await updateDoc(washingtonRef, {
-    Cold: increment(50),
+//cold click
+let cnt5 = 0;
+const buttonCold = document.getElementById("buttonCold");
+async function coldClickCounter() {
+    cnt5 += 1;
+    spanCold.innerText = `cold Click: ${cnt5}`;
+    console.log(cnt5);
+
+    await updateDoc(washingtonRef, {
+        cold: increment(50),
+    });
+
+    // 업데이트된 값을 다시 가져와서 표시
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        const updatedCount = docSnap.data().cold;
+        console.log(`Updated cold count: ${updatedCount}`);
+    }
+}
+
+buttonCold.addEventListener("click", coldClickCounter);
+
+document.addEventListener("DOMContentLoaded", async (event) => {
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        cnt5 = docSnap.data().cold / 50; // 초기 값을 가져와서 클릭 수로 변환
+        spanCold.innerText = `cold Click: ${cnt5}`;
+    }
 });
 
 const circle1 = document.getElementById("circle1");
