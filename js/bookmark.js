@@ -22,7 +22,7 @@ const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35
 const activeBtn = document.querySelector(".bmkBtn");
 const btnImg = document.querySelector("#bmk-off");
 
-window.onload = async function pageLoad() {
+async function pageLoad() {
     try {
         const response = await fetch(API_KEY, options);
         const data = await response.json();
@@ -138,7 +138,6 @@ window.onload = async function pageLoad() {
         };
         //북마크 토글
         const bmkToggle = () => {
-            console.log('동작')
             if (whetherBmk() === true) {
                 removeBmk();
             } else {
@@ -152,3 +151,4 @@ window.onload = async function pageLoad() {
         console.log(error);
     }
 };
+pageLoad();
