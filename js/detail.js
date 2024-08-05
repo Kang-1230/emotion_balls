@@ -70,7 +70,7 @@ async function pageLoad() {
                         <span id="summary">${findMovie.overview}</span>`;
     } catch (error) {
         console.log(error);
-        alert("영화 정보가 오다가 딴 길로 샜습니다");
+        alert("잘 되다가 왜 그러냐 ㅠㅠ");
     }
 }
 pageLoad();

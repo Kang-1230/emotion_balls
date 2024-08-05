@@ -71,9 +71,9 @@ window.onload = async function pageLoad() {
         };
 
         //현재 북마크 정보 동기화
-        let currentBmkList = [];
-        const savedList = JSON.parse(window.localStorage.getItem("bmk"));
+        let currentBmkList;
         const syncList = () => {
+            let savedList = JSON.parse(window.localStorage.getItem("bmk"));
             if (savedList === null) {
                 return (currentBmkList = []);
             } else {
@@ -110,6 +110,7 @@ window.onload = async function pageLoad() {
         //현재 영화 북마크에 저장
         const saveBmk = () => {
             try {
+                // makeEmptyArr();
                 currentBmkList.push(currentMovieInfo);
                 bmkUpdate(currentBmkList);
                 btnImg.setAttribute("id", "bmk-on");
@@ -128,9 +129,8 @@ window.onload = async function pageLoad() {
                     // return bookmarked.id !== currentMovieInfo.id;
                     // }
                 );
-                const emptyCheck = () => (filterBmk[0] === undefined ? window.localStorage.removeItem("bmk") : bmkUpdate(filterBmk));
+                const emptyCheck = () => (filterBmk.length === 0 ? window.localStorage.removeItem("bmk") : bmkUpdate(filterBmk));
                 emptyCheck(filterBmk);
-                currentBmkList = [];
                 btnImg.setAttribute("id", "bmk-off");
             } catch {
                 alert("북마크 제거가 실패했습니다.");
@@ -138,11 +138,13 @@ window.onload = async function pageLoad() {
         };
         //북마크 토글
         const bmkToggle = () => {
+            console.log('동작')
             if (whetherBmk() === true) {
                 removeBmk();
             } else {
                 saveBmk();
             }
+            syncList();
         };
         // (whetherBmk()===true ? removeBmk() : saveBmk());
         activeBtn.addEventListener("click", bmkToggle);
