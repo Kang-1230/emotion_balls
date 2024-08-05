@@ -106,3 +106,46 @@ fetch(URL, options)
         });
     })
     .catch((error) => console.error("Error:", error));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+//스크롤 버튼
+const scrollBtn = document.getElementById("scrollBtn");
+const target = document.getElementById("wrap").offsetTop;
+const scrollTop = () => window.scroll({ top: target, behavior: "smooth" });
+
+scrollBtn.addEventListener("click", scrollTop);
