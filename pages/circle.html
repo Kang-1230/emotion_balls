@@ -29,55 +29,15 @@
         <meta name="msapplication-TileColor" content="#0D0D0D" />
         <meta name="theme-color" content="#0D0D0D" />
 
+        <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore-compat.js"></script>
+
         <!-- style -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="../style/reset-fonts.css" rel="stylesheet" />
         <link href="../style/common.css" rel="stylesheet" />
 
-        <!-- script -->
-        <script type="module">
-            // Firebase SDK 라이브러리 가져오기
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-            import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-            import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-            import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyAA2KKPve5sNyVRN7y3LxxNVjgEyfp_LwU",
-                authDomain: "emotionball-fdf1c.firebaseapp.com",
-                projectId: "emotionball-fdf1c",
-                storageBucket: "emotionball-fdf1c.appspot.com",
-                messagingSenderId: "1069268417676",
-                appId: "1:1069268417676:web:d810dfcfe006264d480fa9",
-                measurementId: "G-17NQQBMDGH",
-            };
-
-            // Firebase 인스턴스 초기화
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-
-            import { doc, updateDoc, increment } from "firebase/firestore";
-
-            const washingtonRef = doc(db, "emotionball", "card id");
-
-            await updateDoc(washingtonRef, {
-                population: increment(10),
-            });
-
-            const circle1 = document.getElementById("circle1");
-            const circle2 = document.getElementById("circle2");
-            const circle3 = document.getElementById("circle3");
-            const circle4 = document.getElementById("circle4");
-            const circle5 = document.getElementById("circle5");
-
-            function updateCircleSize(circle, clickCount) {
-                const newSize = 200 + clickCount * 10; // 기본 크기 200px에서 클릭당 10px 증가
-                circle.style.width = `${newSize}px`;
-                circle.style.height = `${newSize}px`;
-            }
-        </script>
         <style>
             #circle1 {
                 position: absolute;
@@ -204,7 +164,7 @@
             </footer>
             <!-- // 푸터 -->
         </div>
-        <link rel="jssheet" href="../js/circle.js" />
+        <script type="module" src="../js/circle.js"></script>
     </body>
 </html>
 -->
