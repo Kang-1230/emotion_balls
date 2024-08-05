@@ -1,159 +1,159 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+import { getFirestore, doc, updateDoc, increment, addDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyAA2KKPve5sNyVRN7y3LxxNVjgEyfp_LwU",
+    authDomain: "emotionball-fdf1c.firebaseapp.com",
+    projectId: "emotionball-fdf1c",
+    storageBucket: "emotionball-fdf1c.appspot.com",
+    messagingSenderId: "1069268417676",
+    appId: "1:1069268417676:web:d810dfcfe006264d480fa9",
+    measurementId: "G-17NQQBMDGH",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+console.log(db);
+const washingtonRef = doc(db, "emotionball", "test");
+
 //happy click
 let cnt1 = 0;
 const buttonHappy = document.getElementById("buttonHappy");
-const spanHappy = document.getElementById("spanHappy");
-
-function happyClickCounter() {
+async function happyClickCounter() {
     cnt1 += 1;
     spanHappy.innerText = `happy Click: ${cnt1}`;
     console.log(cnt1);
 
-    db.collection("clickCounts").doc("happyClick").set({
-        count: cnt1,
+    await updateDoc(washingtonRef, {
+        happy: increment(50),
     });
 
-    updateCircleSize(circle1, cnt1);
+    // 업데이트된 값을 다시 가져와서 표시
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        const updatedCount = docSnap.data().happy;
+        console.log(`Updated happy count: ${updatedCount}`);
+    }
 }
 
 buttonHappy.addEventListener("click", happyClickCounter);
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    db.collection("clickCounts")
-        .doc("happyClick")
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                cnt1 = doc.data().count;
-                spanHappy.innerText = `happy Click: ${cnt1}`;
-                updateCircleSize(circle1, cnt1);
-            }
-        });
+document.addEventListener("DOMContentLoaded", async (event) => {
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        cnt1 = docSnap.data().happy / 50; // 초기 값을 가져와서 클릭 수로 변환
+        spanHappy.innerText = `happy Click: ${cnt1}`;
+    }
 });
 
 //sad click
 let cnt2 = 0;
 const buttonSad = document.getElementById("buttonSad");
-const spanSad = document.getElementById("spanSad");
-
-function sadClickCounter() {
+async function sadClickCounter() {
     cnt2 += 1;
     spanSad.innerText = `sad Click: ${cnt2}`;
     console.log(cnt2);
 
-    db.collection("clickCounts").doc("sadClick").set({
-        count: cnt2,
+    await updateDoc(washingtonRef, {
+        sad: increment(50),
     });
 
-    updateCircleSize(circle2, cnt2);
+    // 업데이트된 값을 다시 가져와서 표시
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        const updatedCount = docSnap.data().sad;
+        console.log(`Updated sad count: ${updatedCount}`);
+    }
 }
 
 buttonSad.addEventListener("click", sadClickCounter);
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    db.collection("clickCounts")
-        .doc("sadClick")
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                cnt2 = doc.data().count;
-                spanSad.innerText = `sad Click: ${cnt2}`;
-                updateCircleSize(circle2, cnt2);
-            }
-        });
+document.addEventListener("DOMContentLoaded", async (event) => {
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        cnt2 = docSnap.data().sad / 50; // 초기 값을 가져와서 클릭 수로 변환
+        spanSad.innerText = `sad Click: ${cnt2}`;
+    }
 });
 
 //angry click
 let cnt3 = 0;
 const buttonAngry = document.getElementById("buttonAngry");
-const spanAngry = document.getElementById("spanAngry");
-
-function angryClickCounter() {
+async function angryClickCounter() {
     cnt3 += 1;
     spanAngry.innerText = `angry Click: ${cnt3}`;
     console.log(cnt3);
 
-    db.collection("clickCounts").doc("angryClick").set({
-        count: cnt3,
+    await updateDoc(washingtonRef, {
+        angry: increment(50),
     });
 
-    updateCircleSize(circle3, cnt3);
+    // 업데이트된 값을 다시 가져와서 표시
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        const updatedCount = docSnap.data().angry;
+        console.log(`Updated angry count: ${updatedCount}`);
+    }
 }
 
-buttonAngry.addEventListener("click", angryClickCounter);
+buttonAngry.addEventListener("click", AngryClickCounter);
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    db.collection("clickCounts")
-        .doc("angryClick")
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                cnt3 = doc.data().count;
-                spanAngry.innerText = `angry Click: ${cnt3}`;
-                updateCircleSize(circle3, cnt3);
-            }
-        });
+document.addEventListener("DOMContentLoaded", async (event) => {
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        cnt3 = docSnap.data().angry / 50; // 초기 값을 가져와서 클릭 수로 변환
+        spanAngry.innerText = `angry Click: ${cnt3}`;
+    }
 });
 
 //anxiety click
 let cnt4 = 0;
 const buttonAnxiety = document.getElementById("buttonAnxiety");
-const spanAnxiety = document.getElementById("spanAnxiety");
-
-function anxietyClickCounter() {
+async function anxietyClickCounter() {
     cnt4 += 1;
     spanAnxiety.innerText = `anxiety Click: ${cnt4}`;
     console.log(cnt4);
 
-    db.collection("clickCounts").doc("anxietyClick").set({
-        count: cnt4,
+    await updateDoc(washingtonRef, {
+        anxiety: increment(50),
     });
 
-    updateCircleSize(circle4, cnt4);
+    // 업데이트된 값을 다시 가져와서 표시
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        const updatedCount = docSnap.data().anxiety;
+        console.log(`Updated anxiety count: ${updatedCount}`);
+    }
 }
 
-buttonAnxiety.addEventListener("click", anxietyClickCounter);
+buttonAnxiety.addEventListener("click", AnxietyClickCounter);
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    db.collection("clickCounts")
-        .doc("anxietyClick")
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                cnt4 = doc.data().count;
-                spanAnxiety.innerText = `anxiety Click: ${cnt4}`;
-                updateCircleSize(circle4, cnt4);
-            }
-        });
+document.addEventListener("DOMContentLoaded", async (event) => {
+    const docSnap = await getDoc(washingtonRef);
+    if (docSnap.exists()) {
+        cnt4 = docSnap.data().anxiety / 50; // 초기 값을 가져와서 클릭 수로 변환
+        spanAnxiety.innerText = `anxiety Click: ${cnt4}`;
+    }
 });
 
-// coldClick 관련 코드
-let cnt5 = 0;
-const buttonCold = document.getElementById("buttonCold");
-const spanCold = document.getElementById("spanCold");
+await updateDoc(washingtonRef, {
+    Cold: increment(50),
+});
 
-function coldClickCounter() {
-    cnt5 += 1;
-    spanCold.innerText = `cold Click: ${cnt5}`;
-    console.log(cnt5);
+const circle1 = document.getElementById("circle1");
+const circle2 = document.getElementById("circle2");
+const circle3 = document.getElementById("circle3");
+const circle4 = document.getElementById("circle4");
+const circle5 = document.getElementById("circle5");
 
-    db.collection("clickCounts").doc("coldClick").set({
-        count: cnt5,
-    });
-
-    updateCircleSize(circle5, cnt5);
+function updateCircleSize(circle, clickCount) {
+    const newSize = 200 + clickCount * 10; // 기본 크기 200px에서 클릭당 10px 증가
+    circle.style.width = `${newSize}px`;
+    circle.style.height = `${newSize}px`;
 }
-
-buttonCold.addEventListener("click", coldClickCounter);
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    db.collection("clickCounts")
-        .doc("coldClick")
-        .get()
-        .then((doc) => {
-            if (doc.exists) {
-                cnt5 = doc.data().count;
-                spanCold.innerText = `cold Click: ${cnt5}`;
-                updateCircleSize(circle5, cnt5);
-            }
-        });
-});
