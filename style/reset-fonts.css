@@ -75,9 +75,6 @@ textarea:focus {
     outline: none;
     box-shadow: none;
 }
-textarea:not([rows]) {
-    min-height: 10em;
-}
 :target {
     scroll-margin-block: 5ex;
 }
