@@ -29,6 +29,7 @@ async function pageLoad() {
         });
 
         //장르id에 맞는 장르 배열로 가져오기
+
         const genreId = findMovie.genre_ids;
         let genreArr = [];
         for (let i = 0; i < genres.length; i++) {
