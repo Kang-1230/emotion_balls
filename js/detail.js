@@ -29,6 +29,7 @@ async function pageLoad() {
         });
 
         //장르id에 맞는 장르 배열로 가져오기
+
         const genreId = findMovie.genre_ids;
         let genreArr = [];
         for (let i = 0; i < genres.length; i++) {
@@ -39,7 +40,7 @@ async function pageLoad() {
                 genreArr.push(Object.values(genres[i]));
             }
         }
-        //배열 문자열화
+        //장르 배열 문자열화
         const toString = function (inputArr) {
             switch (inputArr.length) {
                 case 1:
@@ -70,7 +71,7 @@ async function pageLoad() {
                         <span id="summary">${findMovie.overview}</span>`;
     } catch (error) {
         console.log(error);
-        alert("잘 되다가 왜 그러냐 ㅠㅠ");
+        // alert("잘 되다가 왜 그러냐 ㅠㅠ");
     }
 }
 pageLoad();
