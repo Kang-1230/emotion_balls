@@ -94,6 +94,53 @@ async function fetchData() {
         const romanceGenres = genres.filter(function (genre) {
             return genre.name === selectGenres;
         });
+<<<<<<< HEAD
+    })
+    .catch((error) => console.error("Error:", error));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+//스크롤 버튼
+const scrollBtn = document.getElementById("scrollBtn");
+const target = document.getElementById("wrap").offsetTop;
+const scrollTop = () => window.scroll({ top: target, behavior: "smooth" });
+
+scrollBtn.addEventListener("click", scrollTop);
+=======
         return romanceGenres;
     };
 
@@ -131,3 +178,4 @@ async function fetchData() {
 }
 
 fetchData().catch((error) => console.error("Error:", error));
+>>>>>>> 00737ab13b71b31eb7b5e970da1132a7165f271d

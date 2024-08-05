@@ -40,7 +40,7 @@ async function pageLoad() {
                 genreArr.push(Object.values(genres[i]));
             }
         }
-        //배열 문자열화
+        //장르 배열 문자열화
         const toString = function (inputArr) {
             switch (inputArr.length) {
                 case 1:
