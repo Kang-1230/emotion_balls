@@ -10,6 +10,7 @@
     bottom: 0;
     width: 200px;
     height: 200px;
+    z-index: -1;
 }
 #circle1 {
     left: 10vw;
