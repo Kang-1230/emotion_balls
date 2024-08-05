@@ -1,11 +1,61 @@
-// 본인의 API 키를 넣어주셔야 합니다.
-const API_KEY = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
-const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+// 주소값 가져오기
+const hrefName = encodeURI(window.location.href);
+const parameters = hrefName.slice(hrefName.indexOf("?") + 1, hrefName.length);
+const movieId = Number(parameters.split("=")[1]);
+if (movieId == undefined) movieId = 0;
 
-fetch(URL)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        // 이후 데이터 처리
-    })
-    .catch((error) => console.error("Error:", error));
+//API 가져오기
+const options = {
+    method: "GET",
+    headers: {
+        accept: "application/json",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZGI0NDkyODNjN2I0MzZlYTExYjg1Zjg1YTRjNTEwNiIsIm5iZiI6MTcyMjYxNDE2MC4wMjk0NDIsInN1YiI6IjY2YTMxOTQ3ZGVmMjYyMGNlM2UxMTM0YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kKSBpyjCkiPzv-ksjiTVC7KIG5U6OPMK1e1uaSVgt04",
+    },
+};
+
+const API_KEY = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&append_to_response=images&include_image_language=en,null";
+
+//장르
+const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35: "Comedy" }, { 80: "Crime" }, { 99: "Documentary" }, { 18: "Drama" }, { 10751: "Family" }, { 14: "Fantasy" }, { 36: "History" }, { 27: "Horror" }, { 10402: "Music" }, { 9648: "Mystery" }, { 10749: "Romance" }, { 878: "Science Fiction" }, { 10770: "TV Movie" }, { 53: "Thriller" }, { 10752: "War" }, { 37: "Western" }];
+
+async function pageLoad() {
+    try {
+        const response = await fetch(API_KEY, options);
+        const data = await response.json();
+        const movies = data.results;
+        //주소값과 같은 id찾아내기
+        const findMovie = movies.find((movie) => {
+            return movieId === movie.id;
+        });
+console.log(movies);
+        //장르 가져오기
+        const genreId = findMovie.genre_ids;
+        let genreArr = [];
+        for (let i = 0; i < genres.length; i++) {
+            let foundId = genreId.find((key) => key in genres[i]);
+            if (foundId === undefined) {
+                continue;
+            } else {
+                genreArr.push(Object.values(genres[i]));
+            }
+        }
+        const genre = String(genreArr);
+
+        const movieImg = document.querySelector("#movie-img");
+        movieImg.setAttribute("src", `https://image.tmdb.org/t/p/w500${findMovie.poster_path}`);
+
+        const movieText = document.querySelector("#main-text");
+        movieText.innerHTML = `<span id="movie-name">
+                            <h1>${findMovie.title}</h1>
+                        </span>
+                        <span id="genre-box">
+                            <span id="genre"><small>${genre}</small></span>
+                            <span><small>${findMovie.release_date}</small></span>
+                        </span>
+                        <span id="summary">${findMovie.overview}</span>`;
+    } catch (error) {
+        console.log(error);
+        alert("영화 정보가 오다가 딴 길로 샜습니다");
+    }
+}
+pageLoad();
