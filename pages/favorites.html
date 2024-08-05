@@ -32,8 +32,8 @@
         <!-- style -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link href="../style/reset-fonts.css" rel="stylesheet" />
-        <link href="../style/common.css" rel="stylesheet" />
+        <link href="./../style/reset-fonts.css" rel="stylesheet" />
+        <link href="./../style/common.css" rel="stylesheet" />
 
         <!-- script -->
         <script type="module" src="../js/main.js"></script>
@@ -59,22 +59,22 @@
                         </ul>
                         <form class="search">
                             <input type="text" class="search-input" id="header-search-input" placeholder="영화 제목을 입력해주세요" />
-                            <button type="button" class="search-btn"><span class="material-symbols-rounded"> search </span></button>
+                            <button type="button" class="search-btn" id="header-search-btn"><span class="material-symbols-rounded"> search </span></button>
                         </form>
-                        <button class="bookmark-btn">
+                        <button type="button" class="bookmark-btn">
                             <span class="material-symbols-rounded"> bookmark </span>
                         </button>
                     </div>
+                    <div class="hamburger-btn"><span></span></div>
                 </div>
             </header>
             <!-- // 헤더 -->
             <!-- 컨텐츠 -->
             <main id="contents">
                 <!-- 여기에 작성해주세요 -->
-                <!-- <section class="section-섹션이름">
-                    <div class="container">
-                    </div>
-                </section> -->
+                <section class="section-bmklist">
+                    <ul id="container"></ul>
+                </section>
             </main>
             <!-- // 컨텐츠 -->
             <!-- 푸터 -->

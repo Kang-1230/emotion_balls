@@ -36,20 +36,99 @@
         <link href="../style/common.css" rel="stylesheet" />
 
         <!-- script -->
-        <script type="module" src="../js/main.js"></script>
+        <script type="module">
+            // Firebase SDK 라이브러리 가져오기
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+            import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+            import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+            import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyAA2KKPve5sNyVRN7y3LxxNVjgEyfp_LwU",
+                authDomain: "emotionball-fdf1c.firebaseapp.com",
+                projectId: "emotionball-fdf1c",
+                storageBucket: "emotionball-fdf1c.appspot.com",
+                messagingSenderId: "1069268417676",
+                appId: "1:1069268417676:web:d810dfcfe006264d480fa9",
+                measurementId: "G-17NQQBMDGH",
+            };
+
+            // Firebase 인스턴스 초기화
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            import { doc, updateDoc, increment } from "firebase/firestore";
+
+            const washingtonRef = doc(db, "cities", "DC");
+
+            // Atomically increment the population of the city by 50.
+            await updateDoc(washingtonRef, {
+                population: increment(50),
+            });
+
+            const circle1 = document.getElementById("circle1");
+            const circle2 = document.getElementById("circle2");
+            const circle3 = document.getElementById("circle3");
+            const circle4 = document.getElementById("circle4");
+            const circle5 = document.getElementById("circle5");
+
+            function updateCircleSize(circle, clickCount) {
+                const newSize = 200 + clickCount * 10; // 기본 크기 200px에서 클릭당 10px 증가
+                circle.style.width = `${newSize}px`;
+                circle.style.height = `${newSize}px`;
+            }
+        </script>
         <style>
-            .circle {
+            #circle1 {
                 position: absolute;
                 border-radius: 100%;
                 opacity: 0.2;
-            }
-            .circle1 {
                 bottom: 10vh;
                 left: 10vw;
                 width: 200px;
                 height: 200px;
-                background-color: var(--sky-color);
+                background-color: #dcbe22;
+            }
+            #circle2 {
+                position: absolute;
+                border-radius: 100%;
+                opacity: 0.2;
+                bottom: 10vh;
+                left: 20vw;
+                width: 200px;
+                height: 200px;
+                background-color: #6bc7f0;
+            }
+            #circle3 {
+                position: absolute;
+                border-radius: 100%;
+                opacity: 0.2;
+                bottom: 10vh;
+                left: 30vw;
+                width: 200px;
+                height: 200px;
+                background-color: #e04743;
+            }
+            #circle4 {
+                position: absolute;
+                border-radius: 100%;
+                opacity: 0.2;
+                bottom: 10vh;
+                left: 40vw;
+                width: 200px;
+                height: 200px;
+                background-color: #be99cf;
+            }
+            #circle5 {
+                position: absolute;
+                border-radius: 100%;
+                opacity: 0.2;
+                bottom: 10vh;
+                left: 50vw;
+                width: 200px;
+                height: 200px;
+                background-color: #93bf44;
             }
         </style>
     </head>
@@ -74,31 +153,49 @@
                         </ul>
                         <form class="search">
                             <input type="text" class="search-input" id="header-search-input" placeholder="영화 제목을 입력해주세요" />
-                            <button type="button" class="search-btn"><span class="material-symbols-rounded"> search </span></button>
+                            <button type="button" class="search-btn" id="header-search-btn"><span class="material-symbols-rounded"> search </span></button>
                         </form>
-                        <button class="bookmark-btn">
+                        <button type="button" class="bookmark-btn">
                             <span class="material-symbols-rounded"> bookmark </span>
                         </button>
                     </div>
+                    <div class="hamburger-btn"><span></span></div>
                 </div>
             </header>
             <!-- // 헤더 -->
             <!-- 컨텐츠 -->
             <main id="contents">
-                <section>
-                    <div class="container">
-                        <span>Total Click: 0</span>
-                        <button id="btn">버튼</button>
-                    </div>
-                </section>
-
-                <canvas id="myCanvas"></canvas>
-                <div class="circle circle1"></div>
-                <div class="circle circle2"></div>
-                <div class="circle circle3"></div>
-                <div class="circle circle4"></div>
-                <div class="circle circle5"></div>
+                <!-- 버튼들 -->
+                <span id="emo-btn">
+                    <span id="spanHappy">happy Click: 0</span>
+                    <button type="button" id="buttonHappy">
+                        <img src="./../image/happy.png" alt="" />
+                    </button>
+                    <span id="spanSad">sad Click: 0</span>
+                    <button type="button" id="buttonSad">
+                        <img src="./../image/sad.png" alt="" />
+                    </button>
+                    <span id="spanAngry">angry Click: 0</span>
+                    <button type="button" id="buttonAngry">
+                        <img src="./../image/angry.png" alt="" />
+                    </button>
+                    <span id="spanAnxiety">anxiety Click: 0</span>
+                    <button type="button" id="buttonAnxiety">
+                        <img src="./../image/anxiety.png" alt="" />
+                    </button>
+                    <span id="spanCold">cold Click: 0</span>
+                    <button type="button" id="buttonCold">
+                        <img src="./../image/cold.png" alt="" />
+                    </button>
+                </span>
+                <!-- 배경이 될 원들 -->
+                <div id="circle1"></div>
+                <div id="circle2"></div>
+                <div id="circle3"></div>
+                <div id="circle4"></div>
+                <div id="circle5"></div>
             </main>
+            ßß
             <!-- // 컨텐츠 -->
             <!-- 푸터 -->
             <footer class="footer">
@@ -108,38 +205,7 @@
             </footer>
             <!-- // 푸터 -->
         </div>
-
-        <script>
-            let cnt = 0;
-            const button = document.getElementById("btn");
-            const span = document.querySelector("span");
-            function clickCounter() {
-                cnt += 1;
-                span.innerText = `Total Click: ${cnt}`;
-                console.log(cnt);
-            }
-            button.addEventListener("click", clickCounter);
-        </script>
-        <script>
-            // Canvas 요소 가져오기
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
-
-            // 원 그리기 함수
-            function drawCircle(x, y, radius) {
-                ctx.beginPath();
-                ctx.arc(x, y, radius, 0, 2 * Math.PI);
-                ctx.stroke(); // 원 그리기
-                //ctx.fill();   // 원 채우기
-            }
-
-            // 원의 중심 좌표와 반지름 설정
-            var centerX = canvas.width / 2;
-            var centerY = canvas.height / 2;
-            var radius = 50;
-
-            // 원 그리기와 채우기
-            drawCircle(centerX, centerY, radius);
-        </script>
+        <link rel="jssheet" href="../js/circle.js" />
     </body>
 </html>
+-->

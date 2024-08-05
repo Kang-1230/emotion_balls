@@ -2,6 +2,7 @@
 .wrap-main #contents {
     padding: 0;
 }
+
 .main {
     background-image: url("../image/background.png");
     height: 94vh;
@@ -42,4 +43,150 @@
 .cold {
     background-color: transparent;
     border: none;
+}
+
+.movie-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.happy-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.happy-button:hover {
+    background-color: var(--yellow-hover-color);
+}
+
+.sad-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.sad-button:hover {
+    background-color: var(--sky-hover-color);
+}
+
+.angry-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.angry-button:hover {
+    background-color: var(--red-hover-color);
+}
+
+.anxiety-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.anxiety-button:hover {
+    background-color: var(--purple-hover-color);
+}
+
+.cold-button {
+    width: 70px;
+    height: 35px;
+    background-color: var(--light-gray2-color);
+}
+
+.cold-button:hover {
+    background-color: var(--light-green-hover-color);
+}
+
+.category {
+    width: 80%;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.movielist-section-happy,
+.movielist-section-sad,
+.movielist-section-angry,
+.movielist-section-anxiety,
+.movielist-section-cold {
+    width: 60%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px;
+}
+
+/* .movie-card-happy {
+    background-color: aqua;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.movie-card-happy img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+} */
+
+.movie-card {
+    list-style-type: none;
+    position: relative;
+}
+
+.movielist-section-happy,
+.movielist-section-sad,
+.movielist-section-angry,
+.movielist-section-anxiety,
+.movielist-section-cold {
+    width: 70%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.movie-card img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: rgb(83, 83, 83);
+    aspect-ratio: 2/3;
+    background-color: var(--quaternary-color);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.movie-card .movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    transition: bottom ease-in-out 0.4s;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.movie-card:hover .movie-info {
+    bottom: 0;
 }
