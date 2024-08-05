@@ -1,11 +1,11 @@
 //북마크 내역 가져오기
 const bmkList = JSON.parse(window.localStorage.getItem("bmk"));
 
-const movieList = document.querySelector("#container")
+const movieList = document.querySelector("#container");
 
 window.onload = () => {
     if (bmkList === null) {
-        const empty = document.querySelector('#contents');
+        const empty = document.querySelector("#contents");
         empty.innerHTML = "<h1>북마크한 영화가 없습니다</h1>";
     } else {
         try {
@@ -20,9 +20,10 @@ window.onload = () => {
         ${data.releaseDate}
         ${data.summary}
         `;
-        movieList.appendChild(movie);
+                movieList.appendChild(movie);
             });
-        } catch {
+        } catch (error) {
+            console.log(error);
             alert("북마크한 목록을 불러오지 못했습니다.");
         }
     }

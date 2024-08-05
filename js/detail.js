@@ -27,8 +27,9 @@ async function pageLoad() {
         const findMovie = movies.find((movie) => {
             return movieId === movie.id;
         });
-        console.log(movies);
-        //장르 가져오기
+
+        //장르id에 맞는 장르 배열로 가져오기
+
         const genreId = findMovie.genre_ids;
         let genreArr = [];
         for (let i = 0; i < genres.length; i++) {
@@ -39,7 +40,22 @@ async function pageLoad() {
                 genreArr.push(Object.values(genres[i]));
             }
         }
-        const genre = String(genreArr);
+        //배열 문자열화
+        const toString = function (inputArr) {
+            switch (inputArr.length) {
+                case 1:
+                    return String(inputArr[0]);
+                default:
+                    let genre = inputArr[0];
+                    let i = 1;
+                    while (i < inputArr.length) {
+                        genre += `, ${inputArr[i]}`;
+                        i++;
+                    }
+                    return genre;
+            }
+        };
+        const genre = toString(genreArr);
 
         const movieImg = document.querySelector("#movie-img");
         movieImg.setAttribute("src", `https://image.tmdb.org/t/p/w500${findMovie.poster_path}`);
@@ -55,7 +71,7 @@ async function pageLoad() {
                         <span id="summary">${findMovie.overview}</span>`;
     } catch (error) {
         console.log(error);
-        alert("영화 정보가 오다가 딴 길로 샜습니다");
+        alert("잘 되다가 왜 그러냐 ㅠㅠ");
     }
 }
 pageLoad();
