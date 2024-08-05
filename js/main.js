@@ -16,93 +16,118 @@ const options = {
     },
 };
 
-const URL = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+// const URL = "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 
-/** 삭제하세요 */
+async function fetchData() {
+    const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
+    const data1 = await response1.json();
 
-// async function fetchData() {
-//     // Promise.all([]);
+    console.log(data1);
 
-//     // 1번처리
-//     const response1 = await fetch("https://api.themoviedb.org/3/account/21403078/favorite/movies?language=en-US&page=1&sort_by=created_at.asc");
-//     const data1 = await response.json();
+    const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2", options);
+    const data2 = await response2.json();
 
-//     // 2번처리
-//     const response2 = await fetch("https://api.themoviedb.org/3/account/21403078/favorite/movies?language=en-US&page=2&sort_by=created_at.asc");
-//     const data2 = await response.json();
+    const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=3", options);
+    const data3 = await response3.json();
 
-//     // ... 추가로 10개까지 처리하고
+    const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4", options);
+    const data4 = await response4.json();
 
-//     const movies1 = data1.results;
-//     const movies2 = data2.results;
-//     // ... 총 10번
+    const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=5", options);
+    const data5 = await response5.json();
 
-//     const 합쳐진movies = [...movies1, ...movies2];
-//     합쳐진movies.forEach(~~~~);
-// }
+    const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=6", options);
+    const data6 = await response6.json();
 
-// fetchData();
+    const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=7", options);
+    const data7 = await response7.json();
 
-/** 삭제하세요 */
+    const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=8", options);
+    const data8 = await response8.json();
 
-fetch(URL, options)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        const movies = data.results;
+    const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=9", options);
+    const data9 = await response9.json();
 
-        //카드 생성하기
-        movies.forEach((movie) => {
-            const innerCard = document.querySelectorAll(".movielist-section-happy, .movielist-section-sad, .movielist-section-angry, .movielist-section-anxiety, .movielist-section-cold");
-            for (let i = 0; i < innerCard.length; i++) {
-                const cardImg = document.createElement("li");
-                cardImg.className = "movie-card";
-                cardImg.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"><div class = movie-info>
-            <h3>${movie.title}</h3>
-            ${movie.vote_average}<br></br>${movie.overview}</div>`;
+    const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=10", options);
+    const data10 = await response10.json();
 
-                innerCard[i].appendChild(cardImg);
-            }
+    const movies1 = data1.results;
+    const movies2 = data2.results;
+    const movies3 = data3.results;
+    const movies4 = data4.results;
+    const movies5 = data5.results;
+    const movies6 = data6.results;
+    const movies7 = data7.results;
+    const movies8 = data8.results;
+    const movies9 = data9.results;
+    const movies10 = data10.results;
 
-            //장르 가져오기
-            const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35: "Comedy" }, { 80: "Crime" }, { 99: "Documentary" }, { 18: "Drama" }, { 10751: "Family" }, { 14: "Fantasy" }, { 36: "History" }, { 27: "Horror" }, { 10402: "Music" }, { 9648: "Mystery" }, { 10749: "Romance" }, { 878: "Science Fiction" }, { 10770: "TV Movie" }, { 53: "Thriller" }, { 10752: "War" }, { 37: "Western" }];
+    const mergeMovies = [...movies1, ...movies2, ...movies3, ...movies4, ...movies5, ...movies6, ...movies7, ...movies8, ...movies9, ...movies10];
 
-            const genreId = movie.genre_ids;
+    console.log("mergeMovies => ", mergeMovies); // 확인완료!
 
-            //장르id에 맞는 장르 배열로 가져오기
-            let genreArr = [];
-            for (let i = 0; i < genres.length; i++) {
-                let foundId = genreId.find((key) => key in genres[i]);
-                if (foundId === undefined) {
-                    continue;
-                } else {
-                    genreArr.push(Object.values(genres[i]));
-                }
-            }
-            //배열 문자열화
-            const toString = function (inputArr) {
-                switch (inputArr.length) {
-                    case 1:
-                        return String(inputArr[0]);
-                    default:
-                        let genre = inputArr[0];
-                        let i = 1;
-                        while (i < inputArr.length) {
-                            genre += `, ${inputArr[i]}`;
-                            i++;
-                        }
-                        return genre;
-                }
-            };
-            const genre = toString(genreArr);
+    const genres = [
+        { Id: 28, name: "Action" },
+        { Id: 12, name: "Adventure" },
+        { Id: 16, name: "Animation" },
+        { Id: 35, name: "Comedy" },
+        { Id: 80, name: "Crime" },
+        { Id: 99, name: "Documentary" },
+        { Id: 18, name: "Drama" },
+        { Id: 10751, name: "Family" },
+        { Id: 14, name: "Fantasy" },
+        { Id: 36, name: "History" },
+        { Id: 27, name: "Horror" },
+        { Id: 10402, name: "Music" },
+        { Id: 9648, name: "Mystery" },
+        { Id: 10749, name: "Romance" },
+        { Id: 878, name: "Science Fiction" },
+        { Id: 10770, name: "TV Movie" },
+        { Id: 53, name: "Thriller" },
+        { Id: 10752, name: "War" },
+        { Id: 37, name: "Western" },
+    ];
 
-            //문자열화된 장르 romance, musical 장르 가진 영화들 뽑아내기
-            const happyGenre = genre.includes("Romance");
-
-            console.log(happyGenre);
-
-            //inputGenre 함수 선언
-            //감정 happy 섹션에 장르 romance, musical인 것 넣기
+    // 1) romance, musical 장르의 id를 가져옴
+    // 로직1 : genres에 있는 배열 중, romance, musical이 포함된 id를 추출
+    const genresSearch = function (selectGenres) {
+        const romanceGenres = genres.filter(function (genre) {
+            return genre.name === selectGenres;
         });
-    })
-    .catch((error) => console.error("Error:", error));
+        return romanceGenres;
+    };
+
+    console.log(genresSearch("Romance"));
+
+    // 2) 1)에서 찾은 장르 id와 일치하는 영화 목록(영화의 genre_ids가 1)에서 뽑은 id를 포함하는지)을 mergeMovies에서 필터링
+    const genreArr = function (genre) {
+        const genreList = mergeMovies.filter(function (movie) {
+            return movie.genre_ids.includes(genre[0].Id);
+        });
+        return genreList;
+    };
+
+    console.log("genreArr => ", genreArr(genresSearch("Romance")));
+
+    const cardMaker = function (genre, classselect) {
+        const innerCard = document.querySelector(`.movielist-section-${classselect}`);
+        genre.forEach((movie) => {
+            const cardImg = document.createElement("li");
+            cardImg.className = "movie-card";
+            cardImg.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"><div class = movie-info>
+    <h3>${movie.title}</h3>
+    ${movie.vote_average}<br></br>${movie.overview}</div>`;
+            innerCard.appendChild(cardImg);
+        });
+    };
+
+    cardMaker(genreArr(genresSearch("Romance")), "happy");
+    cardMaker(genreArr(genresSearch("Comedy")), "sad");
+    cardMaker(genreArr(genresSearch("War")), "angry");
+    cardMaker(genreArr(genresSearch("Documentary")), "anxiety");
+    cardMaker(genreArr(genresSearch("Animation")), "cold");
+
+    // cardMaker(happyGenre, "happy");
+}
+
+fetchData().catch((error) => console.error("Error:", error));
