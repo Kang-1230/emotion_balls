@@ -1,0 +1,11 @@
+.search-results-tit {
+    font-size: 28px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 60px;
+}
+#search-results-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
