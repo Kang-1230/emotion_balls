@@ -27,7 +27,7 @@ async function pageLoad() {
         const findMovie = movies.find((movie) => {
             return movieId === movie.id;
         });
-console.log(movies);
+        console.log(movies);
         //장르 가져오기
         const genreId = findMovie.genre_ids;
         let genreArr = [];
