@@ -71,7 +71,7 @@ async function pageLoad() {
                         <span id="summary">${findMovie.overview}</span>`;
     } catch (error) {
         console.log(error);
-        alert("잘 되다가 왜 그러냐 ㅠㅠ");
+        // alert("잘 되다가 왜 그러냐 ㅠㅠ");
     }
 }
 pageLoad();

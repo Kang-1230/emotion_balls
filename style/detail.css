@@ -1,22 +1,29 @@
-#contents-container {
-    display: grid;
-    justify-content: center;
+.wrap-detail #contents {
+    padding-bottom: 160px;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+    .wrap-detail #contents {
+        padding-bottom: 220px;
+    }
 }
 
-#contents {
+/* 영화 내용 */
+.detail-box {
     display: flex;
-    align-items: center;
-    max-width: 900px;
+    gap: 60px;
+    width: 100%;
 }
-
-#detail{
+.detail-box-right {
     display: flex;
     flex-direction: column;
-    height: 400px;
-    padding-left: 30px;
-    justify-content: space-between
+    width: 100%;
 }
-
 #genre-box {
     display: flex;
     flex-direction: row;
@@ -31,7 +38,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 50px;
+    margin-top: auto;
 }
 
 #sub-btn img {
@@ -39,7 +46,6 @@
     width: 50px;
     height: 50px;
 }
-
 
 #movie-name {
     height: 50px;
@@ -58,11 +64,7 @@
     width: 50px;
     border-radius: 100%;
     color: var(--sky-hover-color);
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 #bmk-on {
@@ -75,11 +77,7 @@
     border-radius: 100%;
     background-color: var(--sky-hover-color);
     color: white;
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 #movie-img {

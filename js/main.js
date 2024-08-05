@@ -108,9 +108,14 @@ async function fetchData() {
         genre.forEach((movie) => {
             const cardImg = document.createElement("li");
             cardImg.className = "movie-card";
-            cardImg.innerHTML = `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}"><div class = movie-info>
-    <h3>${movie.title}</h3>
-    ${movie.vote_average}<br></br>${movie.overview}</div>`;
+            cardImg.innerHTML = `
+            <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+                <div class="movie-info">
+                    <h3>${movie.title}</h3>
+                    ${movie.vote_average}<br></br>${movie.overview}
+                </div>
+            </a>`;
             innerCard.appendChild(cardImg);
         });
     };
@@ -125,10 +130,3 @@ async function fetchData() {
 }
 
 fetchData().catch((error) => console.error("Error:", error));
-
-//스크롤 버튼
-const scrollBtn = document.getElementById("scrollBtn");
-const target = document.getElementById("wrap").offsetTop;
-const scrollTop = () => window.scroll({ top: target, behavior: "smooth" });
-
-scrollBtn.addEventListener("click", scrollTop);

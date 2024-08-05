@@ -102,7 +102,7 @@ async function angryClickCounter() {
     }
 }
 
-buttonAngry.addEventListener("click", AngryClickCounter);
+buttonAngry.addEventListener("click", angryClickCounter);
 
 document.addEventListener("DOMContentLoaded", async (event) => {
     const docSnap = await getDoc(washingtonRef);
@@ -132,7 +132,7 @@ async function anxietyClickCounter() {
     }
 }
 
-buttonAnxiety.addEventListener("click", AnxietyClickCounter);
+buttonAnxiety.addEventListener("click", anxietyClickCounter);
 
 document.addEventListener("DOMContentLoaded", async (event) => {
     const docSnap = await getDoc(washingtonRef);
