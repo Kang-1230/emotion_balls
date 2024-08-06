@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 console.log(db);
 
-const washingtonRef = doc(db, "emotionball", "test");
+const washingtonRef = doc(db, "emotionball", "deadful");
 
 // Helper function to update circle size
 function updateCircleSize(circle, clickCount) {
