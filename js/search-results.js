@@ -23,7 +23,7 @@ export const createSearchResults = async () => {
             }
         }
         item.innerHTML = `
-        <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+        <a href="/emotion_balls/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
             <div class="movie-card-img" style="${movieCardImg()}"></div>
             <div class="movie-card-con">
                 <div class="movie-card-tit">${movie.title}</div>

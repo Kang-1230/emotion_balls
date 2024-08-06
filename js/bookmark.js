@@ -96,7 +96,6 @@ async function pageLoad() {
                 return currentBmkList.some((alreadyBmk) => alreadyBmk.id === currentMovieInfo.id);
             }
         };
-        // console.log(currentBmkList[0].id);
 
         //이미 활성화되어있는 북마크 표시하기
         const bmkCheck = () => {

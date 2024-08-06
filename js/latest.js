@@ -21,7 +21,7 @@ fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1", op
             const cardImg = document.createElement("li");
             cardImg.className = "movie-card";
             cardImg.innerHTML = `
-            <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+            <a href="/emotion_balls/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
                 <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path})"></div>
                 <div class="movie-card-con">
                     <div class="movie-card-tit">${movie.title}</div>
