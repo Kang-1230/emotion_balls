@@ -8,50 +8,18 @@ const options = {
 };
 
 //fetch 페이지 10개 만들어서 영화 개수 늘리기
+//Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
 async function fetchData() {
-    const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
-    const data1 = await response1.json();
-
-    const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2", options);
-    const data2 = await response2.json();
-
-    const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=3", options);
-    const data3 = await response3.json();
-
-    const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4", options);
-    const data4 = await response4.json();
-
-    const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=5", options);
-    const data5 = await response5.json();
-
-    const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=6", options);
-    const data6 = await response6.json();
-
-    const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=7", options);
-    const data7 = await response7.json();
-
-    const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=8", options);
-    const data8 = await response8.json();
-
-    const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=9", options);
-    const data9 = await response9.json();
-
-    const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=10", options);
-    const data10 = await response10.json();
-
-    const movies1 = data1.results;
-    const movies2 = data2.results;
-    const movies3 = data3.results;
-    const movies4 = data4.results;
-    const movies5 = data5.results;
-    const movies6 = data6.results;
-    const movies7 = data7.results;
-    const movies8 = data8.results;
-    const movies9 = data9.results;
-    const movies10 = data10.results;
-
-    const mergeMovies = [...movies1, ...movies2, ...movies3, ...movies4, ...movies5, ...movies6, ...movies7, ...movies8, ...movies9, ...movies10];
-    //영화 리스트 하나의 배열로 합치기
+    const fetchMovies = async (page) => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`);
+        const data = await response.json();
+        return data.results;
+    };
+    const moviePromises = Array.from({ length: 10 }, (_, i) => {
+        return fetchMovies(i + 1);
+    });
+    const results = await Promise.all(moviePromises);
+    const mergeMovies = results.flat();
 
     const genres = [
         { Id: 28, name: "Action" },
@@ -99,10 +67,17 @@ async function fetchData() {
             cardImg.className = "movie-card";
             cardImg.innerHTML = `
             <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
-                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                <div class="movie-info">
-                    <h3>${movie.title}</h3>
-                    ${movie.vote_average}<br></br>${movie.overview}
+                <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path})"></div>
+                <div class="movie-card-con">
+                    <div class="movie-card-tit">${movie.title}</div>
+                    <div class="movie-card-info">
+                        <div class="movie-card-rating">
+                            <span class="material-symbols-rounded"> kid_star </span>
+                            ${movie.vote_average}
+                        </div>
+                        <span class="movie-card-date">${movie.release_date}</span>
+                    </div>
+                    <div class="movie-card-txt">${movie.overview}</div>
                 </div>
             </a>`;
             innerCard.appendChild(cardImg);

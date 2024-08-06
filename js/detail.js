@@ -70,17 +70,24 @@ async function pageLoad() {
         const genre = toString(genreArr);
 
         const movieImgPosition = document.querySelector("#movie-img");
-        movieImgPosition.setAttribute("src", `https://image.tmdb.org/t/p/w500${findMovie.poster_path}`);
+        movieImgPosition.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${findMovie.poster_path})`;
 
         const movieText = document.querySelector("#main-text");
-        movieText.innerHTML = `<span id="movie-name">
-                            <h1>${findMovie.title}</h1>
-                        </span>
-                        <span id="genre-box">
-                            <span id="genre"><small>${genre}</small></span>
-                            <span><small>${findMovie.release_date}</small></span>
-                        </span>
-                        <span id="summary">${findMovie.overview}</span>`;
+        movieText.innerHTML = `
+        <h2 id="movie-name">${findMovie.title}</h2>
+        <div id="genre-box">
+            <div class="genre-box-left">
+                <span id="genre">${genre}</span>
+            </div>
+            <div class="genre-box-right">
+                <div class="movie-rating">
+                    <span class="material-symbols-rounded"> kid_star </span>
+                    ${findMovie.vote_average}
+                </div>
+                <span>${findMovie.release_date}</span>
+            </div>
+        </div>
+        <div id="summary">${findMovie.overview}</div>`;
     } catch (error) {
         console.log(error);
     }

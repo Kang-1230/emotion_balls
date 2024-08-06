@@ -34,10 +34,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="../style/reset-fonts.css" rel="stylesheet" />
         <link href="../style/common.css" rel="stylesheet" />
-        <link href="../style/latest-and-top-rates.css" rel="stylesheet" />
 
         <!-- script -->
-        <!-- <script type="module" src="../js/main.js"></script> -->
+        <script type="module" src="../js/common.js"></script>
         <script type="module" src="../js/latest.js"></script>
     </head>
     <body>
@@ -73,9 +72,11 @@
             <!-- // 헤더 -->
             <!-- 컨텐츠 -->
             <main id="contents">
-                <!-- 여기에 작성해주세요 -->
                 <section class="section-latest">
-                    <div class="container-latest"></div>
+                    <div class="container">
+                        <div class="page-tit">최신순</div>
+                        <ul class="movie-cards container-latest"></ul>
+                    </div>
                 </section>
             </main>
             <!-- // 컨텐츠 -->
