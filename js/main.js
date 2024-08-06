@@ -6,8 +6,22 @@ const options = {
         Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
     },
 };
+
 //fetch 페이지 10개 만들어서 영화 개수 늘리기
+//Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
 async function fetchData() {
+<<<<<<< HEAD
+    const fetchMovies = async (page) => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`);
+        const data = await response.json();
+        return data.results;
+    };
+    const moviePromises = Array.from({ length: 10 }, (_, i) => {
+        return fetchMovies(i + 1);
+    });
+    const results = await Promise.all(moviePromises);
+    const mergeMovies = results.flat();
+=======
     const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1", options);
     const data1 = await response1.json();
 
@@ -51,6 +65,7 @@ async function fetchData() {
 
     const mergeMovies = [...movies1, ...movies2, ...movies3, ...movies4, ...movies5, ...movies6, ...movies7, ...movies8, ...movies9, ...movies10];
     //영화 리스트 하나의 배열로 합치기
+>>>>>>> dev
 
     const genres = [
         { Id: 28, name: "Action" },
