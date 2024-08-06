@@ -35,12 +35,12 @@
         <link href="../style/reset-fonts.css" rel="stylesheet" />
         <link href="../style/common.css" rel="stylesheet" />
         <link href="../style/detail.css" rel="stylesheet" />
-        <link href="../style/review.css" rel="stylesheet" />
         <link href="../style/circle.css" rel="stylesheet" />
 
         <!-- script -->
         <script type="module" src="../js/common.js"></script>
         <script type="module" src="../js/detail.js"></script>
+        <script type="module" src="../js/bookmark.js"></script>
         <script type="module" src="../js/review.js"></script>
         <script type="module" src="../js/circle.js"></script>
     </head>
@@ -81,45 +81,47 @@
                     <div class="container">
                         <div id="detail" class="detail-box">
                             <div class="detail-box-left">
-                                <img id="movie-img" src="" alt="" />
+                                <div id="movie-img"></div>
                             </div>
-                            <span id="main-text" class="detail-box-right">
-                                <span id="movieName">영화제목</span>
-                                <span id="genre">
-                                    <span>영화장르</span>
-                                    <span>개봉일자</span>
-                                </span>
-                                <span id="summary">내용</span>
-                                <span id="sub-btn">
-                                    <!-- 버튼들 -->
-                                    <span id="emo-btn">
-                                        <span id="spanHappy">0</span>
-                                        <button type="button" id="buttonHappy">
-                                            <img src="./../image/happy.png" alt="" />
-                                        </button>
-                                        <span id="spanSad">0</span>
-                                        <button type="button" id="buttonSad">
-                                            <img src="./../image/sad.png" alt="" />
-                                        </button>
-                                        <span id="spanAngry">0</span>
-                                        <button type="button" id="buttonAngry">
-                                            <img src="./../image/angry.png" alt="" />
-                                        </button>
-                                        <span id="spanAnxiety">0</span>
-                                        <button type="button" id="buttonAnxiety">
-                                            <img src="./../image/anxiety.png" alt="" />
-                                        </button>
-                                        <span id="spanCold">0</span>
-                                        <button type="button" id="buttonCold">
-                                            <img src="./../image/cold.png" alt="" />
-                                        </button>
-                                    </span>
-                                <button type="button" class="bmkBtn">
-                                    <span id="bmk-off" class="material-symbols-rounded"> bookmark </span>
-                                </button>
+                            <span id="detail-box-right">
+                                <span id="main-text" class="detail-main-text"> </span>
+                                <!-- 버튼들 -->
+                                <div id="sub-btn">
+                                    <div id="emo-btns">
+                                        <div class="emo-btn">
+                                            <button type="button" id="buttonHappy"></button>
+                                            <span class="emo-btn-txt">10</span>
+                                        </div>
+                                        <div class="emo-btn">
+                                            <button type="button" id="buttonSad"><span></span></button>
+                                            <span class="emo-btn-txt">0</span>
+                                        </div>
+                                        <div class="emo-btn">
+                                            <button type="button" id="buttonAngry"></button>
+                                            <span class="emo-btn-txt">20</span>
+                                        </div>
+                                        <div class="emo-btn">
+                                            <button type="button" id="buttonAnxiety"></button>
+                                            <span class="emo-btn-txt">100</span>
+                                        </div>
+                                        <div class="emo-btn">
+                                            <button type="button" id="buttonCold"></button>
+                                            <span class="emo-btn-txt">9999</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="bmkBtn">
+                                        <span id="bmk-off" class="material-symbols-rounded"> bookmark </span>
+                                    </button>
+                                </div>
                             </span>
                         </div>
                     </div>
+                    <!-- 배경이 될 원들 -->
+                    <div id="circle1"></div>
+                    <div id="circle2"></div>
+                    <div id="circle3"></div>
+                    <div id="circle4"></div>
+                    <div id="circle5"></div>
                 </section>
                 <section class="section-review">
                     <div class="container">
@@ -142,12 +144,6 @@
                         </div>
                     </div>
                 </section>
-                <!-- 배경이 될 원들 -->
-                <div id="circle1"></div>
-                <div id="circle2"></div>
-                <div id="circle3"></div>
-                <div id="circle4"></div>
-                <div id="circle5"></div>
             </main>
             <!-- // 컨텐츠 -->
             <!-- 푸터 -->

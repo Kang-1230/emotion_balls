@@ -2,7 +2,6 @@
 const hrefName = encodeURI(window.location.href);
 const parameters = hrefName.slice(hrefName.indexOf("?") + 1, hrefName.length);
 const movieId = Number(parameters.split("=")[1]);
-if (movieId == undefined) movieId = 0;
 
 //API 가져오기
 const options = {
@@ -13,8 +12,6 @@ const options = {
     },
 };
 
-const API_KEY = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&append_to_response=images&include_image_language=en,null";
-
 //장르
 const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35: "Comedy" }, { 80: "Crime" }, { 99: "Documentary" }, { 18: "Drama" }, { 10751: "Family" }, { 14: "Fantasy" }, { 36: "History" }, { 27: "Horror" }, { 10402: "Music" }, { 9648: "Mystery" }, { 10749: "Romance" }, { 878: "Science Fiction" }, { 10770: "TV Movie" }, { 53: "Thriller" }, { 10752: "War" }, { 37: "Western" }];
 
@@ -24,12 +21,28 @@ const btnImg = document.querySelector("#bmk-off");
 
 async function pageLoad() {
     try {
-        const response = await fetch(API_KEY, options);
-        const data = await response.json();
-        const movies = data.results;
+        const URL = (num) => `https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${num}`;
+
+        const URLs = [URL(1), URL(2), URL(3), URL(4), URL(5), URL(6), URL(7), URL(8), URL(9), URL(10)];
+
+        async function fetchData(url) {
+            return fetch(url).then((response) => response.json());
+        }
+        async function fetchAllMovies(urls) {
+            try {
+                const promises = urls.map((url) => fetchData(url));
+                const results = await Promise.all(promises);
+                return results;
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        const mergeMovies = fetchAllMovies(URLs);
+
         //주소값과 같은 id찾아내기
-        const findMovie = movies.find((movie) => {
-            return movieId === movie.id;
+        const findMovie = mergeMovies.find((mergeMovie) => {
+            return movieId === mergeMovie.id;
         });
 
         //장르id에 맞는 장르 배열로 가져오기
@@ -63,11 +76,12 @@ async function pageLoad() {
         //현재 영화 정보 객체화
         const currentMovieInfo = {
             id: `${findMovie.id}`,
-            image: `https://image.tmdb.org/t/p/w500${findMovie.poster_path}`,
+            image: `${findMovie.poster_path}`,
             title: `${findMovie.title}`,
             genre: `${genre}`,
             releaseDate: `${findMovie.release_date}`,
-            summary: `${findMovie.overview}`,
+            overview: `${findMovie.overview}`,
+            voteAverage: `${findMovie.vote_average}`,
         };
 
         //현재 북마크 정보 동기화
@@ -150,5 +164,5 @@ async function pageLoad() {
     } catch (error) {
         console.log(error);
     }
-};
+}
 pageLoad();

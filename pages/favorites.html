@@ -36,7 +36,8 @@
         <link href="./../style/common.css" rel="stylesheet" />
 
         <!-- script -->
-        <script type="module" src="../js/main.js"></script>
+        <script type="module" src="../js/common.js"></script>
+        <script type="module" src="../js/favorites.js"></script>
     </head>
     <body>
         <div id="wrap">
@@ -71,9 +72,11 @@
             <!-- // 헤더 -->
             <!-- 컨텐츠 -->
             <main id="contents">
-                <!-- 여기에 작성해주세요 -->
-                <section class="section-bmklist">
-                    <ul id="container"></ul>
+                <section id="favorites-container">
+                    <div class="container">
+                        <div class="page-tit">북마크</div>
+                        <ul class="movie-cards" id="favorites"></ul>
+                    </div>
                 </section>
             </main>
             <!-- // 컨텐츠 -->
