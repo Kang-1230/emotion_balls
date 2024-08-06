@@ -66,7 +66,7 @@ async function fetchData() {
             const cardImg = document.createElement("li");
             cardImg.className = "movie-card";
             cardImg.innerHTML = `
-            <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+            <a href="/emotion_balls/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
                 <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path})"></div>
                 <div class="movie-card-con">
                     <div class="movie-card-tit">${movie.title}</div>
@@ -94,33 +94,21 @@ async function fetchData() {
 }
 fetchData().catch((error) => console.log("Error:", error));
 
-//스크롤 버튼 지정
-const sectionMoveBtn = document.querySelectorAll(".move-btn");
-const happyBtn = document.querySelectorAll(".happy-button");
-const sadBtn = document.querySelectorAll(".sad-button");
-const angryBtn = document.querySelectorAll(".angry-button");
-const anxietyBtn = document.querySelectorAll(".anxiety-button");
-const coldBtn = document.querySelectorAll(".cold-button");
-
-//스크롤 타겟 지정
-const targetSection = document.querySelectorAll(".movie-card-section");
-const activeScroll = (index) => window.scroll({ top: targetSection[index].offsetTop, behavior: "smooth" });
-
-const happyScroll = () => activeScroll(0);
-const sadScroll = () => activeScroll(1);
-const angryScroll = () => activeScroll(2);
-const anxietyScroll = () => activeScroll(3);
-const coldScroll = () => activeScroll(4);
-
-//스크롤 실행
-sectionMoveBtn[0].addEventListener("click", happyScroll);
-sectionMoveBtn[1].addEventListener("click", sadScroll);
-sectionMoveBtn[2].addEventListener("click", angryScroll);
-sectionMoveBtn[3].addEventListener("click", anxietyScroll);
-sectionMoveBtn[4].addEventListener("click", coldScroll);
-
-happyBtn.addEventListener("click", happyScroll);
-sadBtn.addEventListener("click", sadScroll);
-angryBtn.addEventListener("click", angryScroll);
-anxietyBtn.addEventListener("click", anxietyScroll);
-coldBtn.addEventListener("click", coldScroll);
+window.onload = function () {
+    // 섹션 스크롤
+    const moveBtn = document.querySelectorAll(".move-btn");
+    moveBtn.forEach((element) => {
+        element.addEventListener("click", () => {
+            let emotion = element.getAttribute("data-emotion");
+            let emotionSection = document.querySelectorAll(`#movie-card-section-${emotion}`);
+            emotionSection.forEach((element) => {
+                const desktop = window.matchMedia("(min-width: 992px)").matches;
+                if (desktop) {
+                    window.scroll({ top: element.offsetTop - 100, behavior: "smooth" });
+                } else {
+                    window.scroll({ top: element.offsetTop - 60, behavior: "smooth" });
+                }
+            });
+        });
+    });
+};

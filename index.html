@@ -53,17 +53,17 @@
                     <div class="header-right">
                         <ul class="gnb">
                             <li>
-                                <a href="/pages/latest.html">최신순</a>
+                                <a href="/emotion_balls/pages/latest.html">최신순</a>
                             </li>
                             <li>
-                                <a href="/pages/top-rates.html">인기순</a>
+                                <a href="/emotion_balls/pages/top-rates.html">인기순</a>
                             </li>
                         </ul>
                         <form class="search">
                             <input type="text" class="search-input" id="header-search-input" placeholder="영화 제목을 입력해주세요" />
                             <button type="button" class="search-btn" id="header-search-btn"><span class="material-symbols-rounded"> search </span></button>
                         </form>
-                        <a href="/pages/favorites.html" class="bookmark-btn">
+                        <a href="/emotion_balls/pages/favorites.html" class="bookmark-btn">
                             <span class="material-symbols-rounded"> bookmark </span>
                         </a>
                     </div>
@@ -78,11 +78,11 @@
                     <div class="container">
                         <h3 class="mainvisual-ment">오늘의 <b>감정</b>은 <br class="d-md-none" />어떠신가요?</h3>
                         <div class="emotions">
-                            <button class="move-btn happy"><span class="sr-only">행복</span></button>
-                            <button class="move-btn sad"><span class="sr-only">슬픔</span></button>
-                            <button class="move-btn angry"><span class="sr-only">화남</span></button>
-                            <button class="move-btn anxiety"><span class="sr-only">불안</span></button>
-                            <button class="move-btn cold"><span class="sr-only">까칠</span></button>
+                            <button data-emotion="happy" class="move-btn emotion-btn emotion-btn-happy"><span class="sr-only">행복</span></button>
+                            <button data-emotion="sad" class="move-btn emotion-btn emotion-btn-sad"><span class="sr-only">슬픔</span></button>
+                            <button data-emotion="angry" class="move-btn emotion-btn emotion-btn-angry"><span class="sr-only">화남</span></button>
+                            <button data-emotion="anxiety" class="move-btn emotion-btn emotion-btn-anxiety"><span class="sr-only">불안</span></button>
+                            <button data-emotion="cold" class="move-btn emotion-btn emotion-btn-cold"><span class="sr-only">까칠</span></button>
                         </div>
                     </div>
                     <div class="mainvisual-img"></div>
@@ -91,11 +91,11 @@
                 <section class="movie-card-section" id="movie-card-section-happy">
                     <div class="container">
                         <div class="category">
-                            <button class="happy-button active">행복해요</button>
-                            <button class="sad-button">슬퍼요</button>
-                            <button class="angry-button">화나요</button>
-                            <button class="anxiety-button">불안해요</button>
-                            <button class="cold-button">까칠해요</button>
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy active">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
                         </div>
                         <ul class="movie-cards movielist-section-happy"></ul>
                     </div>
@@ -103,11 +103,11 @@
                 <section class="movie-card-section" id="movie-card-section-sad">
                     <div class="container">
                         <div class="category">
-                            <button class="happy-button">행복해요</button>
-                            <button class="sad-button active">슬퍼요</button>
-                            <button class="angry-button">화나요</button>
-                            <button class="anxiety-button">불안해요</button>
-                            <button class="cold-button">까칠해요</button>
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad active">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
                         </div>
                         <ul class="movie-cards movielist-section-sad"></ul>
                     </div>
@@ -115,11 +115,11 @@
                 <section class="movie-card-section" id="movie-card-section-angry">
                     <div class="container">
                         <div class="category">
-                            <button class="happy-button">행복해요</button>
-                            <button class="sad-button">슬퍼요</button>
-                            <button class="angry-button active">화나요</button>
-                            <button class="anxiety-button">불안해요</button>
-                            <button class="cold-button">까칠해요</button>
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry active">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
                         </div>
                         <ul class="movie-cards movielist-section-angry"></ul>
                     </div>
@@ -127,11 +127,11 @@
                 <section class="movie-card-section" id="movie-card-section-anxiety">
                     <div class="container">
                         <div class="category">
-                            <button class="happy-button">행복해요</button>
-                            <button class="sad-button">슬퍼요</button>
-                            <button class="angry-button">화나요</button>
-                            <button class="anxiety-button active">불안해요</button>
-                            <button class="cold-button">까칠해요</button>
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety active">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
                         </div>
                         <ul class="movie-cards movielist-section-anxiety"></ul>
                     </div>
@@ -139,11 +139,11 @@
                 <section class="movie-card-section" id="movie-card-section-cold">
                     <div class="container">
                         <div class="category">
-                            <button class="happy-button">행복해요</button>
-                            <button class="sad-button">슬퍼요</button>
-                            <button class="angry-button">화나요</button>
-                            <button class="anxiety-button">불안해요</button>
-                            <button class="cold-button active">까칠해요</button>
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold active">까칠해요</button>
                         </div>
                         <ul class="movie-cards movielist-section-cold"></ul>
                     </div>

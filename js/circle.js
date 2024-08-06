@@ -16,7 +16,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-console.log(db);
 const urlSearch = new URLSearchParams(location.search);
 const getUrlMovieId = urlSearch.get("movieId");
 const washingtonRef = doc(db, "emotionball", getUrlMovieId);
@@ -30,7 +29,6 @@ function updateCircleSize(circle, clickCount) {
 
 // Helper function to handle button click
 async function handleClick(counter, span, circle, field) {
-    console.log(counter);
     counter++;
     span.innerText = `${counter}`;
     try {
@@ -42,7 +40,6 @@ async function handleClick(counter, span, circle, field) {
         if (docSnap.exists()) {
             const updatedCount = docSnap.data()[field];
             updateCircleSize(circle, updatedCount);
-            console.log(`Updated ${field} count: ${updatedCount}`);
         }
     } catch (error) {
         console.error(error);
@@ -121,6 +118,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     buttonCold.addEventListener("click", async () => {
         cnt5 = await handleClick(cnt5, spanCold, circle5, "cold");
     });
-
-    console.log(docSnap);
 });
