@@ -53,24 +53,24 @@ async function handleClick(counter, span, circle, field) {
 
 // Initialize buttons and counters
 document.addEventListener("DOMContentLoaded", async () => {
-    const buttonHappy = document.getElementById("buttonHappy");
-    const spanHappy = document.getElementById("spanHappy");
+    const buttonHappy = document.getElementById("button-happy");
+    const spanHappy = document.getElementById("span-happy");
     const circle1 = document.getElementById("circle1");
 
-    const buttonSad = document.getElementById("buttonSad");
-    const spanSad = document.getElementById("spanSad");
+    const buttonSad = document.getElementById("button-sad");
+    const spanSad = document.getElementById("span-sad");
     const circle2 = document.getElementById("circle2");
 
-    const buttonAngry = document.getElementById("buttonAngry");
-    const spanAngry = document.getElementById("spanAngry");
+    const buttonAngry = document.getElementById("button-angry");
+    const spanAngry = document.getElementById("span-angry");
     const circle3 = document.getElementById("circle3");
 
-    const buttonAnxiety = document.getElementById("buttonAnxiety");
-    const spanAnxiety = document.getElementById("spanAnxiety");
+    const buttonAnxiety = document.getElementById("button-anxiety");
+    const spanAnxiety = document.getElementById("span-anxiety");
     const circle4 = document.getElementById("circle4");
 
-    const buttonCold = document.getElementById("buttonCold");
-    const spanCold = document.getElementById("spanCold");
+    const buttonCold = document.getElementById("button-cold");
+    const spanCold = document.getElementById("span-cold");
     const circle5 = document.getElementById("circle5");
 
     let cnt1 = 0,
@@ -121,4 +121,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     buttonCold.addEventListener("click", async () => {
         cnt5 = await handleClick(cnt5, spanCold, circle5, "cold");
     });
+
+    console.log(docSnap);
 });
