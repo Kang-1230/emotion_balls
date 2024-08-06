@@ -159,9 +159,9 @@
     background-color: var(--sky-color);
 }
 #movie-card-section-angry:before {
-    top: 50%;
+    top: 16%;
     left: -10%;
-    width: 20vw;
+    width: 30vw;
     background-color: var(--red-color);
 }
 #movie-card-section-anxiety:before {
