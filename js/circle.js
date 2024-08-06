@@ -17,8 +17,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 console.log(db);
-
-const washingtonRef = doc(db, "emotionball", "deadful");
+const urlSearch = new URLSearchParams(location.search);
+const getUrlMovieId = urlSearch.get("movieId");
+const washingtonRef = doc(db, "emotionball", "test");
 
 // Helper function to update circle size
 function updateCircleSize(circle, clickCount) {
@@ -28,62 +29,96 @@ function updateCircleSize(circle, clickCount) {
 }
 
 // Helper function to handle button click
-async function handleClick(circle, field) {
-    await updateDoc(washingtonRef, {
-        [field]: increment(5),
-    });
+async function handleClick(counter, span, circle, field) {
+    console.log(counter);
+    counter++;
+    span.innerText = `${counter}`;
+    try {
+        await updateDoc(washingtonRef, {
+            [field]: increment(5),
+        });
 
-    const docSnap = await getDoc(washingtonRef);
-    if (docSnap.exists()) {
-        const updatedCount = docSnap.data()[field];
-        updateCircleSize(circle, updatedCount);
-        console.log(`Updated ${field} count: ${updatedCount}`);
+        const docSnap = await getDoc(washingtonRef);
+        if (docSnap.exists()) {
+            const updatedCount = docSnap.data()[field];
+            updateCircleSize(circle, updatedCount);
+            console.log(`Updated ${field} count: ${updatedCount}`);
+        }
+    } catch (error) {
+        console.error(error);
+    } finally {
+        return counter;
     }
 }
 
 // Initialize buttons and counters
 document.addEventListener("DOMContentLoaded", async () => {
     const buttonHappy = document.getElementById("buttonHappy");
+    const spanHappy = document.getElementById("spanHappy");
     const circle1 = document.getElementById("circle1");
 
     const buttonSad = document.getElementById("buttonSad");
+    const spanSad = document.getElementById("spanSad");
     const circle2 = document.getElementById("circle2");
 
     const buttonAngry = document.getElementById("buttonAngry");
+    const spanAngry = document.getElementById("spanAngry");
     const circle3 = document.getElementById("circle3");
 
     const buttonAnxiety = document.getElementById("buttonAnxiety");
+    const spanAnxiety = document.getElementById("spanAnxiety");
     const circle4 = document.getElementById("circle4");
 
     const buttonCold = document.getElementById("buttonCold");
+    const spanCold = document.getElementById("spanCold");
     const circle5 = document.getElementById("circle5");
+
+    let cnt1 = 0,
+        cnt2 = 0,
+        cnt3 = 0,
+        cnt4 = 0,
+        cnt5 = 0;
 
     const docSnap = await getDoc(washingtonRef);
     if (docSnap.exists()) {
+        cnt1 = docSnap.data().happy / 5;
+        spanHappy.innerText = `${cnt1}`;
         updateCircleSize(circle1, docSnap.data().happy);
+
+        cnt2 = docSnap.data().sad / 5;
+        spanSad.innerText = `${cnt2}`;
         updateCircleSize(circle2, docSnap.data().sad);
+
+        cnt3 = docSnap.data().angry / 5;
+        spanAngry.innerText = `${cnt3}`;
         updateCircleSize(circle3, docSnap.data().angry);
+
+        cnt4 = docSnap.data().anxiety / 5;
+        spanAnxiety.innerText = `${cnt4}`;
         updateCircleSize(circle4, docSnap.data().anxiety);
+
+        cnt5 = docSnap.data().cold / 5;
+        spanCold.innerText = `${cnt5}`;
         updateCircleSize(circle5, docSnap.data().cold);
     }
 
-    buttonHappy.addEventListener("click", () => {
-        handleClick(circle1, "happy");
+    buttonHappy.addEventListener("click", async () => {
+        cnt1 = await handleClick(cnt1, spanHappy, circle1, "happy");
     });
 
-    buttonSad.addEventListener("click", () => {
-        handleClick(circle2, "sad");
+    buttonSad.addEventListener("click", async () => {
+        cnt2 = await handleClick(cnt2, spanSad, circle2, "sad");
     });
 
-    buttonAngry.addEventListener("click", () => {
-        handleClick(circle3, "angry");
+    buttonAngry.addEventListener("click", async () => {
+        cnt3 = await handleClick(cnt3, spanAngry, circle3, "angry");
     });
 
-    buttonAnxiety.addEventListener("click", () => {
-        handleClick(circle4, "anxiety");
+    buttonAnxiety.addEventListener("click", async () => {
+        cnt4 = await handleClick(cnt4, spanAnxiety, circle4, "anxiety");
     });
 
-    buttonCold.addEventListener("click", () => {
-        handleClick(circle5, "cold");
+    buttonCold.addEventListener("click", async () => {
+        cnt5 = await handleClick(cnt5, spanCold, circle5, "cold");
     });
 });
