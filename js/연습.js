@@ -18,11 +18,16 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 console.log(db);
 
-const washingtonRef = doc(db, "emotionball", "deadful");
+// Extract movieId from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const movieId = urlParams.get("movieId");
+
+// Use the movieId to create a Firestore reference
+const washingtonRef = doc(db, "emotionball", movieId);
 
 // Helper function to update circle size
 function updateCircleSize(circle, clickCount) {
-    const newSize = 100 + clickCount; // 기본 크기에서 클릭당 크기 증가
+    const newSize = 200 + clickCount; // 기본 크기에서 클릭당 크기 증가
     circle.style.width = `${newSize}px`;
     circle.style.height = `${newSize}px`;
 }
@@ -30,7 +35,7 @@ function updateCircleSize(circle, clickCount) {
 // Helper function to handle button click
 async function handleClick(circle, field) {
     await updateDoc(washingtonRef, {
-        [field]: increment(5),
+        [field]: increment(50),
     });
 
     const docSnap = await getDoc(washingtonRef);
