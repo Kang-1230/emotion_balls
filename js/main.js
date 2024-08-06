@@ -11,7 +11,7 @@ const options = {
 //Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
 async function fetchData() {
     const fetchMovies = async (page) => {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`,options);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`, options);
         const data = await response.json();
         return data.results;
     };
@@ -96,6 +96,11 @@ fetchData().catch((error) => console.log("Error:", error));
 
 //스크롤 버튼 지정
 const sectionMoveBtn = document.querySelectorAll(".move-btn");
+const happyBtn = document.querySelectorAll(".happy-button");
+const sadBtn = document.querySelectorAll(".sad-button");
+const angryBtn = document.querySelectorAll(".angry-button");
+const anxietyBtn = document.querySelectorAll(".anxiety-button");
+const coldBtn = document.querySelectorAll(".cold-button");
 
 //스크롤 타겟 지정
 const targetSection = document.querySelectorAll(".movie-card-section");
@@ -113,3 +118,9 @@ sectionMoveBtn[1].addEventListener("click", sadScroll);
 sectionMoveBtn[2].addEventListener("click", angryScroll);
 sectionMoveBtn[3].addEventListener("click", anxietyScroll);
 sectionMoveBtn[4].addEventListener("click", coldScroll);
+
+happyBtn.addEventListener("click", happyScroll);
+sadBtn.addEventListener("click", sadScroll);
+angryBtn.addEventListener("click", angryScroll);
+anxietyBtn.addEventListener("click", anxietyScroll);
+coldBtn.addEventListener("click", coldScroll);
