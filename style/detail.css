@@ -96,19 +96,19 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-#buttonHappy {
+#button-happy {
     background-image: url(../image/happy.png);
 }
-#buttonSad {
+#button-sad {
     background-image: url(../image/sad.png);
 }
-#buttonAngry {
+#button-angry {
     background-image: url(../image/angry.png);
 }
-#buttonAnxiety {
+#button-anxiety {
     background-image: url(../image/anxiety.png);
 }
-#buttonCold {
+#button-cold {
     background-image: url(../image/cold.png);
 }
 .emo-btn-txt {
@@ -118,34 +118,34 @@
     margin-top: 2px;
     transition: all ease 0.4s;
 }
-#buttonHappy + .emo-btn-txt {
+#button-happy + .emo-btn-txt {
     color: var(--yellow-color);
 }
-#buttonHappy:hover + .emo-btn-txt {
+#button-happy:hover + .emo-btn-txt {
     color: var(--yellow-hover-color);
 }
-#buttonSad + .emo-btn-txt {
+#button-sad + .emo-btn-txt {
     color: var(--sky-color);
 }
-#buttonSad:hover + .emo-btn-txt {
+#button-sad:hover + .emo-btn-txt {
     color: var(--sky-hover-color);
 }
-#buttonAngry + .emo-btn-txt {
+#button-angry + .emo-btn-txt {
     color: var(--red-color);
 }
-#buttonAngry:hover + .emo-btn-txt {
+#button-angry:hover + .emo-btn-txt {
     color: var(--red-hover-color);
 }
-#buttonAnxiety + .emo-btn-txt {
+#button-anxiety + .emo-btn-txt {
     color: var(--purple-color);
 }
-#buttonAnxiety:hover + .emo-btn-txt {
+#button-anxiety:hover + .emo-btn-txt {
     color: var(--purple-hover-color);
 }
-#buttonCold + .emo-btn-txt {
+#button-cold + .emo-btn-txt {
     color: var(--light-green-color);
 }
-#buttonCold:hover + .emo-btn-txt {
+#button-cold:hover + .emo-btn-txt {
     color: var(--light-green-hover-color);
 }
 #bmk-off,

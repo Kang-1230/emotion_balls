@@ -3,7 +3,7 @@ const options = {
     method: "GET",
     headers: {
         accept: "application/json",
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGU1ODM2ZDQ0ZTllMjc2YTAzYjhiOWRhYzAyMTYxZSIsIm5iZiI6MTcyMjc1NTA1My44NDAzODgsInN1YiI6IjY2YTIzN2I5NTU3ZDEyMmU4NTE4ZWI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JRWjgRNrkGahvLMsOkNF2zPFOxwRB5oVfyFipUPToi0",
     },
 };
 
@@ -95,8 +95,8 @@ async function fetchData() {
 
 fetchData()
     .then(() => {
-        const sectionMoveBtn = document.querySelectorAll(".moveBtn");
-        const scrollTopBtn = document.getElementById("scroll-btn");
+        const sectionMoveBtn = document.querySelectorAll(".move-btn");
+        // const scrollTopBtn = document.getElementById("scroll-btn");
 
         const targetSection = document.querySelectorAll(".movie-card");
         console.log(targetSection);
@@ -105,20 +105,20 @@ fetchData()
         const angryTop = targetSection[5].offsetTop;
         const anxietyTop = targetSection[13].offsetTop;
         const coldTop = targetSection[2].offsetTop;
-        const pageTop = document.getElementById("wrap").offsetTop;
+        // const pageTop = document.getElementById("wrap").offsetTop;
 
         const happyScroll = () => window.scroll({ top: happyTop, behavior: "smooth" });
         const sadScroll = () => window.scroll({ top: sadTop, behavior: "smooth" });
         const angryScroll = () => window.scroll({ top: angryTop, behavior: "smooth" });
         const anxietyScroll = () => window.scroll({ top: anxietyTop, behavior: "smooth" });
         const coldScroll = () => window.scroll({ top: coldTop, behavior: "smooth" });
-        const scrollTop = () => window.scroll({ top: pageTop, behavior: "smooth" });
+        // const scrollTop = () => window.scroll({ top: pageTop, behavior: "smooth" });
 
         sectionMoveBtn[0].addEventListener("click", happyScroll);
         sectionMoveBtn[1].addEventListener("click", sadScroll);
         sectionMoveBtn[2].addEventListener("click", angryScroll);
         sectionMoveBtn[3].addEventListener("click", anxietyScroll);
         sectionMoveBtn[4].addEventListener("click", coldScroll);
-        scrollTopBtn.addEventListener("click", scrollTop);
+        // scrollTopBtn.addEventListener("click", scrollTop);
     })
     .catch((error) => console.error("Error:", error));

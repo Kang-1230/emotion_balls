@@ -43,19 +43,19 @@ async function handleClick(circle, field) {
 
 // Initialize buttons and counters
 document.addEventListener("DOMContentLoaded", async () => {
-    const buttonHappy = document.getElementById("buttonHappy");
+    const buttonHappy = document.getElementById("button-happy");
     const circle1 = document.getElementById("circle1");
 
-    const buttonSad = document.getElementById("buttonSad");
+    const buttonSad = document.getElementById("button-sad");
     const circle2 = document.getElementById("circle2");
 
-    const buttonAngry = document.getElementById("buttonAngry");
+    const buttonAngry = document.getElementById("button-angry");
     const circle3 = document.getElementById("circle3");
 
-    const buttonAnxiety = document.getElementById("buttonAnxiety");
+    const buttonAnxiety = document.getElementById("button-anxiety");
     const circle4 = document.getElementById("circle4");
 
-    const buttonCold = document.getElementById("buttonCold");
+    const buttonCold = document.getElementById("button-cold");
     const circle5 = document.getElementById("circle5");
 
     const docSnap = await getDoc(washingtonRef);
@@ -86,4 +86,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     buttonCold.addEventListener("click", () => {
         handleClick(circle5, "cold");
     });
+
+    console.log(docSnap);
 });
