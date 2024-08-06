@@ -5,11 +5,12 @@ const movieList = document.querySelector("#favorites");
 
 const pageLoad = () => {
     if (bmkList === null) {
-        const emptyContainer = document.querySelector("#favorites-container");
-        const emptyAlert = document.createElement("h1");
-        emptyAlert.id = "empty-alert";
-        emptyAlert.innerHTML = "북마크한 영화가 없습니다";
-        emptyContainer.appendChild(emptyAlert);
+        // const emptyContainer = document.querySelector("#favorites-container");
+        // const emptyAlert = document.createElement("h1");
+        let emptyAlert = document.createElement("div");
+        emptyAlert.className = "no-results";
+        emptyAlert.innerHTML = "북마크 한 영화가 없습니다.";
+        movieList.before(emptyAlert);
     } else {
         try {
             bmkList.forEach((data) => {
