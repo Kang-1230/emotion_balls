@@ -11,7 +11,7 @@ const options = {
 //Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
 async function fetchData() {
     const fetchMovies = async (page) => {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`,options);
         const data = await response.json();
         return data.results;
     };
@@ -98,7 +98,7 @@ fetchData().catch((error) => console.log("Error:", error));
 const sectionMoveBtn = document.querySelectorAll(".move-btn");
 
 //스크롤 타겟 지정
-const targetSection = document.querySelectorAll(".category");
+const targetSection = document.querySelectorAll(".movie-card-section");
 const activeScroll = (index) => window.scroll({ top: targetSection[index].offsetTop, behavior: "smooth" });
 
 const happyScroll = () => activeScroll(0);

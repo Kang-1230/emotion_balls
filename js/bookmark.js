@@ -21,56 +21,16 @@ const btnImg = document.querySelector("#bmk-off");
 
 async function pageLoad() {
     try {
-        const URL = (num) => `https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${num}`;
-        const URLs = [URL(1), URL(2), URL(3), URL(4), URL(5), URL(6), URL(7), URL(8), URL(9), URL(10)]; // url 하나하나가 맵핑된 배열
-
-        //
-        async function fetchData(url) {
-            // const rensponse = fetch(url).then((response) => response.json());
-
-            // fetch(url).then(function (res) {
-            //     return res.json();
-            // });
-
-            // const response = await fetch(url).then(function (res) {
-            //     res.json().then(function (최종변환값) {
-            //         console.log("TEMP => ", 최종변환값)
-            //         return 최종변환값; // 20개를 잘 받아왔음
-            //     })
-            // });
-
-            const response = await fetch(url);
+        const fetchMovies = async (page) => {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`, options);
             const data = await response.json();
-            return data;
-        }
-
-        async function fetchAllMovies(urls) {
-            try {
-                const response1 = await fetchData(urls[0]);
-                const response2 = await fetchData(urls[1]);
-                const response3 = await fetchData(urls[2]);
-
-                // console.log(response1)
-                // console.log(response2)
-                // console.log(response3)
-                
-                return [...response1.results, ...response2.results, ...response3.results];
-
-                // const promises = urls.map((url) => fetchData(url).result);
-
-                // const promises = urls.map(function (url) {
-                //     return fetchData(url).result;
-                // });
-                // const results = await Promise.all(promises);
-                // return results;
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        // 함수의 호출 1
-        const mergeMovies = await fetchAllMovies(URLs);
-        console.log(mergeMovies);
+            return data.results;
+        };
+        const moviePromises = Array.from({ length: 10 }, (_, i) => {
+            return fetchMovies(i + 1);
+        });
+        const results = await Promise.all(moviePromises);
+        const mergeMovies = results.flat();
 
         //주소값과 같은 id찾아내기
         const findMovie = mergeMovies.find((mergeMovie) => {
