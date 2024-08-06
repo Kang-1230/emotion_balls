@@ -41,6 +41,7 @@
         <!-- script -->
         <script type="module" src="../js/common.js"></script>
         <script type="module" src="../js/detail.js"></script>
+        <script type="module" src="../js/bookmark.js"></script>
         <script type="module" src="../js/review.js"></script>
         <script type="module" src="../js/circle.js"></script>
     </head>
@@ -83,15 +84,11 @@
                             <div class="detail-box-left">
                                 <img id="movie-img" src="" alt="" />
                             </div>
-                            <span id="main-text" class="detail-box-right">
-                                <span id="movieName">영화제목</span>
-                                <span id="genre">
-                                    <span>영화장르</span>
-                                    <span>개봉일자</span>
+                            <span id="detail-box-right">
+                            <span id="main-text" class="detail-main-text">
                                 </span>
-                                <span id="summary">내용</span>
+                                <!-- 버튼들 -->
                                 <span id="sub-btn">
-                                    <!-- 버튼들 -->
                                     <span id="emo-btn">
                                         <button type="button" id="buttonHappy">
                                             <img src="./../image/happy.png" alt="" />
@@ -108,14 +105,12 @@
                                         <button type="button" id="buttonCold">
                                             <img src="./../image/cold.png" alt="" />
                                         </button>
-                                    <button type="button">
-                                        <img src="./../image/bookmarkbtn.png" alt="bookmark-button" />
-                                    </button>
                                 </span>
                                 <button type="button" class="bmkBtn">
                                     <span id="bmk-off" class="material-symbols-rounded"> bookmark </span>
                                 </button>
                             </span>
+</span>
                         </div>
                     </div>
                 </section>

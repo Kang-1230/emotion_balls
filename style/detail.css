@@ -1,12 +1,13 @@
 .wrap-detail #contents {
     padding-bottom: 160px;
 }
-@media (min-width: 576px) {
-}
-@media (min-width: 768px) {
-}
-@media (min-width: 992px) {
-}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
 @media (min-width: 1200px) {
     .wrap-detail #contents {
         padding-bottom: 220px;
@@ -19,11 +20,18 @@
     gap: 60px;
     width: 100%;
 }
-.detail-box-right {
+
+#detail-box-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-main-text {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 #genre-box {
     display: flex;
     flex-direction: row;
@@ -82,6 +90,6 @@
 
 #movie-img {
     height: 400px;
-    width: 300px;
+    width: 800px;
     border-radius: 20px;
 }

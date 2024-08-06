@@ -1,25 +1,28 @@
 //북마크 내역 가져오기
 const bmkList = JSON.parse(window.localStorage.getItem("bmk"));
 
-const movieList = document.querySelector("#container");
+const movieList = document.querySelector("#favorites");
 
-window.onload = () => {
+const pageLoad = () => {
     if (bmkList === null) {
-        const empty = document.querySelector("#contents");
-        empty.innerHTML = "<h1>북마크한 영화가 없습니다</h1>";
+        const emptyContainer = document.querySelector("#favorites-container");
+        const emptyAlert = document.createElement('h1')
+        emptyAlert.id = "empty-alert";
+        emptyAlert.innerHTML = "북마크한 영화가 없습니다";
+        emptyContainer.appendChild(emptyAlert)
     } else {
         try {
             bmkList.forEach((data) => {
-                // const movie = createElement("div").innerText = `
-                const movie = createElement("li");
-                //카드가져오기
+                const movie = document.createElement("li");
+                movie.className = "movie-card";
                 movie.innerHTML = `
-        ${data.image}
-        ${data.title}
-        ${data.genre}
-        ${data.releaseDate}
-        ${data.summary}
-        `;
+                <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+                <img src="https://image.tmdb.org/t/p/w500${data.image}" alt="${data.title}">
+                <div class="movie-info">
+                    <h3>${data.title}</h3>
+                    ${data.voteAverage}<br></br>${data.overview}
+                </div>
+        </a>`;
                 movieList.appendChild(movie);
             });
         } catch (error) {
@@ -28,3 +31,4 @@ window.onload = () => {
         }
     }
 };
+pageLoad();
