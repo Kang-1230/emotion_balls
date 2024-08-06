@@ -17,24 +17,16 @@ const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35
 
 async function pageLoad() {
     try {
-        const URL = (num) => `https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${num}`;
-
-        const URLs = [URL(1), URL(2), URL(3), URL(4), URL(5), URL(6), URL(7), URL(8), URL(9), URL(10)];
-
-        async function fetchData(url) {
-            return fetch(url).then((response) => response.json());
-        }
-        async function fetchAllMovies(urls) {
-            try {
-                const promises = urls.map((url) => fetchData(url));
-                const results = await Promise.all(promises);
-                return results;
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        const mergeMovies = fetchAllMovies(URLs);
+        const fetchMovies = async (page) => {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`, options);
+            const data = await response.json();
+            return data.results;
+        };
+        const moviePromises = Array.from({ length: 10 }, (_, i) => {
+            return fetchMovies(i + 1);
+        });
+        const results = await Promise.all(moviePromises);
+        const mergeMovies = results.flat();
 
         //주소값과 같은 id찾아내기
         const findMovie = mergeMovies.find((mergeMovie) => {
