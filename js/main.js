@@ -92,33 +92,4 @@ async function fetchData() {
     cardMaker(genreArr(genresSearch("Romance")), "happy");
     cardMaker(genreArr(genresSearch("Animation")), "cold");
 }
-
-fetchData()
-    .then(() => {
-        const sectionMoveBtn = document.querySelectorAll(".moveBtn");
-        const scrollTopBtn = document.getElementById("scroll-btn");
-
-        const targetSection = document.querySelectorAll(".movie-card");
-        console.log(targetSection);
-        const happyTop = targetSection[3].offsetTop;
-        const sadTop = targetSection[7].offsetTop;
-        const angryTop = targetSection[5].offsetTop;
-        const anxietyTop = targetSection[13].offsetTop;
-        const coldTop = targetSection[2].offsetTop;
-        const pageTop = document.getElementById("wrap").offsetTop;
-
-        const happyScroll = () => window.scroll({ top: happyTop, behavior: "smooth" });
-        const sadScroll = () => window.scroll({ top: sadTop, behavior: "smooth" });
-        const angryScroll = () => window.scroll({ top: angryTop, behavior: "smooth" });
-        const anxietyScroll = () => window.scroll({ top: anxietyTop, behavior: "smooth" });
-        const coldScroll = () => window.scroll({ top: coldTop, behavior: "smooth" });
-        const scrollTop = () => window.scroll({ top: pageTop, behavior: "smooth" });
-
-        sectionMoveBtn[0].addEventListener("click", happyScroll);
-        sectionMoveBtn[1].addEventListener("click", sadScroll);
-        sectionMoveBtn[2].addEventListener("click", angryScroll);
-        sectionMoveBtn[3].addEventListener("click", anxietyScroll);
-        sectionMoveBtn[4].addEventListener("click", coldScroll);
-        scrollTopBtn.addEventListener("click", scrollTop);
-    })
-    .catch((error) => console.error("Error:", error));
+fetchData().catch((error)=> console.log("Error:", error));
