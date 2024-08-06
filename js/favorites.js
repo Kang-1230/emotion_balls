@@ -16,7 +16,7 @@ const pageLoad = () => {
                 const movie = document.createElement("li");
                 movie.className = "movie-card";
                 movie.innerHTML = `
-                <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+                <a href="/pages/detail.html?movieId=${data.id}" class="movie-card-inner">
                 <img src="https://image.tmdb.org/t/p/w500${data.image}" alt="${data.title}">
                 <div class="movie-info">
                     <h3>${data.title}</h3>

@@ -6,12 +6,8 @@ const options = {
         Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
     },
 };
-<<<<<<< HEAD
 
-
-=======
 //fetch 페이지 10개 만들어서 영화 개수 늘리기
->>>>>>> 3f8db0ac9eb5e6e9a825968153f396005e2e9aab
 async function fetchData() {
     const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
     const data1 = await response1.json();
@@ -95,14 +91,8 @@ async function fetchData() {
         return genreList;
     };
 
-<<<<<<< HEAD
-    console.log("genreArr => ", genreArr(genresSearch("Romance")));
-
-    const cardMaker = await function (genre, classselect) {
-=======
     //querySelector로 class 지정하여 안에 moviecard 추가, 데이터 추가
     const cardMaker = function (genre, classselect) {
->>>>>>> 3f8db0ac9eb5e6e9a825968153f396005e2e9aab
         const innerCard = document.querySelector(`.movielist-section-${classselect}`);
         genre.forEach((movie) => {
             const cardImg = document.createElement("li");
@@ -127,33 +117,4 @@ async function fetchData() {
     cardMaker(genreArr(genresSearch("Romance")), "happy");
     cardMaker(genreArr(genresSearch("Animation")), "cold");
 }
-
-fetchData()
-    .then(() => {
-        const sectionMoveBtn = document.querySelectorAll(".moveBtn");
-        const scrollTopBtn = document.getElementById("scroll-btn");
-
-        const targetSection = document.querySelectorAll(".movie-card");
-        console.log(targetSection)
-        const happyTop = targetSection[3].offsetTop;
-        const sadTop = targetSection[7].offsetTop;
-        const angryTop = targetSection[5].offsetTop;
-        const anxietyTop = targetSection[13].offsetTop;
-        const coldTop = targetSection[2].offsetTop;
-        const pageTop = document.getElementById("wrap").offsetTop;
-
-        const happyScroll = () => window.scroll({ top: happyTop, behavior: "smooth" });
-        const sadScroll = () => window.scroll({ top: sadTop, behavior: "smooth" });
-        const angryScroll = () => window.scroll({ top: angryTop, behavior: "smooth" });
-        const anxietyScroll = () => window.scroll({ top: anxietyTop, behavior: "smooth" });
-        const coldScroll = () => window.scroll({ top: coldTop, behavior: "smooth" });
-        const scrollTop = () => window.scroll({ top: pageTop, behavior: "smooth" });
-
-        sectionMoveBtn[0].addEventListener("click",  happyScroll);
-        sectionMoveBtn[1].addEventListener("click",  sadScroll);
-        sectionMoveBtn[2].addEventListener("click",  angryScroll);
-        sectionMoveBtn[3].addEventListener("click",  anxietyScroll);
-        sectionMoveBtn[4].addEventListener("click",  coldScroll);
-        scrollTopBtn.addEventListener("click", scrollTop);
-    })
-    .catch((error) => console.error("Error:", error));
+fetchData().catch((error)=> console.log("Error:", error));
