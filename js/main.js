@@ -6,41 +6,36 @@ const options = {
         Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
     },
 };
-<<<<<<< HEAD
-
-
-=======
 //fetch 페이지 10개 만들어서 영화 개수 늘리기
->>>>>>> 3f8db0ac9eb5e6e9a825968153f396005e2e9aab
 async function fetchData() {
-    const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
+    const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1", options);
     const data1 = await response1.json();
 
-    const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2", options);
+    const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=2", options);
     const data2 = await response2.json();
 
-    const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=3", options);
+    const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=3", options);
     const data3 = await response3.json();
 
-    const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4", options);
+    const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=4", options);
     const data4 = await response4.json();
 
-    const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=5", options);
+    const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=5", options);
     const data5 = await response5.json();
 
-    const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=6", options);
+    const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=6", options);
     const data6 = await response6.json();
 
-    const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=7", options);
+    const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=7", options);
     const data7 = await response7.json();
 
-    const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=8", options);
+    const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=8", options);
     const data8 = await response8.json();
 
-    const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=9", options);
+    const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=9", options);
     const data9 = await response9.json();
 
-    const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=10", options);
+    const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=10", options);
     const data10 = await response10.json();
 
     const movies1 = data1.results;
@@ -95,24 +90,25 @@ async function fetchData() {
         return genreList;
     };
 
-<<<<<<< HEAD
-    console.log("genreArr => ", genreArr(genresSearch("Romance")));
-
-    const cardMaker = await function (genre, classselect) {
-=======
     //querySelector로 class 지정하여 안에 moviecard 추가, 데이터 추가
     const cardMaker = function (genre, classselect) {
->>>>>>> 3f8db0ac9eb5e6e9a825968153f396005e2e9aab
         const innerCard = document.querySelector(`.movielist-section-${classselect}`);
         genre.forEach((movie) => {
             const cardImg = document.createElement("li");
             cardImg.className = "movie-card";
             cardImg.innerHTML = `
             <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
-                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                <div class="movie-info">
-                    <h3>${movie.title}</h3>
-                    ${movie.vote_average}<br></br>${movie.overview}
+                <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path})"></div>
+                <div class="movie-card-con">
+                    <div class="movie-card-tit">${movie.title}</div>
+                    <div class="movie-card-info">
+                        <div class="movie-card-rating">
+                            <span class="material-symbols-rounded"> kid_star </span>
+                            ${movie.vote_average}
+                        </div>
+                        <span class="movie-card-date">${movie.release_date}</span>
+                    </div>
+                    <div class="movie-card-txt">${movie.overview}</div>
                 </div>
             </a>`;
             innerCard.appendChild(cardImg);
@@ -134,7 +130,7 @@ fetchData()
         const scrollTopBtn = document.getElementById("scroll-btn");
 
         const targetSection = document.querySelectorAll(".movie-card");
-        console.log(targetSection)
+        console.log(targetSection);
         const happyTop = targetSection[3].offsetTop;
         const sadTop = targetSection[7].offsetTop;
         const angryTop = targetSection[5].offsetTop;
@@ -149,11 +145,11 @@ fetchData()
         const coldScroll = () => window.scroll({ top: coldTop, behavior: "smooth" });
         const scrollTop = () => window.scroll({ top: pageTop, behavior: "smooth" });
 
-        sectionMoveBtn[0].addEventListener("click",  happyScroll);
-        sectionMoveBtn[1].addEventListener("click",  sadScroll);
-        sectionMoveBtn[2].addEventListener("click",  angryScroll);
-        sectionMoveBtn[3].addEventListener("click",  anxietyScroll);
-        sectionMoveBtn[4].addEventListener("click",  coldScroll);
+        sectionMoveBtn[0].addEventListener("click", happyScroll);
+        sectionMoveBtn[1].addEventListener("click", sadScroll);
+        sectionMoveBtn[2].addEventListener("click", angryScroll);
+        sectionMoveBtn[3].addEventListener("click", anxietyScroll);
+        sectionMoveBtn[4].addEventListener("click", coldScroll);
         scrollTopBtn.addEventListener("click", scrollTop);
     })
     .catch((error) => console.error("Error:", error));

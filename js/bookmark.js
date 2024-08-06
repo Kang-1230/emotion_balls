@@ -13,7 +13,7 @@ const options = {
     },
 };
 
-const API_KEY = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&append_to_response=images&include_image_language=en,null";
+const API_KEY = "https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1&append_to_response=images&include_image_language=en,null";
 
 //장르
 const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35: "Comedy" }, { 80: "Crime" }, { 99: "Documentary" }, { 18: "Drama" }, { 10751: "Family" }, { 14: "Fantasy" }, { 36: "History" }, { 27: "Horror" }, { 10402: "Music" }, { 9648: "Mystery" }, { 10749: "Romance" }, { 878: "Science Fiction" }, { 10770: "TV Movie" }, { 53: "Thriller" }, { 10752: "War" }, { 37: "Western" }];
@@ -24,34 +24,34 @@ const btnImg = document.querySelector("#bmk-off");
 
 async function pageLoad() {
     try {
-        const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
+        const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1", options);
         const data1 = await response1.json();
 
-        const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2", options);
+        const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=2", options);
         const data2 = await response2.json();
 
-        const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=3", options);
+        const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=3", options);
         const data3 = await response3.json();
 
-        const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4", options);
+        const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=4", options);
         const data4 = await response4.json();
 
-        const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=5", options);
+        const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=5", options);
         const data5 = await response5.json();
 
-        const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=6", options);
+        const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=6", options);
         const data6 = await response6.json();
 
-        const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=7", options);
+        const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=7", options);
         const data7 = await response7.json();
 
-        const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=8", options);
+        const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=8", options);
         const data8 = await response8.json();
 
-        const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=9", options);
+        const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=9", options);
         const data9 = await response9.json();
 
-        const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=10", options);
+        const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=10", options);
         const data10 = await response10.json();
 
         const movies1 = data1.results;
@@ -191,5 +191,5 @@ async function pageLoad() {
     } catch (error) {
         console.log(error);
     }
-};
+}
 pageLoad();

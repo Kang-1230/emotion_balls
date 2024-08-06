@@ -18,34 +18,34 @@ const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35
 
 async function pageLoad() {
     try {
-        const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
+        const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1", options);
         const data1 = await response1.json();
 
-        const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2", options);
+        const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=2", options);
         const data2 = await response2.json();
 
-        const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=3", options);
+        const response3 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=3", options);
         const data3 = await response3.json();
 
-        const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4", options);
+        const response4 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=4", options);
         const data4 = await response4.json();
 
-        const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=5", options);
+        const response5 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=5", options);
         const data5 = await response5.json();
 
-        const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=6", options);
+        const response6 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=6", options);
         const data6 = await response6.json();
 
-        const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=7", options);
+        const response7 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=7", options);
         const data7 = await response7.json();
 
-        const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=8", options);
+        const response8 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=8", options);
         const data8 = await response8.json();
 
-        const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=9", options);
+        const response9 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=9", options);
         const data9 = await response9.json();
 
-        const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=10", options);
+        const response10 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=10", options);
         const data10 = await response10.json();
 
         const movies1 = data1.results;
@@ -95,17 +95,24 @@ async function pageLoad() {
         const genre = toString(genreArr);
 
         const movieImg = document.querySelector("#movie-img");
-        movieImg.setAttribute("src", `https://image.tmdb.org/t/p/w500${findMovie.poster_path}`);
+        movieImg.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${findMovie.poster_path})`;
 
         const movieText = document.querySelector("#main-text");
-        movieText.innerHTML = `<span id="movie-name">
-                            <h1>${findMovie.title}</h1>
-                        </span>
-                        <span id="genre-box">
-                            <span id="genre"><small>${genre}</small></span>
-                            <span><small>${findMovie.release_date}</small></span>
-                        </span>
-                        <span id="summary">${findMovie.overview}</span>`;
+        movieText.innerHTML = `
+        <h2 id="movie-name">${findMovie.title}</h2>
+        <div id="genre-box">
+            <div class="genre-box-left">
+                <span id="genre">${genre}</span>
+            </div>
+            <div class="genre-box-right">
+                <div class="movie-rating">
+                    <span class="material-symbols-rounded"> kid_star </span>
+                    ${findMovie.vote_average}
+                </div>
+                <span>${findMovie.release_date}</span>
+            </div>
+        </div>
+        <div id="summary">${findMovie.overview}</div>`;
     } catch (error) {
         console.log(error);
         // alert("잘 되다가 왜 그러냐 ㅠㅠ");

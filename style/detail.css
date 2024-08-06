@@ -1,80 +1,154 @@
-.wrap-detail #contents {
-    padding-bottom: 160px;
+/* 영화 내용 */
+.section-detail {
+    position: relative;
+    padding-bottom: 120px;
 }
-
-@media (min-width: 576px) {}
-
-@media (min-width: 768px) {}
-
-@media (min-width: 992px) {}
-
-@media (min-width: 1200px) {
-    .wrap-detail #contents {
-        padding-bottom: 220px;
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .section-detail {
+        padding-bottom: 140px;
     }
 }
-
-/* 영화 내용 */
+@media (min-width: 1200px) {
+}
 .detail-box {
     display: flex;
-    gap: 60px;
+    flex-direction: column;
+    gap: 30px;
     width: 100%;
 }
-
+.detail-box-left {
+    width: 100%;
+    max-width: 400px;
+}
 #detail-box-right {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
-
 .detail-main-text {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-
+#movie-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background-color: var(--dark-gray-color);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+#movie-name {
+    font-size: 40px;
+    margin-bottom: 24px;
+}
 #genre-box {
     display: flex;
-    flex-direction: row;
-    padding: 10px auto 10px auto;
+    flex-direction: column;
+    font-size: 16px;
+    margin-bottom: var(--spacing);
+    gap: var(--spacing-sm);
 }
-
-#genre {
-    padding-right: 10px;
+.genre-box-right {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing);
+    align-items: center;
 }
-
+.movie-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.movie-rating .material-symbols-rounded {
+    color: var(--yellow-color);
+}
+#summary {
+    font-size: 16px;
+}
 #sub-btn {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: auto;
+    padding-top: 30px;
 }
-
-#sub-btn img {
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-}
-
-#movie-name {
-    height: 50px;
-}
-
-#summary {
-    font-size: 18px !important;
-}
-
-#bmk-off {
+#emo-btns {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    color: var(--sky-hover-color);
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    gap: var(--spacing-sm);
 }
-
+.emo-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.emo-btn button {
+    width: 40px;
+    height: 40px;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#buttonHappy {
+    background-image: url(../image/happy.png);
+}
+#buttonSad {
+    background-image: url(../image/sad.png);
+}
+#buttonAngry {
+    background-image: url(../image/angry.png);
+}
+#buttonAnxiety {
+    background-image: url(../image/anxiety.png);
+}
+#buttonCold {
+    background-image: url(../image/cold.png);
+}
+.emo-btn-txt {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--light-gray2-color);
+    margin-top: 2px;
+    transition: all ease 0.4s;
+}
+#buttonHappy + .emo-btn-txt {
+    color: var(--yellow-color);
+}
+#buttonHappy:hover + .emo-btn-txt {
+    color: var(--yellow-hover-color);
+}
+#buttonSad + .emo-btn-txt {
+    color: var(--sky-color);
+}
+#buttonSad:hover + .emo-btn-txt {
+    color: var(--sky-hover-color);
+}
+#buttonAngry + .emo-btn-txt {
+    color: var(--red-color);
+}
+#buttonAngry:hover + .emo-btn-txt {
+    color: var(--red-hover-color);
+}
+#buttonAnxiety + .emo-btn-txt {
+    color: var(--purple-color);
+}
+#buttonAnxiety:hover + .emo-btn-txt {
+    color: var(--purple-hover-color);
+}
+#buttonCold + .emo-btn-txt {
+    color: var(--light-green-color);
+}
+#buttonCold:hover + .emo-btn-txt {
+    color: var(--light-green-hover-color);
+}
+#bmk-off,
 #bmk-on {
     display: flex;
     flex-wrap: wrap;
@@ -83,13 +157,206 @@
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    background-color: var(--sky-hover-color);
-    color: white;
+    transition: all ease 0.4s;
+}
+#bmk-off {
+    color: var(--sky-color);
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+#bmk-on {
+    color: #fff;
+    background-color: var(--sky-color);
     font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
+#bmk-off:hover {
+    background-color: var(--dark-gray-color);
+}
+#bmk-on:hover {
+    background-color: var(--sky-hover-color);
+}
+@media (min-width: 576px) {
+    .detail-box {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+@media (min-width: 768px) {
+    #movie-name {
+        font-size: 44px;
+        margin-bottom: 20px;
+    }
+    #summary {
+        font-size: 18px;
+    }
+    #emo-btns {
+        display: flex;
+        gap: var(--spacing);
+    }
+}
+@media (min-width: 992px) {
+    #movie-name {
+        font-size: 50px;
+        margin-bottom: 40px;
+    }
+    .detail-box {
+        gap: 60px;
+    }
+    #genre-box {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
 
-#movie-img {
-    height: 400px;
-    width: 800px;
-    border-radius: 20px;
+@media (min-width: 1200px) {
+}
+
+/* 리뷰 */
+.section-review {
+    padding-top: 20px;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .section-review {
+        padding-top: 80px;
+    }
+}
+@media (min-width: 1200px) {
+}
+
+/* 리뷰 작성 */
+.review-input-wrap,
+.review-textarea-wrap {
+    gap: var(--spacing-sm);
+}
+.review-input-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.review-input {
+    width: 100%;
+}
+.review-textarea-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-sm);
+}
+.review-textarea {
+    width: calc(100% - var(--spacing-sm) - 80px);
+    min-height: 6.5em;
+}
+.review-edit-btns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 80px;
+}
+.review-cancel,
+.review-submit,
+.review-edit-submit {
+    width: 80px;
+    font-size: 16px;
+    flex: 1 0 auto;
+}
+.review-cancel {
+    color: var(--dark-gray-color);
+    background-color: var(--light-gray-color);
+}
+.review-submit,
+.review-edit-submit {
+    color: #fff;
+    background-color: var(--sky-color);
+}
+.review-submit:hover,
+.review-edit-submit:hover {
+    background-color: var(--sky-hover-color);
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+    .review-input-wrap {
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+}
+
+/* 리뷰 리스트 */
+.review-item {
+    padding: var(--spacing) var(--spacing-sm);
+    border-bottom: 1px solid var(--dark-gray-color);
+}
+.review-item:first-child {
+    border-top: 2px solid var(--light-gray2-color);
+    margin-top: 50px;
+}
+.review-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+.review-info,
+.review-btns {
+    display: flex;
+    align-items: center;
+}
+.review-info {
+    width: 100%;
+    gap: var(--spacing-sm);
+}
+.review-writer {
+    max-width: calc(100% - 78px);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--purple-color);
+}
+.review-date {
+    font-size: 12px;
+    color: var(--light-gray2-color);
+}
+.review-btns {
+    gap: var(--spacing-sm);
+}
+.review-btns .material-symbols-rounded {
+    font-size: 14px;
+}
+.review-edit,
+.review-del {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #fff;
+    border-radius: 50%;
+}
+.review-edit {
+    background-color: var(--light-green-color);
+}
+.review-edit:hover {
+    background-color: var(--light-green-hover-color);
+}
+.review-del {
+    background-color: var(--red-color);
+}
+.review-del:hover {
+    background-color: var(--red-hover-color);
+}
+.review-txt {
+    font-size: 16px;
+    line-height: 1.5;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
 }
