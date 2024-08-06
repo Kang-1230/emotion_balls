@@ -42,12 +42,11 @@ async function pageLoad() {
         let genreArr = [];
         for (let i = 0; i < genres.length; i++) {
             let foundId = genreId.find((key) => key in genres[i]);
-            if (foundId === undefined) {
-                continue;
-            } else {
+            if (foundId !== undefined) {
                 genreArr.push(Object.values(genres[i]));
             }
         }
+
         //배열 문자열화
         const toString = function (inputArr) {
             switch (inputArr.length) {

@@ -118,9 +118,3 @@ sectionMoveBtn[1].addEventListener("click", sadScroll);
 sectionMoveBtn[2].addEventListener("click", angryScroll);
 sectionMoveBtn[3].addEventListener("click", anxietyScroll);
 sectionMoveBtn[4].addEventListener("click", coldScroll);
-
-happyBtn.addEventListener("click", happyScroll);
-sadBtn.addEventListener("click", sadScroll);
-angryBtn.addEventListener("click", angryScroll);
-anxietyBtn.addEventListener("click", anxietyScroll);
-coldBtn.addEventListener("click", coldScroll);
