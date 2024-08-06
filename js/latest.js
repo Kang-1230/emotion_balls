@@ -7,7 +7,7 @@ const options = {
     },
 };
 
-fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options)
+fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1", options)
     .then((response) => response.json())
     .then((response) => {
         //영화 최신순으로 정렬
