@@ -12,8 +12,7 @@ fetch("https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1", opti
     .then((response) => {
         //영화 평점별로 정렬
         response.results.sort(function (a, b) {
-            // return b.vote_average - a.vote_average;
-            return new Date(b.vote_average) - new Date(a.vote_average);
+            return b.vote_average - a.vote_average;
         });
         //영화 카드 추가
         const innerCard = document.querySelector(`.container-top`);

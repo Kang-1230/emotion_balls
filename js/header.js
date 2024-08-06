@@ -13,7 +13,7 @@ export const moveSearchResults = async () => {
 
     // 엔터키 이벤트
     headerSearchInput.addEventListener("keydown", (event) => {
-        let headerSearchInputValue = headerSearchInput.value;
+        let headerSearchInputValue = headerSearchInput.value.toLowerCase();
 
         // input에 값이 있으면
         if (event.keyCode === 13 && headerSearchInputValue !== "") {
@@ -30,7 +30,7 @@ export const moveSearchResults = async () => {
 
     // 버튼 클릭 이벤트
     headerSearchBtn.addEventListener("click", () => {
-        let headerSearchInputValue = headerSearchInput.value;
+        let headerSearchInputValue = headerSearchInput.value.toLowerCase();
 
         // input에 값이 있으면
         if (headerSearchInputValue !== "") {
