@@ -17,16 +17,16 @@ const pageLoad = () => {
                 const movie = document.createElement("li");
                 movie.className = "movie-card";
                 movie.innerHTML = `
-                <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+                <a href="/pages/detail.html?movieId=${data.id}" class="movie-card-inner">
                     <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${data.image})"></div>
                     <div class="movie-card-con">
                         <div class="movie-card-tit">${data.title}</div>
                         <div class="movie-card-info">
                             <div class="movie-card-rating">
                                 <span class="material-symbols-rounded"> kid_star </span>
-                                ${data.vote_average}
+                                ${data.voteAverage}
                             </div>
-                            <span class="movie-card-date">${data.release_date}</span>
+                            <span class="movie-card-date">${data.releaseDate}</span>
                         </div>
                         <div class="movie-card-txt">${data.overview}</div>
                     </div>
