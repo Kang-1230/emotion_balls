@@ -19,7 +19,7 @@ export const moveSearchResults = async () => {
         if (event.keyCode === 13 && headerSearchInputValue !== "") {
             // 발생한 이벤트에 대한 브라우저의 기본 동작(새로고침)을 막습니다.
             event.preventDefault();
-            window.location.href = `/pages/search-results.html`;
+            window.location.href = `/emotion_balls/pages/search-results.html`;
 
             // 검색어 로컬 스토리지에 저장
             localStorage.setItem("searchWord", JSON.stringify(headerSearchInputValue));
@@ -34,7 +34,7 @@ export const moveSearchResults = async () => {
 
         // input에 값이 있으면
         if (headerSearchInputValue !== "") {
-            window.location.href = `/pages/search-results.html`;
+            window.location.href = `/emotion_balls/pages/search-results.html`;
 
             // 검색어 로컬 스토리지에 저장
             localStorage.setItem("searchWord", JSON.stringify(headerSearchInputValue));
