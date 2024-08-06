@@ -1,6 +1,6 @@
 /* 메인 */
 .wrap-main #contents {
-    padding: 60px 0 0;
+    padding: 60px 0;
 }
 @media (min-width: 576px) {
 }
@@ -8,10 +8,13 @@
 }
 @media (min-width: 992px) {
     .wrap-main #contents {
-        padding: 100px 0 0;
+        padding: 100px 0 80px;
     }
 }
 @media (min-width: 1200px) {
+    .wrap-main #contents {
+        padding-bottom: 120px;
+    }
 }
 
 /* 메인비주얼 */
@@ -61,11 +64,7 @@
     width: 100%;
     max-width: 700px;
 }
-.happy,
-.sad,
-.angry,
-.anxiety,
-.cold {
+.move-btn {
     width: 100%;
     aspect-ratio: 1 / 1;
     background-position: 50% 50%;
@@ -73,26 +72,22 @@
     background-repeat: no-repeat;
     box-shadow: 0 0 0 rgba(255, 255, 255, 0.6);
 }
-.happy:hover,
-.sad:hover,
-.angry:hover,
-.anxiety:hover,
-.cold:hover {
+.move-btn:hover {
     transform: scale(1.1);
 }
-.happy {
+.move-btn.happy {
     background-image: url("../image/happy.png");
 }
-.sad {
+.move-btn.sad {
     background-image: url("../image/sad.png");
 }
-.angry {
+.move-btn.angry {
     background-image: url("../image/angry.png");
 }
-.anxiety {
+.move-btn.anxiety {
     background-image: url("../image/anxiety.png");
 }
-.cold {
+.move-btn.cold {
     background-image: url("../image/cold.png");
 }
 @media (min-width: 576px) {
@@ -130,7 +125,7 @@
 .movie-card-section {
     position: relative;
     z-index: 1;
-    padding: 30px 0;
+    padding-top: 60px;
 }
 .movie-card-section:before {
     content: "";
@@ -139,12 +134,6 @@
     aspect-ratio: 1/1;
     border-radius: 100%;
     opacity: 0.15;
-}
-#movie-card-section-happy {
-    padding-top: 60px;
-}
-#movie-card-section-cold {
-    padding-bottom: 60px;
 }
 #movie-card-section-happy:before {
     top: 10%;
@@ -227,13 +216,7 @@
 }
 @media (min-width: 992px) {
     .movie-card-section {
-        padding: 50px 0;
-    }
-    #movie-card-section-happy {
-        padding-top: 100px;
-    }
-    #movie-card-section-cold {
-        padding-bottom: 100px;
+        padding-top: 80px;
     }
     .category {
         margin-bottom: 60px;
@@ -241,13 +224,7 @@
 }
 @media (min-width: 1200px) {
     .movie-card-section {
-        padding: 60px 0;
-    }
-    #movie-card-section-happy {
         padding-top: 120px;
-    }
-    #movie-card-section-cold {
-        padding-bottom: 120px;
     }
 }
 

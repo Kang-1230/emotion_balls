@@ -11,7 +11,7 @@ const options = {
 //Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
 async function fetchData() {
     const fetchMovies = async (page) => {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`, options);
         const data = await response.json();
         return data.results;
     };
@@ -94,22 +94,32 @@ async function fetchData() {
 }
 fetchData().catch((error) => console.log("Error:", error));
 
-//스크롤 버튼 지정
-const sectionMoveBtn = document.querySelectorAll(".move-btn");
+window.onload = function () {
+    // 뷰포트 너비
+    const desktop = window.matchMedia("(min-width: 992px)").matches;
+    //스크롤 버튼 지정
+    const sectionMoveBtn = document.querySelectorAll(".move-btn");
 
-//스크롤 타겟 지정
-const targetSection = document.querySelectorAll(".category");
-const activeScroll = (index) => window.scroll({ top: targetSection[index].offsetTop, behavior: "smooth" });
+    //스크롤 타겟 지정
+    const targetSection = document.querySelectorAll(".movie-card-section");
+    const activeScroll = (index) => {
+        if (desktop) {
+            window.scroll({ top: targetSection[index].offsetTop - 100, behavior: "smooth" });
+        } else {
+            window.scroll({ top: targetSection[index].offsetTop - 60, behavior: "smooth" });
+        }
+    };
 
-const happyScroll = () => activeScroll(0);
-const sadScroll = () => activeScroll(1);
-const angryScroll = () => activeScroll(2);
-const anxietyScroll = () => activeScroll(3);
-const coldScroll = () => activeScroll(4);
+    const happyScroll = () => activeScroll(0);
+    const sadScroll = () => activeScroll(1);
+    const angryScroll = () => activeScroll(2);
+    const anxietyScroll = () => activeScroll(3);
+    const coldScroll = () => activeScroll(4);
 
-//스크롤 실행
-sectionMoveBtn[0].addEventListener("click", happyScroll);
-sectionMoveBtn[1].addEventListener("click", sadScroll);
-sectionMoveBtn[2].addEventListener("click", angryScroll);
-sectionMoveBtn[3].addEventListener("click", anxietyScroll);
-sectionMoveBtn[4].addEventListener("click", coldScroll);
+    //스크롤 실행
+    sectionMoveBtn[0].addEventListener("click", happyScroll);
+    sectionMoveBtn[1].addEventListener("click", sadScroll);
+    sectionMoveBtn[2].addEventListener("click", angryScroll);
+    sectionMoveBtn[3].addEventListener("click", anxietyScroll);
+    sectionMoveBtn[4].addEventListener("click", coldScroll);
+};

@@ -15,9 +15,16 @@ export const createSearchResults = async () => {
     function createSearchResultsItem(movie) {
         let item = document.createElement("li");
         item.className = "movie-card";
+        function movieCardImg() {
+            if (movie.poster_path === null) {
+                return "background-image:url(../image/no-image.png); background-size: 52px 52px;";
+            } else {
+                return `background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path});`;
+            }
+        }
         item.innerHTML = `
         <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
-            <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path})"></div>
+            <div class="movie-card-img" style="${movieCardImg()}"></div>
             <div class="movie-card-con">
                 <div class="movie-card-tit">${movie.title}</div>
                 <div class="movie-card-info">
@@ -64,7 +71,7 @@ async function fetchMovieDate() {
         method: "GET",
         headers: {
             accept: "application/json",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGU1ODM2ZDQ0ZTllMjc2YTAzYjhiOWRhYzAyMTYxZSIsIm5iZiI6MTcyMjc1NTA1My44NDAzODgsInN1YiI6IjY2YTIzN2I5NTU3ZDEyMmU4NTE4ZWI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JRWjgRNrkGahvLMsOkNF2zPFOxwRB5oVfyFipUPToi0",
         },
     };
     try {

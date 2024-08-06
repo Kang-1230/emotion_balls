@@ -19,7 +19,7 @@ const db = getFirestore(app);
 console.log(db);
 const urlSearch = new URLSearchParams(location.search);
 const getUrlMovieId = urlSearch.get("movieId");
-const washingtonRef = doc(db, "emotionball", "test");
+const washingtonRef = doc(db, "emotionball", getUrlMovieId);
 
 // Helper function to update circle size
 function updateCircleSize(circle, clickCount) {
@@ -73,11 +73,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const spanCold = document.getElementById("span-cold");
     const circle5 = document.getElementById("circle5");
 
-    let cnt1 = 0,
-        cnt2 = 0,
-        cnt3 = 0,
-        cnt4 = 0,
-        cnt5 = 0;
+    let cnt1 = 0;
+    let cnt2 = 0;
+    let cnt3 = 0;
+    let cnt4 = 0;
+    let cnt5 = 0;
 
     const docSnap = await getDoc(washingtonRef);
     if (docSnap.exists()) {
