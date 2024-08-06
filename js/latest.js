@@ -1,3 +1,4 @@
+//API 이용하여 데이터 추가
 const options = {
     method: "GET",
     headers: {
@@ -9,13 +10,12 @@ const options = {
 fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options)
     .then((response) => response.json())
     .then((response) => {
-        console.log(response);
-
+        //영화 최신순으로 정렬
         response.results.sort(function (a, b) {
             return new Date(b.release_date) - new Date(a.release_date);
         });
-        console.log(response);
 
+        //영화 카드 추가
         const innerCard = document.querySelector(`.container-latest`);
         response.results.forEach((movie) => {
             const cardImg = document.createElement("li");
@@ -30,6 +30,6 @@ fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", op
         </a>`;
             innerCard.appendChild(cardImg);
         });
-    });
+    })
 
-// .catch((err) => console.error(err));
+    .catch((err) => console.error(err));

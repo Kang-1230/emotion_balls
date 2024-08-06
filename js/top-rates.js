@@ -1,3 +1,4 @@
+//API 이용하여 데이터 추가
 const options = {
     method: "GET",
     headers: {
@@ -9,13 +10,11 @@ const options = {
 fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", options)
     .then((response) => response.json())
     .then((response) => {
-        console.log(response);
-
+        //영화 평점별로 정렬
         response.results.sort(function (a, b) {
             return b.vote_average - a.vote_average;
         });
-        console.log(response);
-
+        //영화 카드 추가
         const innerCard = document.querySelector(`.container-top`);
         response.results.forEach((movie) => {
             const cardImg = document.createElement("li");
@@ -30,6 +29,5 @@ fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", opti
         </a>`;
             innerCard.appendChild(cardImg);
         });
-    });
-
-// .catch((err) => console.error(err));
+    })
+    .catch((err) => console.error(err));
