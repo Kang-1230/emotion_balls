@@ -19,7 +19,7 @@ const db = getFirestore(app);
 console.log(db);
 const urlSearch = new URLSearchParams(location.search);
 const getUrlMovieId = urlSearch.get("movieId");
-const washingtonRef = doc(db, "emotionball", "test");
+const washingtonRef = doc(db, "emotionball", getUrlMovieId);
 
 // Helper function to update circle size
 function updateCircleSize(circle, clickCount) {
