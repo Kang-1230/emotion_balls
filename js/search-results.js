@@ -14,11 +14,22 @@ export const createSearchResults = async () => {
     });
     function createSearchResultsItem(movie) {
         let item = document.createElement("li");
-        item.className = "search-results-item";
+        item.className = "movie-card";
         item.innerHTML = `
-            <div>${movie.title}</div>
-            <div>${movie.overview}</div>
-        `;
+        <a href="/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
+            <div class="movie-card-img" style="background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path})"></div>
+            <div class="movie-card-con">
+                <div class="movie-card-tit">${movie.title}</div>
+                <div class="movie-card-info">
+                    <div class="movie-card-rating">
+                        <span class="material-symbols-rounded"> kid_star </span>
+                        ${movie.vote_average}
+                    </div>
+                    <span class="movie-card-date">${movie.release_date}</span>
+                </div>
+                <div class="movie-card-txt">${movie.overview}</div>
+            </div>
+        </a>`;
 
         return item;
     }

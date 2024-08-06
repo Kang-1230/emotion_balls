@@ -96,6 +96,26 @@ button {
     white-space: nowrap;
     width: 1px;
 }
+.d-none {
+    display: none;
+}
+.d-block {
+    display: block;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+    .d-md-none {
+        display: none;
+    }
+    .d-md-block {
+        display: block;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
 
 /* header */
 .header {
@@ -419,6 +439,181 @@ button {
 }
 @media (min-width: 1200px) {
     #contents {
-        padding: 220px 0 120px;
+        padding: 200px 0 120px;
+    }
+}
+
+/* 제목 */
+.page-tit {
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 40px;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+    .page-tit {
+        font-size: 28px;
+        margin-bottom: 60px;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+    .page-tit {
+        font-size: 32px;
+    }
+}
+
+/* 영화 카드 */
+.movie-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+}
+.movie-card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.movie-card-inner {
+    position: relative;
+    display: block;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+.movie-card-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background-color: var(--dark-gray-color);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.movie-card-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 16px 14px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    transition: bottom ease-in-out 0.4s;
+}
+.movie-card:hover .movie-card-con {
+    bottom: 0;
+}
+.movie-card-tit {
+    font-size: 20px;
+    font-weight: 900;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+.movie-card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.movie-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+}
+.movie-card-rating [class*="material-symbols"] {
+    font-size: 20px;
+    color: var(--yellow-color);
+}
+.movie-card-txt {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    word-break: keep-all;
+}
+@media (min-width: 390px) {
+    .movie-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .movie-card-info {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .movie-card-rating {
+        margin-bottom: 4px;
+    }
+}
+@media (min-width: 576px) {
+    .movie-card-info {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+    }
+    .movie-card-rating {
+        margin-bottom: 4px;
+    }
+}
+@media (min-width: 768px) {
+    .list-section {
+        margin-top: -80px;
+    }
+    .movie-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .movie-card-con {
+        padding: 26px;
+    }
+    .movie-card-tit {
+        font-size: 22px;
+    }
+    .movie-card-rating {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 992px) {
+    .movie-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .movie-card-con {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        height: 100%;
+    }
+}
+@media (min-width: 1200px) {
+}
+
+/* 결과없음 */
+.no-results {
+    font-size: 18px;
+    text-align: center;
+    color: var(--light-gray2-color);
+    padding: 40px 0;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+    .no-results {
+        font-size: 20px;
+    }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+    .no-results {
+        font-size: 24px;
     }
 }
