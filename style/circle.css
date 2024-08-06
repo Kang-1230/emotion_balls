@@ -8,8 +8,8 @@
     border-radius: 100%;
     opacity: 0.2;
     bottom: 0;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     z-index: -1;
 }
 #circle1 {
@@ -17,18 +17,18 @@
     background-color: var(--yellow-color);
 }
 #circle2 {
-    left: 20vw;
+    left: 25vw;
     background-color: var(--sky-color);
 }
 #circle3 {
-    left: 30vw;
+    left: 40vw;
     background-color: var(--red-color);
 }
 #circle4 {
-    left: 40vw;
+    left: 55vw;
     background-color: var(--purple-color);
 }
 #circle5 {
-    left: 50vw;
+    left: 70vw;
     background-color: var(--light-green-color);
 }

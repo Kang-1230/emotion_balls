@@ -1,7 +1,4 @@
-// 본인의 API 키를 넣어주셔야 합니다.
-// const API_KEY = "5c8a9b1eb3226789d2118422302ef310";
-// const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-
+//API로 데이터 가져오기
 const options = {
     method: "GET",
     headers: {
@@ -9,13 +6,15 @@ const options = {
         Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
     },
 };
+<<<<<<< HEAD
 
 
+=======
+//fetch 페이지 10개 만들어서 영화 개수 늘리기
+>>>>>>> 3f8db0ac9eb5e6e9a825968153f396005e2e9aab
 async function fetchData() {
     const response1 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", options);
     const data1 = await response1.json();
-
-    console.log(data1);
 
     const response2 = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2", options);
     const data2 = await response2.json();
@@ -56,8 +55,7 @@ async function fetchData() {
     const movies10 = data10.results;
 
     const mergeMovies = [...movies1, ...movies2, ...movies3, ...movies4, ...movies5, ...movies6, ...movies7, ...movies8, ...movies9, ...movies10];
-
-    console.log("mergeMovies => ", mergeMovies); // 확인완료!
+    //영화 리스트 하나의 배열로 합치기
 
     const genres = [
         { Id: 28, name: "Action" },
@@ -81,8 +79,7 @@ async function fetchData() {
         { Id: 37, name: "Western" },
     ];
 
-    // 1) romance, musical 장르의 id를 가져옴
-    // 로직1 : genres에 있는 배열 중, romance, musical이 포함된 id를 추출
+    // genres에 있는 배열 중, romance, musical이 포함된 id를 추출
     const genresSearch = function (selectGenres) {
         const romanceGenres = genres.filter(function (genre) {
             return genre.name === selectGenres;
@@ -90,9 +87,7 @@ async function fetchData() {
         return romanceGenres;
     };
 
-    console.log(genresSearch("Romance"));
-
-    // 2) 1)에서 찾은 장르 id와 일치하는 영화 목록(영화의 genre_ids가 1)에서 뽑은 id를 포함하는지)을 mergeMovies에서 필터링
+    // 위에서 찾은 장르 id와 일치하는 영화 목록(영화의 genre_ids가 1)에서 뽑은 id를 포함하는지)을 mergeMovies에서 필터링
     const genreArr = function (genre) {
         const genreList = mergeMovies.filter(function (movie) {
             return movie.genre_ids.includes(genre[0].Id);
@@ -100,9 +95,14 @@ async function fetchData() {
         return genreList;
     };
 
+<<<<<<< HEAD
     console.log("genreArr => ", genreArr(genresSearch("Romance")));
 
     const cardMaker = await function (genre, classselect) {
+=======
+    //querySelector로 class 지정하여 안에 moviecard 추가, 데이터 추가
+    const cardMaker = function (genre, classselect) {
+>>>>>>> 3f8db0ac9eb5e6e9a825968153f396005e2e9aab
         const innerCard = document.querySelector(`.movielist-section-${classselect}`);
         genre.forEach((movie) => {
             const cardImg = document.createElement("li");
@@ -119,13 +119,13 @@ async function fetchData() {
         });
     };
 
+    //장르별로 함수 실행
+    cardMaker(genreArr(genresSearch("Romance")), "happy");
     cardMaker(genreArr(genresSearch("Comedy")), "sad");
     cardMaker(genreArr(genresSearch("War")), "angry");
     cardMaker(genreArr(genresSearch("Documentary")), "anxiety");
     cardMaker(genreArr(genresSearch("Romance")), "happy");
     cardMaker(genreArr(genresSearch("Animation")), "cold");
-
-    
 }
 
 fetchData()
