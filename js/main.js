@@ -3,7 +3,7 @@ const options = {
     method: "GET",
     headers: {
         accept: "application/json",
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzhhOWIxZWIzMjI2Nzg5ZDIxMTg0MjIzMDJlZjMxMCIsIm5iZiI6MTcyMjgyMjUxNS43OTU3MTgsInN1YiI6IjY2YTIyNzBlZmQwMTEzNTljNTZlODYwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fj-y0rpCMgfuKXVOEhrznAfL7prb5qJu8xo6mw_1e14",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGU1ODM2ZDQ0ZTllMjc2YTAzYjhiOWRhYzAyMTYxZSIsIm5iZiI6MTcyMjc1NTA1My44NDAzODgsInN1YiI6IjY2YTIzN2I5NTU3ZDEyMmU4NTE4ZWI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JRWjgRNrkGahvLMsOkNF2zPFOxwRB5oVfyFipUPToi0",
     },
 };
 
@@ -92,4 +92,24 @@ async function fetchData() {
     cardMaker(genreArr(genresSearch("Romance")), "happy");
     cardMaker(genreArr(genresSearch("Animation")), "cold");
 }
-fetchData().catch((error)=> console.log("Error:", error));
+fetchData().catch((error) => console.log("Error:", error));
+
+//스크롤 버튼 지정
+const sectionMoveBtn = document.querySelectorAll(".move-btn");
+
+//스크롤 타겟 지정
+const targetSection = document.querySelectorAll(".category");
+const activeScroll = (index) => window.scroll({ top: targetSection[index].offsetTop, behavior: "smooth" });
+
+const happyScroll = () => activeScroll(0);
+const sadScroll = () => activeScroll(1);
+const angryScroll = () => activeScroll(2);
+const anxietyScroll = () => activeScroll(3);
+const coldScroll = () => activeScroll(4);
+
+//스크롤 실행
+sectionMoveBtn[0].addEventListener("click", happyScroll);
+sectionMoveBtn[1].addEventListener("click", sadScroll);
+sectionMoveBtn[2].addEventListener("click", angryScroll);
+sectionMoveBtn[3].addEventListener("click", anxietyScroll);
+sectionMoveBtn[4].addEventListener("click", coldScroll);
