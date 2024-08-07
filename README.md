@@ -9,7 +9,7 @@
 
 -api로 데이터 가져오기 -> fetch 페이지 만들어서 영화 데이터 추가하기 -> Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat 하나의 배열로 만들기 -> 장르 데이터 추출해서 배열로 만들기 -> 장르에 있는 배열 중, 특정 id가 포함된 배열을 추출하여 필터링 -> querySelector로 class 지정하여 안에 moviecard 추가, 데이터 추가 -> 장르별로 함수 실행
 
-//Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
+```//Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
 async function fetchData() {
     const fetchMovies = async (page) => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`, options);
@@ -20,7 +20,7 @@ async function fetchData() {
         return fetchMovies(i + 1);
     });
     const results = await Promise.all(moviePromises);
-    const mergeMovies = results.flat();
+    const mergeMovies = results.flat();```
 
  어려웠던 점 : 0부터 시작해야 한다는 점이 너무 부담이 되었고 어떻게 할 줄 몰랐다. 튜터분들과 팀원분들의 도움으로 배운 내용들을 어떻게 코드에 녹여내야 하는지 알게 되고 점점 발전했다.
 
