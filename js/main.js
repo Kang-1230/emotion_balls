@@ -85,12 +85,12 @@ async function fetchData() {
     };
 
     //장르별로 함수 실행
-    cardMaker(genreArr(genresSearch("Romance")), "happy");
-    cardMaker(genreArr(genresSearch("Comedy")), "sad");
-    cardMaker(genreArr(genresSearch("War")), "angry");
-    cardMaker(genreArr(genresSearch("Documentary")), "anxiety");
-    cardMaker(genreArr(genresSearch("Romance")), "happy");
-    cardMaker(genreArr(genresSearch("Animation")), "cold");
+    cardMaker(genreArr(genresSearch("로맨스")), "happy");
+    cardMaker(genreArr(genresSearch("코미디")), "sad");
+    cardMaker(genreArr(genresSearch("액션")), "angry");
+    cardMaker(genreArr(genresSearch("다큐멘터리")), "anxiety");
+    cardMaker(genreArr(genresSearch("로맨스")), "happy");
+    cardMaker(genreArr(genresSearch("애니메이션")), "cold");
 }
 fetchData().catch((error) => console.log("Error:", error));
 
