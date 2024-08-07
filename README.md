@@ -1,4 +1,4 @@
-"# emotion_balls" 
+# 🔮감정구슬 - emotion_balls
 
 기획 : 감정에 따라서 영화를 추천해주는 서비스를 제공하는 사이트
 구현 기능 
@@ -110,6 +110,35 @@ const genre = toString(genreArr);
 3. 비밀번호 틀렸을 시 알림
 4. 수정확인 버튼을 누르면 리뷰 내용을 수정한 내용으로 변경 해주고 변경된 내용을 로컬스토리지에 저장
 5. 수정취소 버튼을 누르면 기존내용으로 초기화
+
+``` javascript
+// 리뷰 삭제
+function delReviewItem(reviews, review, item) {
+    let clickReviewIdIndex = reviews.findIndex((i) => i.reviewId === review.reviewId);
+
+    // 비밀번호 확인
+    let passwordTry = prompt("비밀번호를 입력해주세요.");
+    if (passwordTry === review.password && clickReviewIdIndex >= 0) {
+        // 한 번 더 삭제 확인
+        if (confirm("정말 삭제하시겠습니까?") === true) {
+            // localStorage에서 삭제
+            reviews.splice(clickReviewIdIndex, 1);
+            localStorage.setItem("reviews", JSON.stringify(reviews));
+            // 리뷰 목록에서 삭제
+            item.remove();
+        } else {
+            return false;
+        }
+    } else if (passwordTry !== null) {
+        alert("비밀번호가 틀렸습니다.");
+    }
+}
+```
+삭제 버튼 클릭 시 바로 삭제하지 않고 한 번 더 삭제 확인 기능을 제공해 사용자가 실수로 삭제하는 것을 방지했습니다.
+
+### 어려웠던 점
+- 리뷰 작업을 하며 로컬스토리지와 API를 모두 염두에 두며 작업한다는 것이 제일 어려웠습니다.
+- 헤더에서 검색 시 검색 결과 페이지로 이동되는데 다른 페이지로 이동 시 검색어를 어떻게 처리해야 할지 고민이 많았습니다.
 
 - 리뷰 삭제
 1. 삭제버튼 클릭시 비밀번호 확인
