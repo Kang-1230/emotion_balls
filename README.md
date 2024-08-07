@@ -67,6 +67,27 @@ const genre = toString(genreArr);
 
 배경이 되는 원, 버튼을 제작하기 -> 버튼을 클릭 시 그 횟수를 카운트하고 이를 숫자로 나타내기 -> 클릭한 횟수를 파이어베이스에 넣기 -> 파이어베이스에서 자료를 불러와 원의 사이즈를 키우기 -> 새로고침 시 마지막으로 저장된 클릭 횟수를 불러오기 -> 불러온 횟수에 따라 숫자와 원의 크기를 변경한채로 시작하기
 
+```async function handleClick(counter, span, circle, field) {
+    counter++;
+    span.innerText = `${counter}`;
+    try {
+        await updateDoc(washingtonRef, {
+            [field]: increment(5),
+        });
+
+        const docSnap = await getDoc(washingtonRef);
+        if (docSnap.exists()) {
+            const updatedCount = docSnap.data()[field];
+            updateCircleSize(circle, updatedCount);
+        }
+    } catch (error) {
+        console.error(error);
+    } finally {
+        return counter;
+    }
+}```
+-> HandClick 함수를 사용하여 각 버튼 클릭 시 호출되어 Firestore의 문서를 업데이트 후 클릭 수에 따라 원의 크기와 클릭 수를 업데이트 한다.
+
 기획 : 감정에 따라서 영화를 추천해주는 서비스를 제공하는 사이트구현 기능
 
 -   메인 페이지 : 감정(장르별)리스트, 이모지 클릭 시 해당 섹션으로 이동, 위로 가기 버튼 클릭 시 최상단으로 이동, 버튼 클릭시 해당 섹션으로 이동
