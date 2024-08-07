@@ -4,7 +4,7 @@ const reviewInputPassword = document.querySelector("#review-input-password");
 const reviewTextareaWrite = document.querySelector("#review-textarea-write");
 const reviewItems = document.querySelector("#review-items");
 
-// 주소값 가져오기
+// 주소값 가져와서 MovieId 추출
 const urlSearch = new URLSearchParams(location.search);
 const getUrlMovieId = urlSearch.get("movieId");
 
@@ -16,7 +16,7 @@ let day = ("0" + today.getDate()).slice(-2);
 let date = year + "-" + month + "-" + day;
 
 const createReview = async () => {
-    // 기존 리뷰 가져오기
+    // 기존 리뷰 리스트 로딩
     loadReviews();
 
     // 리뷰 등록 submit
@@ -69,7 +69,7 @@ function genRandomString(length) {
     return result;
 }
 
-// 로컬 스토리지에서 댓글 배열 가져오기
+// 로컬 스토리지에서 리뷰 배열 가져오기
 function getReviews() {
     let reviews = localStorage.getItem("reviews");
 
