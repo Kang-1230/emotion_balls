@@ -1,4 +1,4 @@
-// Firebase 초기화 및 FIrestore 설정
+// Firebase 초기화 및 Firestore 설정
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getFirestore, doc, updateDoc, increment, getDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
