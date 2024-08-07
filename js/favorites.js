@@ -1,18 +1,18 @@
-//북마크 내역 가져오기
-const bmkList = JSON.parse(window.localStorage.getItem("bmk"));
+//로컬스토리지에 저장된 북마크 목록 가져오기
+const bmkList = JSON.parse(window.localStorage.getItem("bookmark"));
 
 const movieList = document.querySelector("#favorites");
 
 const pageLoad = () => {
+    //북마크에 아무 영화도 없으면 표시해주기
     if (bmkList === null) {
-        // const emptyContainer = document.querySelector("#favorites-container");
-        // const emptyAlert = document.createElement("h1");
         let emptyAlert = document.createElement("div");
         emptyAlert.className = "no-results";
         emptyAlert.innerHTML = "북마크 한 영화가 없습니다.";
         movieList.before(emptyAlert);
     } else {
         try {
+            //북마크에 있는 영화들 나열하기
             bmkList.forEach((data) => {
                 const movie = document.createElement("li");
                 movie.className = "movie-card";
