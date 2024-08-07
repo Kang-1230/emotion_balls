@@ -1,9 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>감정구슬</title>
-  </head>
-  <body></body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="content-language" content="ko" />
+        <meta name="viewport" content="initial-scale=1.0,user-scalable=yes,maximum-scale=3,width=device-width" />
+
+        <title>감정구슬 - 영화추천</title>
+        <meta name="title" content="감정구슬 - 영화추천" />
+        <meta name="subject" content="감정구슬 - 영화추천" />
+        <meta name="author" content="감정구슬 - 영화추천" />
+        <meta name="copyright" content="감정구슬 - 영화추천" />
+        <meta name="description" content="감정에 따라 영화를 추천합니다." />
+        <meta name="keywords" content="감정구슬 - 영화추천" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="감정구슬 - 영화추천" />
+        <meta property="og:description" content="감정에 따라 영화를 추천합니다." />
+        <meta property="og:image" content="./image/og.jpg" />
+
+        <!-- favicon -->
+        <link rel="shortcut icon" href="./image/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./image/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="./image/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./image/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="./image/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./image/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./image/favicon/manifest.json" />
+        <meta name="msapplication-TileImage" content="./image/favicon/ms-icon-144x144.png" />
+        <meta name="msapplication-TileColor" content="#0D0D0D" />
+        <meta name="theme-color" content="#0D0D0D" />
+
+        <!-- style -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="./style/reset-fonts.css" rel="stylesheet" />
+        <link href="./style/common.css" rel="stylesheet" />
+        <link href="./style/main.css" rel="stylesheet" />
+
+        <!-- script -->
+        <script type="module" src="./js/main.js"></script>
+        <script type="module" src="./js/common.js"></script>
+    </head>
+    <body>
+        <div id="wrap" class="wrap-main">
+            <!-- 헤더  -->
+            <header class="header">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="/emotion_balls" title="홈으로 이동" class="logo-wrap">
+                            <h1 class="logo"><span class="sr-only">감정구슬</span></h1>
+                        </a>
+                    </div>
+                    <div class="header-right">
+                        <ul class="gnb">
+                            <li>
+                                <a href="/emotion_balls/pages/latest.html">최신순</a>
+                            </li>
+                            <li>
+                                <a href="/emotion_balls/pages/top-rates.html">인기순</a>
+                            </li>
+                        </ul>
+                        <form class="search">
+                            <input type="text" class="search-input" id="header-search-input" placeholder="영화 제목을 입력해주세요" />
+                            <button type="button" class="search-btn" id="header-search-btn"><span class="material-symbols-rounded"> search </span></button>
+                        </form>
+                        <a href="/emotion_balls/pages/favorites.html" class="bookmark-btn">
+                            <span class="material-symbols-rounded"> bookmark </span>
+                        </a>
+                    </div>
+                    <div class="hamburger-btn"><span></span></div>
+                </div>
+            </header>
+            <!-- // 헤더 -->
+            <!-- 컨텐츠 -->
+            <main id="contents">
+                <!-- 메인 페이지 : 접속했을 때 가장 먼저 보이는 페이지, 홈-->
+                <section class="mainvisual">
+                    <div class="container">
+                        <h3 class="mainvisual-ment">오늘의 <b>감정</b>은 <br class="d-md-none" />어떠신가요?</h3>
+                        <div class="emotions">
+                            <button data-emotion="happy" class="move-btn emotion-btn emotion-btn-happy"><span class="sr-only">행복</span></button>
+                            <button data-emotion="sad" class="move-btn emotion-btn emotion-btn-sad"><span class="sr-only">슬픔</span></button>
+                            <button data-emotion="angry" class="move-btn emotion-btn emotion-btn-angry"><span class="sr-only">화남</span></button>
+                            <button data-emotion="anxiety" class="move-btn emotion-btn emotion-btn-anxiety"><span class="sr-only">불안</span></button>
+                            <button data-emotion="cold" class="move-btn emotion-btn emotion-btn-cold"><span class="sr-only">까칠</span></button>
+                        </div>
+                    </div>
+                    <div class="mainvisual-img"></div>
+                </section>
+                <!-- 감정에 따른 장르별 영화 목록 페이지 -->
+                <section class="movie-card-section" id="movie-card-section-happy">
+                    <div class="container">
+                        <div class="category">
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy active">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
+                        </div>
+                        <ul class="movie-cards movielist-section-happy"></ul>
+                    </div>
+                </section>
+                <section class="movie-card-section" id="movie-card-section-sad">
+                    <div class="container">
+                        <div class="category">
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad active">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
+                        </div>
+                        <ul class="movie-cards movielist-section-sad"></ul>
+                    </div>
+                </section>
+                <section class="movie-card-section" id="movie-card-section-angry">
+                    <div class="container">
+                        <div class="category">
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry active">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
+                        </div>
+                        <ul class="movie-cards movielist-section-angry"></ul>
+                    </div>
+                </section>
+                <section class="movie-card-section" id="movie-card-section-anxiety">
+                    <div class="container">
+                        <div class="category">
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety active">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold">까칠해요</button>
+                        </div>
+                        <ul class="movie-cards movielist-section-anxiety"></ul>
+                    </div>
+                </section>
+                <section class="movie-card-section" id="movie-card-section-cold">
+                    <div class="container">
+                        <div class="category">
+                            <button data-emotion="happy" class="move-btn category-btn category-btn-happy">행복해요</button>
+                            <button data-emotion="sad" class="move-btn category-btn category-btn-sad">슬퍼요</button>
+                            <button data-emotion="angry" class="move-btn category-btn category-btn-angry">화나요</button>
+                            <button data-emotion="anxiety" class="move-btn category-btn category-btn-anxiety">불안해요</button>
+                            <button data-emotion="cold" class="move-btn category-btn category-btn-cold active">까칠해요</button>
+                        </div>
+                        <ul class="movie-cards movielist-section-cold"></ul>
+                    </div>
+                </section>
+            </main>
+            <!-- // 컨텐츠 -->
+            <!-- 푸터 -->
+            <footer class="footer">
+                <div class="container">
+                    <span>ⓒ 2024. Emotion Balls rights reserved.</span>
+                </div>
+                <button id="scroll-btn"><span class="material-symbols-rounded"> arrow_upward </span></button>
+            </footer>
+            <!-- // 푸터 -->
+        </div>
+    </body>
 </html>

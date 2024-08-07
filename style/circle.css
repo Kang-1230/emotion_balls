@@ -1,0 +1,35 @@
+#circle1,
+#circle2,
+#circle3,
+#circle4,
+#circle5 {
+    position: absolute;
+    z-index: -1;
+    border-radius: 100%;
+    opacity: 0.2;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+    transition: width 1s, height 1s;
+}
+#circle1 {
+    left: 10vw;
+    background-color: var(--yellow-color);
+}
+#circle2 {
+    left: 25vw;
+    background-color: var(--sky-color);
+}
+#circle3 {
+    left: 40vw;
+    background-color: var(--red-color);
+}
+#circle4 {
+    left: 55vw;
+    background-color: var(--purple-color);
+}
+#circle5 {
+    left: 70vw;
+    background-color: var(--light-green-color);
+}
