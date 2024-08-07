@@ -49,7 +49,7 @@ async function pageLoad() {
         }
 
         //장르 배열을 문자열화
-        const toString = function (inputArr) {
+        const toString = (inputArr) => {
             switch (inputArr.length) {
                 case 1:
                     return String(inputArr[0]);
