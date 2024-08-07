@@ -1,4 +1,4 @@
-//쿼리스트링을 이용하여 영화id 가져오기
+// 주소값 가져오기
 const hrefName = encodeURI(window.location.href);
 const parameters = hrefName.slice(hrefName.indexOf("?") + 1, hrefName.length);
 const movieId = Number(parameters.split("=")[1]);
@@ -12,7 +12,7 @@ const options = {
 };
 
 //장르
-const genres = [{ 28: "액션" }, { 12: "모험" }, { 16: "애니메이션" }, { 35: "코미디" }, { 80: "범죄" }, { 99: "다큐멘터리" }, { 18: "드라마" }, { 10751: "가족" }, { 14: "판타지" }, { 36: "역사" }, { 27: "호러" }, { 10402: "음악" }, { 9648: "미스테리" }, { 10749: "로맨스" }, { 878: "SF" }, { 10770: "TV 영화" }, { 53: "스릴러" }, { 10752: "전쟁" }, { 37: "서부극" }];
+const genres = [{ 28: "Action" }, { 12: "Adventure" }, { 16: "Animation" }, { 35: "Comedy" }, { 80: "Crime" }, { 99: "Documentary" }, { 18: "Drama" }, { 10751: "Family" }, { 14: "Fantasy" }, { 36: "History" }, { 27: "Horror" }, { 10402: "Music" }, { 9648: "Mystery" }, { 10749: "Romance" }, { 878: "Science Fiction" }, { 10770: "TV Movie" }, { 53: "Thriller" }, { 10752: "War" }, { 37: "Western" }];
 
 // 북마크 버튼 지정
 const activeBtn = document.querySelector(".bmk-btn");

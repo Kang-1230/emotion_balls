@@ -11,6 +11,7 @@
     width: 100px;
     height: 100px;
     z-index: -1;
+    transition: width 1s, height 1s;
 }
 #circle1 {
     left: 10vw;
