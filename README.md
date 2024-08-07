@@ -21,7 +21,7 @@ async function fetchData() {
     });
     const results = await Promise.all(moviePromises);
     const mergeMovies = results.flat();```
-
+```
  어려웠던 점 : 0부터 시작해야 한다는 점이 너무 부담이 되었고 어떻게 할 줄 몰랐다. 튜터분들과 팀원분들의 도움으로 배운 내용들을 어떻게 코드에 녹여내야 하는지 알게 되고 점점 발전했다.
 
 <북마크 기능> : 영화 정보가 들어있는 객체를 배열에 넣었다 뺐다하고 그 배열을 로컬스토리지에 저장하고 불러오는 원리로 동작
