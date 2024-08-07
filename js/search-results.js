@@ -3,8 +3,9 @@ const searchResultsTit = document.querySelector(".search-results-tit strong");
 const searchResultsItems = document.querySelector("#search-results-items");
 
 export const createSearchResults = async () => {
+    // TMDB API 데이터 가져옴(fetch 사용)
     const movies = await fetchMovieDate();
-
+    // 검색어를 페이지 제목에 넣음
     searchResultsTit.textContent = getSearchWord();
 
     // 검색결과 리스트
@@ -15,13 +16,6 @@ export const createSearchResults = async () => {
     function createSearchResultsItem(movie) {
         let item = document.createElement("li");
         item.className = "movie-card";
-        function movieCardImg() {
-            if (movie.poster_path === null) {
-                return "background-image:url(../image/no-image.png); background-size: 52px 52px;";
-            } else {
-                return `background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path});`;
-            }
-        }
         item.innerHTML = `
         <a href="/emotion_balls/pages/detail.html?movieId=${movie.id}" class="movie-card-inner">
             <div class="movie-card-img" style="${movieCardImg()}"></div>
@@ -38,6 +32,15 @@ export const createSearchResults = async () => {
             </div>
         </a>`;
 
+        // 이미지 없을 시
+        function movieCardImg() {
+            if (movie.poster_path === null) {
+                return "background-image:url(../image/no-image.png); background-size: 52px 52px;";
+            } else {
+                return `background-image:url(https://image.tmdb.org/t/p/w500${movie.poster_path});`;
+            }
+        }
+
         return item;
     }
 
@@ -53,7 +56,7 @@ export const createSearchResults = async () => {
         searchResultsItems.before(noItem);
     }
 
-    // input 포커스
+    // 헤더 input에  포커스
     headerSearchInput.focus();
 };
 createSearchResults();
@@ -65,7 +68,7 @@ function getSearchWord() {
     return searchWord ? JSON.parse(searchWord) : "";
 }
 
-// TMDB API
+// TMDB API 데이터 가져오기
 async function fetchMovieDate() {
     const options = {
         method: "GET",

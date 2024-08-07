@@ -102,6 +102,7 @@ window.onload = function () {
             let emotion = element.getAttribute("data-emotion");
             let emotionSection = document.querySelectorAll(`#movie-card-section-${emotion}`);
             emotionSection.forEach((element) => {
+                // 헤더 높이를 제외하고 이동
                 const desktop = window.matchMedia("(min-width: 992px)").matches;
                 if (desktop) {
                     window.scroll({ top: element.offsetTop - 100, behavior: "smooth" });
