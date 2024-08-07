@@ -9,6 +9,21 @@
 
 -api로 데이터 가져오기 -> fetch 페이지 만들어서 영화 데이터 추가하기 -> Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat 하나의 배열로 만들기 -> 장르 데이터 추출해서 배열로 만들기 -> 장르에 있는 배열 중, 특정 id가 포함된 배열을 추출하여 필터링 -> querySelector로 class 지정하여 안에 moviecard 추가, 데이터 추가 -> 장르별로 함수 실행
 
+//Promise.all 함수를 사용해서 fetch로 가져온 promise 객체를 한번에 처리, flat으로 하나의 배열로 만들기
+async function fetchData() {
+    const fetchMovies = async (page) => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=${page}`, options);
+        const data = await response.json();
+        return data.results;
+    };
+    const moviePromises = Array.from({ length: 10 }, (_, i) => {
+        return fetchMovies(i + 1);
+    });
+    const results = await Promise.all(moviePromises);
+    const mergeMovies = results.flat();
+
+ 어려웠던 점 : 0부터 시작해야 한다는 점이 너무 부담이 되었고 어떻게 할 줄 몰랐다. 튜터분들과 팀원분들의 도움으로 배운 내용들을 어떻게 코드에 녹여내야 하는지 알게 되고 점점 발전했다.
+
 <북마크 기능> : 영화 정보가 들어있는 객체를 배열에 넣었다 뺐다하고 그 배열을 로컬스토리지에 저장하고 불러오는 원리로 동작
 
 API에서 받아온 데이터에서 Query String으로 받아온 영화 아이디에 해당하는 영화를 찾아 불러온다 -> 그 영화가 현재 북마크에 있으면 북마크 버튼을 색칠해준다 -> 북마크 버튼을 누르면 로컬스토리지에 저장돼있는 북마크리스트에 현재 정보를 추가하거나 뺀다 (만약 북마크 배열이 빈 배열이면 로컬스토리지에서 북마크리스트 자체를 삭제한다)
@@ -42,8 +57,7 @@ const toString = function (inputArr) {
 const genre = toString(genreArr);
 ```
 
-어려웠던 점 : 어떻게 JS로 CSS파일을 변경하여 북마크 버튼을 색칠해야할 지 감을 못 잡고 헤매다가 버튼 태그의 아이디를 바꾸는 방법으로 구현 할 수 있다는 것을 알게되고 유레카
-최대한 써놓을테니까 편하게 각색하셔도 됩니다!
+어려웠던 점 : 어떻게 JS로 CSS파일을 변경하여 북마크 버튼을 색칠해야할 지 감을 못 잡고 헤매다가 버튼 태그의 아이디를 바꾸는 방법으로 구현 할 수 있다는 것을 알게되었고 잘 해결했다.
 
 <즐겨찾기 페이지>
 로컬스토리지에 저장돼있는 리스트를 불러와서 저장돼있는 영화정보들을 이용해 나열한다
