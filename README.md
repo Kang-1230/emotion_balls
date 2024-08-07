@@ -1,10 +1,9 @@
 # 🔮감정구슬 - emotion_balls
-[🔗 감정구슬](https://kang-1230.github.io/emotion_balls/)<br />
-감정에 따라서 영화를 추천해주는 서비스를 제공하는 사이트
+[🔗 감정구슬](https://kang-1230.github.io/emotion_balls/) : 감정에 따라서 영화를 추천해주는 서비스를 제공하는 사이트
 <br /><br />
 ## 구현 기능
 - 메인 페이지 : 감정(장르별)리스트, 이모지 클릭 시 해당 섹션으로 이동, 위로 가기 버튼 클릭 시 최상단으로 이동, 버튼 클릭시 해당 섹션으로 이동
-- 상세 페이지 : 감정 버튼, 북마크 기능, 리뷰기능
+- 상세 페이지 : 감정 버튼, 북마크 기능, 리뷰 기능
 - 북마크 페이지, 검색결과 페이지, 최신순/인기순 페이지
 <br /><br />
 ## 메인 페이지
@@ -31,7 +30,7 @@ async function fetchData() {
 ```
 
 ### 메인 섹션 스크롤
-1. 버튼 클릭시 data-emotion를 가져와 어떤 감정섹션으로 이동해야할지 확인 후 해당 감정섹션으로 이동
+1. 버튼 클릭시 data-emotion의 값을 가져와 어떤 감정섹션으로 이동해야할지 확인 후 해당 감정섹션으로 이동
 2. 모바일 일땐 모바일 헤더높이를 제외한 위치로 이동하고 pc일땐 pc헤더 높이를 제외한 위치로 이동
 
 ## 상세 페이지
@@ -111,7 +110,7 @@ const genre = toString(genreArr);
 5. 리뷰 목록 다시 불러오고 폼 초기화
 
 #### 리뷰 수정, 삭제
-사용성을 고려해 삭제 버튼 클릭 시 바로 삭제하지 않고 삭제 확인 기능을 제공해 사용자가 실수로 삭제하는 것을 방지했습니다.
+삭제 버튼 클릭 시 바로 삭제하지 않고 삭제 확인 기능을 제공해 사용성을 고려하고 사용자가 실수로 삭제하는 것을 방지했습니다.
 1. 버튼 클릭시 비밀번호 확인. 비밀번호 틀렸을 시 알림
 2. 수정 버튼 클릭시 내용 영역에 textarea 생성
 3. 삭제 시 정말 삭제하겠냐는 알림창으로 다시 한번 확인 후 리뷰 목록과 로컬스토리지에서 삭제
@@ -190,17 +189,19 @@ function delReviewItem(reviews, review, item) {
 - fetch를 여러 개 사용해야 한다는 점, 그걸 async/await 함수를 사용해서 처리하는 과정, promiseall을 다루는 과정이 어려웠습니다.
 - 파이어베이스를 사용하는데 익숙하지 않아 저장한 자료들을 다시 불러오는 부분에서 어려웠습니다.
 - 어떻게 JS로 CSS파일을 변경하여 북마크 버튼을 색칠해야할 지 감을 못 잡고 헤매다가 버튼 태그의 아이디를 바꾸는 방법으로 구현 할 수 있다는 것을 알게되었고 잘 해결했다.
-- 리뷰 작업을 하며 로컬스토리지와 API를 모두 고려하여 작업한다는 것이 제일 어려웠습니다.
-- 헤더에서 검색 시 검색 결과 페이지로 이동되는데 다른 페이지로 이동 시 검색어를 어떻게 처리해야 할지 고민이 많았습니다.<br /><br />
+- localStorage와 API를 모두 고려하여 작업한다는 것이 제일 어려웠습니다.
+- 헤더에서 검색 시 검색 결과 페이지로 이동되는데 다른 페이지로 이동한 상태에서 검색어를 어떻게 처리해야 할지 고민이 많았습니다.<br /><br />
 
 ## 기술스택
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![html](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
-![css](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)<br /><br />
+![css](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)<br /><br />
 
 ## 개발환경
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
+![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white)
 ![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)<br /><br />
 
