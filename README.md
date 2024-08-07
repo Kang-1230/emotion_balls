@@ -45,14 +45,16 @@ HandClick 함수를 사용하여 각 버튼 클릭 시 호출되어 Firestore의
 6. 불러온 횟수에 따라 숫자와 원의 크기를 변경한채로 시작하기
 
 ``` javascript
+// 버튼 클릭을 처리
 async function handleClick(counter, span, circle, field) {
-    counter++;
+    counter++;//카운터 증가 및 화면 업데이트
     span.innerText = `${counter}`;
+//firestore 문서 업데이트
     try {
         await updateDoc(washingtonRef, {
             [field]: increment(5),
         });
-
+//문서 데이터 가져오기 및 화면업데이트
         const docSnap = await getDoc(washingtonRef);
         if (docSnap.exists()) {
             const updatedCount = docSnap.data()[field];
