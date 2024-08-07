@@ -1,8 +1,7 @@
-// Import the functions you need from the SDKs you need
+// Firebase 초기화 및 FIrestore 설정
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getFirestore, doc, updateDoc, increment, getDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAA2KKPve5sNyVRN7y3LxxNVjgEyfp_LwU",
     authDomain: "emotionball-fdf1c.firebaseapp.com",
@@ -13,21 +12,21 @@ const firebaseConfig = {
     measurementId: "G-17NQQBMDGH",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = initializeApp(firebaseConfig); // Firebase 애플리케이션 초기화
+const db = getFirestore(app); // Firebase 인스턴스 가져오기
+//URL 파라미터로부터 movideId 추출
 const urlSearch = new URLSearchParams(location.search);
 const getUrlMovieId = urlSearch.get("movieId");
 const washingtonRef = doc(db, "emotionball", getUrlMovieId);
 
-// Helper function to update circle size
+// 원 크기를 업데이트
 function updateCircleSize(circle, clickCount) {
     const newSize = 100 + clickCount; // 기본 크기에서 클릭당 크기 증가
     circle.style.width = `${newSize}px`;
     circle.style.height = `${newSize}px`;
 }
 
-// Helper function to handle button click
+// 버튼 클릭을 처리( 버튼클릭시 카운트 증가 -> firestore 문서의 해당 필드값을 증가 -> 원 크기 업데이트, span 요소의 텍스트를 업데이트하여 클릭 수가 보이도록 함.
 async function handleClick(counter, span, circle, field) {
     counter++;
     span.innerText = `${counter}`;
@@ -48,7 +47,7 @@ async function handleClick(counter, span, circle, field) {
     }
 }
 
-// Initialize buttons and counters
+// 버튼과 카운터 초기화-> DOM이 로드된 후 각 버튼과 해당 카운터, 원요소들을 초기화하고, Firestore에서 현재 값을 가져와 초기값을 설정한다.
 document.addEventListener("DOMContentLoaded", async () => {
     const buttonHappy = document.getElementById("button-happy");
     const spanHappy = document.getElementById("span-happy");
@@ -98,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         spanCold.innerText = `${cnt5}`;
         updateCircleSize(circle5, docSnap.data().cold);
     }
-
+    // 버튼 클릭시 handleClick 함수 실행
     buttonHappy.addEventListener("click", async () => {
         cnt1 = await handleClick(cnt1, spanHappy, circle1, "happy");
     });
