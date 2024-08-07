@@ -20,7 +20,7 @@ async function fetchData() {
         return fetchMovies(i + 1);
     });
     const results = await Promise.all(moviePromises);
-    const mergeMovies = results.flat();```
+    const mergeMovies = results.flat();
 ```
  어려웠던 점 : 0부터 시작해야 한다는 점이 너무 부담이 되었고 어떻게 할 줄 몰랐다. 튜터분들과 팀원분들의 도움으로 배운 내용들을 어떻게 코드에 녹여내야 하는지 알게 되고 점점 발전했다.
 
